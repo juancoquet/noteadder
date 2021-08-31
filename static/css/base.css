@@ -1,0 +1,63 @@
+:root {
+    --side-padding: 1.6rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 1.6rem;
+    padding: 0 var(--side-padding);
+    max-width: 1200px;
+}
+
+p,
+li,
+div {
+    font-size: 1.6rem;
+}
+
+
+
+
+
+/*---------------------------*\
+    #NAV BAR
+\*---------------------------*/
+
+.nav-item {
+    list-style: none;
+}
+
+
+
+.bar-container,
+.note-block {
+    height: 6.4rem;
+    border: 2px solid black;
+}
+
+.bar-container {
+    width: 100%;
+}
+
+.quarter-note {
+    width: 25%;
+}
+
+.eighth-note {
+    width: 12.5%;
+}
+
+.sixteenth-note {
+    width: 6.75%;
+}
