@@ -40,10 +40,33 @@ div {
 
 
 
+
+/*---------------------------*\
+    #NOTE BLOCKS
+\*---------------------------*/
+
+.note-group {
+    display: flex;
+
+}
+
 .bar-container,
 .note-block {
     height: 6.4rem;
     border: 2px solid black;
+}
+
+.bar-container {
+    display: flex;
+}
+
+.draggable {
+    cursor: grab;
+}
+
+.dragging {
+    cursor: grabbing;
+    border-color: aquamarine;
 }
 
 .bar-container {
@@ -60,4 +83,8 @@ div {
 
 .sixteenth-note {
     width: 6.75%;
+}
+
+.rest {
+    opacity: 50%;
 }
