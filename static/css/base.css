@@ -75,14 +75,17 @@ div {
 
 .quarter-note {
     width: 25%;
+    border-color: blue;
 }
 
 .eighth-note {
     width: 12.5%;
+    border-color: purple;
 }
 
 .sixteenth-note {
     width: 6.75%;
+    border-color: red;
 }
 
 .rest {
