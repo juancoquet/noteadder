@@ -37,8 +37,8 @@ function dragLeave() {
 function dragDrop(e) {
     const beingDragged = document.querySelector('.dragging');
 
-    // replace used block
     if(!beingDragged.classList.contains('placed')) {
+        // replace used block
         const parent = beingDragged.parentElement;
         const replacement = beingDragged.cloneNode(true);
         replacement.classList.remove('dragging');
@@ -49,6 +49,12 @@ function dragDrop(e) {
         }
         replacement.addEventListener('dragstart', dragStart);
         replacement.addEventListener('dragend', dragEnd);
+
+        // update remaining bar value
+        let barVal = parseFloat(bar.getAttribute('value'))
+        const subtractVal = parseFloat(beingDragged.getAttribute('value'))
+        barVal -= subtractVal
+        bar.setAttribute('value', barVal)
     }
     
     beingDragged.classList.add('placed')
@@ -106,6 +112,11 @@ function dragLeaveBin() {
 function binDrop() {
     const beingDragged = document.querySelector('.dragging');
     if (beingDragged.classList.contains('placed')) {
+        // TODO: add value back to bar on note deletion
+        let barVal = parseFloat(bar.getAttribute('value'))
+        const noteVal = parseFloat(beingDragged.getAttribute('value'))
+        barVal += noteVal
+        bar.setAttribute('value', barVal)
         beingDragged.remove();
     }
     this.style.transform = 'scale(1)'
