@@ -43,6 +43,7 @@ function calculateBlockWidths() {
 }
 
 function toggleDotted() {
+    // TODO: update note symbol on change
     let noteBlocks = document.querySelectorAll('.note-block:not(.placed)');
     if (this.checked) {
         noteBlocks.forEach(block => {
