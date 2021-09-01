@@ -14,9 +14,9 @@ function timeSigPress() {
     oldSig.classList.remove('pressed');
     this.classList.add('pressed');
 
-    const top = parseInt(this.getAttribute('top'));
-    const bottom = parseFloat(this.getAttribute('bottom-value'));
-    const newBarLen = top * bottom;
+    const topNum = parseInt(this.getAttribute('top'));
+    const bottomNum = parseFloat(this.getAttribute('bottom-value'));
+    const newBarLen = topNum * bottomNum;
     bar.setAttribute('value', newBarLen);   // bar is defined in drag.js
 
     // delete all placed notes
