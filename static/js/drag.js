@@ -29,6 +29,21 @@ function dragLeave() {
 
 function dragDrop(e) {
     const beingDragged = document.querySelector('.dragging');
+
+    // replace used block
+    if(!beingDragged.classList.contains('placed')) {
+        const parent = beingDragged.parentElement
+        const replacement = beingDragged.cloneNode(true)
+        replacement.classList.remove('dragging')
+        if (!beingDragged.classList.contains('rest')) {
+            parent.insertBefore(replacement, parent.firstChild)
+        } else {   
+            parent.appendChild(replacement)
+        }
+        replacement.addEventListener('dragstart', dragStart);
+        replacement.addEventListener('dragend', dragEnd);
+    }
+    
     beingDragged.classList.add('placed')
     const followingElement = getDropPosition(this, e.clientX);
     if (followingElement == null) {
