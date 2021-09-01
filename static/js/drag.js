@@ -1,5 +1,6 @@
 const draggables = document.querySelectorAll('.draggable');
 const bar = document.querySelector('.bar-container');
+const bin = document.querySelector('.bin');
 
 // Bar listeners
 bar.addEventListener('dragover', dragOver);
@@ -12,6 +13,10 @@ draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', dragStart);
     draggable.addEventListener('dragend', dragEnd);
 })
+
+// Bin listeners
+bin.addEventListener('dragover', dragOverBin);
+bin.addEventListener('drop', binDrop);
 
 
 // Bar drag functions
@@ -32,13 +37,13 @@ function dragDrop(e) {
 
     // replace used block
     if(!beingDragged.classList.contains('placed')) {
-        const parent = beingDragged.parentElement
-        const replacement = beingDragged.cloneNode(true)
-        replacement.classList.remove('dragging')
+        const parent = beingDragged.parentElement;
+        const replacement = beingDragged.cloneNode(true);
+        replacement.classList.remove('dragging');
         if (!beingDragged.classList.contains('rest')) {
-            parent.insertBefore(replacement, parent.firstChild)
+            parent.insertBefore(replacement, parent.firstChild);
         } else {   
-            parent.appendChild(replacement)
+            parent.appendChild(replacement);
         }
         replacement.addEventListener('dragstart', dragStart);
         replacement.addEventListener('dragend', dragEnd);
@@ -78,5 +83,19 @@ function getDropPosition(bar, mouseX) {
             return followingElement
         }
     }, {offset: Number.NEGATIVE_INFINITY}).element
+}
+
+
+// Bin drag functions
+
+function dragOverBin(e) {
+    e.preventDefault();
+}
+
+function binDrop() {
+    const beingDragged = document.querySelector('.dragging');
+    if (beingDragged.classList.contains('placed')) {
+        beingDragged.remove();
+    }
 }
 

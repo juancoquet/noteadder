@@ -51,13 +51,22 @@ div {
 }
 
 .bar-container,
-.note-block {
+.note-block,
+.bin {
     height: 6.4rem;
     border: 2px solid black;
 }
 
 .bar-container {
     display: flex;
+}
+
+.bin {
+    width: 25%;
+    align-self: center;
+    margin: 3.2rem;
+    text-align: center;
+    border-color: grey;
 }
 
 .draggable {
