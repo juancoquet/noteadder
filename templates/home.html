@@ -2,17 +2,17 @@
 
 {% block content %}
   <div class="note-group">
-    <div class="draggable note-block quarter-note" draggable="true"><p>4</p></div>
-    <div class="draggable note-block quarter-note rest" draggable="true">4r</div>
+    <div class="draggable note-block quarter-note" value="1" draggable="true"><p>4</p></div>
+    <div class="draggable note-block quarter-note rest" value="1" draggable="true">4r</div>
   </div>
   <div class="note-group">
-    <div class="draggable note-block eighth-note" draggable="true">8</div>
-    <div class="draggable note-block eighth-note rest" draggable="true">8r</div>
+    <div class="draggable note-block eighth-note" value="0.5" draggable="true">8</div>
+    <div class="draggable note-block eighth-note rest" value="0.5" draggable="true">8r</div>
   </div>
   <div class="note-group">
-    <div class="draggable note-block sixteenth-note" draggable="true">16</div>
-    <div class="draggable note-block sixteenth-note rest" draggable="true">16r</div>
+    <div class="draggable note-block sixteenth-note" value="0.25" draggable="true">16</div>
+    <div class="draggable note-block sixteenth-note rest" value="0.25" draggable="true">16r</div>
   </div>
 
-  <div class="bar-container"></div>
+  <div class="bar-container" value="4"></div>
 {% endblock content %}
