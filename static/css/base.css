@@ -117,6 +117,7 @@ div {
     width: 3.2rem;
     height: 3.2rem;
 }
+
 .time-signature.pressed {
     background-color: aquamarine;
 }
