@@ -16,6 +16,8 @@ draggables.forEach(draggable => {
 
 // Bin listeners
 bin.addEventListener('dragover', dragOverBin);
+bin.addEventListener('dragenter', dragEnterBin);
+bin.addEventListener('dragleave', dragLeaveBin);
 bin.addEventListener('drop', binDrop);
 
 
@@ -92,10 +94,20 @@ function dragOverBin(e) {
     e.preventDefault();
 }
 
+function dragEnterBin(e) {
+    this.style.transform = 'scale(1.025)'
+    e.preventDefault();
+}
+
+function dragLeaveBin() {
+    this.style.transform = 'scale(1)'
+}
+
 function binDrop() {
     const beingDragged = document.querySelector('.dragging');
     if (beingDragged.classList.contains('placed')) {
         beingDragged.remove();
     }
+    this.style.transform = 'scale(1)'
 }
 
