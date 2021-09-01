@@ -47,7 +47,7 @@ div {
 
 .note-group {
     display: flex;
-
+    flex-wrap: wrap;
 }
 
 .bar-container,
