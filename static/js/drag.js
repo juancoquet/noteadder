@@ -29,6 +29,7 @@ function dragLeave() {
 
 function dragDrop(e) {
     const beingDragged = document.querySelector('.dragging');
+    beingDragged.classList.add('placed')
     const followingElement = getDropPosition(this, e.clientX);
     if (followingElement == null) {
             bar.appendChild(beingDragged)
@@ -54,8 +55,6 @@ function getDropPosition(bar, mouseX) {
     const placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
     
     return placedElements.reduce((followingElement, child) => {
-        console.log('called')
-        console.log(child)
         const childBoundaries = child.getBoundingClientRect()
         const offset = mouseX - childBoundaries.left - (childBoundaries.width / 2)
         if (offset < 0 && offset > followingElement.offset) {
