@@ -67,6 +67,7 @@ div {
 .dragging {
     cursor: grabbing;
     border-color: aquamarine;
+    background-color: red;
 }
 
 .bar-container {
