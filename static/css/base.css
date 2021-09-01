@@ -106,3 +106,17 @@ div {
     border-color: grey;
     cursor: not-allowed;
 }
+
+
+
+/*---------------------------*\
+    #CONTROL PANEL
+\*---------------------------*/
+
+.time-signature {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+.time-signature.pressed {
+    background-color: aquamarine;
+}

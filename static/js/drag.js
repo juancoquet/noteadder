@@ -118,11 +118,12 @@ function getDropPosition(bar, mouseX) {
 
 function dragOverBin(e) {
     e.preventDefault();
+    this.style.transform = 'scale(1.025)'
 }
 
 function dragEnterBin(e) {
-    this.style.transform = 'scale(1.025)'
     e.preventDefault();
+    this.style.transform = 'scale(1.025)'
 }
 
 function dragLeaveBin() {
