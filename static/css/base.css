@@ -101,3 +101,8 @@ div {
 .rest {
     opacity: 50%;
 }
+
+.surplus {
+    border-color: grey;
+    cursor: not-allowed;
+}

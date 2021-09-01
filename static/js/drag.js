@@ -64,6 +64,26 @@ function dragDrop(e) {
     } else {
         bar.insertBefore(beingDragged, followingElement)
     }
+
+    // TODO: calculate allowed notes. Maybe helper function
+    calculateAllowedNotes();
+}
+
+function calculateAllowedNotes() {
+    const noteBlocks = document.querySelectorAll('.note-block:not(.placed)');
+    noteBlocks.forEach(block => {
+        const noteValue = parseFloat(block.getAttribute('value'));
+        const barValue = parseFloat(bar.getAttribute('value'));
+        if (noteValue > barValue) {
+            block.setAttribute('draggable', false);
+            block.classList.remove('draggable');
+            block.classList.add('surplus');
+        } else {
+            block.setAttribute('draggable', true);
+            block.classList.add('draggable');
+            block.classList.remove('surplus');
+        }
+    })
 }
 
 
@@ -112,12 +132,12 @@ function dragLeaveBin() {
 function binDrop() {
     const beingDragged = document.querySelector('.dragging');
     if (beingDragged.classList.contains('placed')) {
-        // TODO: add value back to bar on note deletion
         let barVal = parseFloat(bar.getAttribute('value'))
         const noteVal = parseFloat(beingDragged.getAttribute('value'))
         barVal += noteVal
         bar.setAttribute('value', barVal)
         beingDragged.remove();
+        calculateAllowedNotes();
     }
     this.style.transform = 'scale(1)'
 }
