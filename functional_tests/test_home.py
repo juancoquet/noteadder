@@ -16,10 +16,11 @@ class NoteDragTest(FunctionalTest):
         bar = self.browser.find_element_by_css_selector('.bar-container')
 
         # They try to drag a note into the bar.
-        self.actions.drag_and_drop(qtr_note, bar)
+        self.actions.click_and_hold(qtr_note).move_to_element(bar).release(bar).click(bar).perform()
+        self.actions.click_and_hold(qtr_note_rest).move_to_element(bar).release(bar).click(bar).perform()
 
         # When they drop the note, it remains inside the bar.
-        dropped_note = bar.find_element_by_css_selector('*')
+        dropped_note = bar.find_element_by_css_selector('.note-block')
         self.assertEqual(dropped_note, qtr_note)
 
         # TODO: figure out why drag and drop isn't working
