@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import os
+from time import sleep
+
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -17,6 +19,7 @@ class FunctionalTest(StaticLiveServerTestCase):
             'http://selenium:4444/wd/hub', desired_capabilities=DesiredCapabilities.FIREFOX)
         self.browser.get(self.live_server_url)
         self.actions = ActionChains(self.browser)
+        self.sleep = sleep
 
     def tearDown(self):
         if self._test_has_failed():
