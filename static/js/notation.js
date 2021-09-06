@@ -1,6 +1,9 @@
 import Vex from 'vexflow';
 
 document.addEventListener('DOMContentLoaded', generateNotation);
+timeSigs.forEach(button => {
+  button.addEventListener('click', generateNotation);
+})
 
 const vf = Vex.Flow;
 
@@ -13,8 +16,10 @@ function generateNotation() {
   const context = renderer.getContext();
   
   const stave = new vf.Stave(0, 0, 400);
+
+  let selectedTimeSig = document.querySelector('.time-signature.pressed').getAttribute('signature');
   
-  stave.addClef('percussion').addTimeSignature('4/4', 0);
+  stave.addClef('percussion').addTimeSignature(selectedTimeSig, 0);
   
   const notes = [
     new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: 'q'}),

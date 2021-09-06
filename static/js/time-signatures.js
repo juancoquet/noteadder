@@ -1,5 +1,6 @@
 const timeSigs = document.querySelectorAll('.time-signature');
 const dotToggle = document.querySelector('.dot-toggle');
+const notation = document.getElementById('notation-container');
 
 document.addEventListener('DOMContentLoaded', calculateBlockWidths);
 dotToggle.addEventListener('click', toggleDotted);
@@ -31,6 +32,7 @@ function timeSigPress() {
 
     calculateBlockWidths();
     calculateAllowedNotes();    // defined in drag.js
+    notation.firstChild.remove();
 }
 
 function calculateBlockWidths() {
