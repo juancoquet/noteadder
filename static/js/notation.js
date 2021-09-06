@@ -4,35 +4,55 @@ document.addEventListener('DOMContentLoaded', generateNotation);
 timeSigs.forEach(button => {
   button.addEventListener('click', generateNotation);
 })
+bar.addEventListener('drop', generateNotation);
+bin.addEventListener('drop', generateNotation);
 
 const vf = Vex.Flow;
 
+let notationContainer = document.getElementById('notation-container');
+let renderer = new vf.Renderer(notationContainer, vf.Renderer.Backends.SVG);
+
 
 function generateNotation() {
-  const notationContainer = document.getElementById('notation-container');
-  const renderer = new vf.Renderer(notationContainer, vf.Renderer.Backends.SVG);
+  let notationContainer = document.getElementById('notation-container');
+  notationContainer.firstChild.remove();
+  let renderer = new vf.Renderer(notationContainer, vf.Renderer.Backends.SVG);
+
+  let width = notationContainer.offsetWidth;
   
-  renderer.resize(500, 150);
+  renderer.resize(width, 150);
   const context = renderer.getContext();
   
-  const stave = new vf.Stave(0, 0, 400);
+  const stave = new vf.Stave(0, 0, width);
 
   let selectedTimeSig = document.querySelector('.time-signature.pressed').getAttribute('signature');
   
   stave.addClef('percussion').addTimeSignature(selectedTimeSig, 0);
+  stave.setContext(context).draw();
+
+  let placedNotes = document.querySelectorAll('.placed');
+  let notes = [];
+  placedNotes.forEach(noteBlock => {
+    let duration = noteBlock.getAttribute('vf-duration');
+    let dotted = noteBlock.getAttribute('dotted');
+    let toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: duration});
+    if (dotted === 'true') {
+      toAppend.addDotToAll();
+    }
+    notes.push(toAppend);
+  })
   
-  const notes = [
-    new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: 'q'}),
-    new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: 'q'}),
-    new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: 'qd'}).addDotToAll(),
-    new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: '8'}),
-  ];
+
+  // let beams = vf.Beam.generateBeams(notes);
+  // beams.forEach(beam => {
+  //   beam.setContext(context).draw();
+  // });
   
-  const voice = new vf.Voice({num_beats: 4, beat_value:4});
+  const voice = new vf.Voice({num_beats: 4, beat_value:4}).setStrict(false);
   voice.addTickables(notes);
   
-  const formatter = new vf.Formatter().joinVoices([voice]).format([voice], 400);
+  const formatter = new vf.Formatter().joinVoices([voice]).format([voice], width - 30);
   
-  stave.setContext(context).draw();
+  
   voice.draw(context, stave);
 }
