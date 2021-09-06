@@ -50,11 +50,29 @@ function toggleDotted() {
         noteBlocks.forEach(block => {
             let dottedVal = block.getAttribute('value') * 1.5;
             block.setAttribute('value', dottedVal);
-        })
+            block.setAttribute('dotted', true);
+            if (block.classList.contains('rest')) {
+                let newDuration = block.getAttribute('vf-duration').replace('r', 'dr');
+                block.setAttribute('vf-duration', newDuration);
+            } else {
+                let newDuration = block.getAttribute('vf-duration').concat('d');
+                block.setAttribute('vf-duration', newDuration);
+            };
+        });
     } else {
         noteBlocks.forEach(block => {
             let originalVal = block.getAttribute('value') * (2/3);
             block.setAttribute('value', originalVal);
+            block.setAttribute('dotted', false);
+            if (block.classList.contains('rest')) {
+                let dottedDuration = block.getAttribute('vf-duration');
+                let newDuration = dottedDuration.replace('dr', 'r');
+                block.setAttribute('vf-duration', newDuration);
+            } else {
+                let dottedDuration = block.getAttribute('vf-duration');
+                let newDuration = dottedDuration.slice(0, -1);
+                block.setAttribute('vf-duration', newDuration);
+            }
         })
     }
     calculateBlockWidths();
