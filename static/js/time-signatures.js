@@ -21,6 +21,7 @@ function timeSigPress() {
     const newBarLen = topNum * bottomNum;
     bar.setAttribute('value', newBarLen);   // bar is defined in drag.js
     bar.setAttribute('absolute-value', newBarLen);
+    bar.setAttribute('time-sig', this.getAttribute('signature'));
 
     // delete all placed notes
     let placed = document.querySelectorAll('.placed');

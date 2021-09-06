@@ -2,6 +2,7 @@ const draggables = document.querySelectorAll('.draggable');
 const bar = document.querySelector('.bar-container');
 const bin = document.querySelector('.bin');
 
+
 // Bar listeners
 bar.addEventListener('dragover', dragOver);
 bar.addEventListener('dragenter', dragEnter);

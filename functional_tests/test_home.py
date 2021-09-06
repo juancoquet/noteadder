@@ -11,13 +11,15 @@ class NoteDragTest(FunctionalTest):
         eighth_note_rest = self.browser.find_element_by_css_selector('.note-block.eighth-note.rest')
         sixteenth_note = self.browser.find_element_by_css_selector('.note-block.sixteenth-note:not(.rest)')
         sixteenth_note_rest = self.browser.find_element_by_css_selector('.note-block.sixteenth-note.rest')
+        bin_block = self.browser.find_element_by_css_selector('.bin')
 
         # They also see an empty bar where the can drag the note blocks into.
         bar = self.browser.find_element_by_css_selector('.bar-container')
 
         # They try to drag a note into the bar.
-        self.actions.click_and_hold(qtr_note).move_to_element(bar).release(bar).click(bar).perform()
-        self.actions.click_and_hold(qtr_note_rest).move_to_element(bar).release(bar).click(bar).perform()
+        # self.actions.drag_and_drop_by_offset(qtr_note, 50, 200).perform()
+        self.actions.click_and_hold(qtr_note_rest).pause(2).move_to_element(bar).pause(1).release(bar).perform()
+        # self.actions.move_to_element(bar).perform()
 
         # When they drop the note, it remains inside the bar.
         dropped_note = bar.find_element_by_css_selector('.note-block')
