@@ -37,6 +37,8 @@ function generateNotation() {
     let duration = noteBlock.getAttribute('vf-duration');
     let dotted = noteBlock.getAttribute('dotted');
     let toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: duration});
+    toAppend.setStyle({fillStyle: noteBlock.getAttribute('note-color'), strokeStyle: 'black'});
+    toAppend.setFlagStyle({fillStyle: 'black', strokeStyle: 'black'});
     if (dotted === 'true') {
       toAppend.addDotToAll();
     }
