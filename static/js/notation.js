@@ -43,10 +43,7 @@ function generateNotation() {
   })
   
 
-  // let beams = vf.Beam.generateBeams(notes);
-  // beams.forEach(beam => {
-  //   beam.setContext(context).draw();
-  // });
+  let beams = vf.Beam.generateBeams(notes);
   
   const voice = new vf.Voice({num_beats: 4, beat_value:4}).setStrict(false);
   voice.addTickables(notes);
@@ -55,4 +52,8 @@ function generateNotation() {
   
   
   voice.draw(context, stave);
+
+  beams.forEach(beam => {
+    beam.setContext(context).draw();
+  });
 }
