@@ -66,7 +66,6 @@ function dragDrop(e) {
         bar.insertBefore(beingDragged, followingElement)
     }
 
-    // TODO: calculate allowed notes. Maybe helper function
     calculateAllowedNotes();
 }
 
