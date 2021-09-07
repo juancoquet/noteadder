@@ -43,8 +43,12 @@ function generateNotation() {
     notes.push(toAppend);
   })
   
-
   let beams = vf.Beam.generateBeams(notes);
+  if (selectedTimeSig === '6/8') {
+    beams = vf.Beam.generateBeams(notes, {
+      groups: [new vf.Fraction(3, 8)]
+    });
+  }
   
   const voice = new vf.Voice({num_beats: 4, beat_value:4}).setStrict(false);
   voice.addTickables(notes);
