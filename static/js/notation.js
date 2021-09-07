@@ -1,5 +1,6 @@
 import Vex from 'vexflow';
 
+window.addEventListener('resize', generateNotation);
 document.addEventListener('DOMContentLoaded', generateNotation);
 timeSigs.forEach(button => {
   button.addEventListener('click', generateNotation);
