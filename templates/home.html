@@ -31,7 +31,11 @@
   <button class="time-signature" top="6" bottom-value="0.5" signature="6/8">6/8</button>
   <button class="time-signature" top="7" bottom-value="0.5" signature="7/8">7/8</button>
 
+  <button class="play">Play</button>
+
   <script src="{% static '/js/drag.js' %}" defer></script>
   <script src="{% static '/js/time-signatures.js' %}" defer></script>
   <script src="{% static '/js/notation_bundle.js' %}" type="module" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
+  <script src="{% static '/js/playback/playback.js' %}"></script>
 {% endblock content %}
