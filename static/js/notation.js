@@ -28,7 +28,7 @@ function generateNotation() {
 
   let selectedTimeSig = document.querySelector('.time-signature.pressed').getAttribute('signature');
   
-  stave.addClef('percussion').addTimeSignature(selectedTimeSig, 0);
+  stave.addClef('percussion').addTimeSignature(selectedTimeSig, 10);
   stave.setContext(context).draw();
 
   let placedNotes = document.querySelectorAll('.placed');
@@ -55,7 +55,9 @@ function generateNotation() {
   const voice = new vf.Voice({num_beats: 4, beat_value:4}).setStrict(false);
   voice.addTickables(notes);
   
-  const formatter = new vf.Formatter().joinVoices([voice]).format([voice], width - 30);
+  let startX = stave.getNoteStartX();
+
+  const formatter = new vf.Formatter().joinVoices([voice]).format([voice], width - startX);
   
   
   voice.draw(context, stave);
