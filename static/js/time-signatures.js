@@ -3,12 +3,14 @@ const dotToggle = document.querySelector('.dot-toggle');
 // const notation = document.getElementById('notation-container');
 
 document.addEventListener('DOMContentLoaded', calculateBlockWidths);
+document.addEventListener('DOMContentLoaded', buildMetronome);
 dotToggle.addEventListener('click', toggleDotted);
 
 timeSigs.forEach(button => {
     button.addEventListener('click', timeSigPress);
 })
 
+let metronomeNotes = [];
 
 // Time signature button functions
 
@@ -32,7 +34,9 @@ function timeSigPress() {
 
     calculateBlockWidths();
     calculateAllowedNotes();    // defined in drag.js
-    // notation.firstChild.remove();
+
+    changeToneTimeSig();
+    buildMetronome();
 }
 
 function calculateBlockWidths() {
@@ -44,6 +48,22 @@ function calculateBlockWidths() {
         noteBlock.style.width = newWidth + '%';
     })
 }
+
+function changeToneTimeSig() {
+    Tone.Transport.timeSignature = parseFloat(bar.getAttribute('absolute-value'));
+}
+
+function buildMetronome() {
+    let timeSig = document.querySelector('.time-signature.pressed');
+    let top = parseInt(timeSig.getAttribute('top'));
+    metronomeNotes = ['C5'];
+    [...Array(top-1).keys()].forEach(() => {
+        metronomeNotes.push('C4');
+    })
+}
+
+
+// Dotted functions
 
 function toggleDotted() {
     // TODO: update note symbol on change

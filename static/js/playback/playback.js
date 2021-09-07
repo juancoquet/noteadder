@@ -1,6 +1,6 @@
 const playButton = document.querySelector('.play');
 
-playButton.addEventListener('click', metronome);
+playButton.addEventListener('click', playMetronome);
 
 
 const click = new Tone.Sampler({
@@ -11,19 +11,18 @@ const click = new Tone.Sampler({
     release: 1,
 }).toDestination();
 
-const metronomeNotes = ['C5', 'C4', 'C4', 'C4'];
-let beat = 0;
+function playMetronome () {
+    let timeSig = document.querySelector('.time-signature.pressed');
+    let bottom = parseInt(timeSig.getAttribute('bottom'));
+    let now = Tone.now() - 1.5;
 
-function metronome () {
-    console.log('playing');
-    let now = Tone.now();
-    console.log(now);
-
+    let beat = 0;
     Tone.Transport.scheduleRepeat(time => {
+        console.log('done');
         let note = metronomeNotes[beat % metronomeNotes.length];
         click.triggerAttackRelease(note, '4n', time);
         beat++;
-    }, '4n', startTime=now, duration='2m');
+    }, bottom + 'n', startTime=now, duration='2m');
 
     Tone.Transport.start();
 };
