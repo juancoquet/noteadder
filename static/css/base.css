@@ -126,6 +126,13 @@ div {
     opacity: 0;
 }
 
+.playback-marker--bar {
+    height: 8rem;
+    border-left: 2px solid green;
+    position: absolute;
+    opacity: 0;
+}
+
 
 
 

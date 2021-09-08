@@ -1,9 +1,9 @@
 const playButton = document.querySelector('.play');
 
-window.addEventListener('DOMContentLoaded', setMarkerHeight);
+window.addEventListener('DOMContentLoaded', setMarkerHeights);
 playButton.addEventListener('click', playMetronome);
 playButton.addEventListener('click', playNotes);
-playButton.addEventListener('click', showMarker);
+playButton.addEventListener('click', showNotationMarker);
 
 
 // Metronome playback 
@@ -83,7 +83,7 @@ function getNoteData() {
 }
 
 
-async function showMarker() {
+async function showNotationMarker() {
     let marker = document.querySelector('.playback-marker');
     marker.style.opacity = 1;
     let drawnNotes = document.querySelectorAll('.vf-note');
@@ -102,7 +102,7 @@ async function showMarker() {
         marker.style.left = notePositions[i] - 4 + 'px';
     }
     await sleep(lastVal);
-    resetMarker();
+    resetNotationMarker();
 }
 
 function getSleepValues(notes) {
@@ -112,7 +112,6 @@ function getSleepValues(notes) {
         let value = Tone.Time(note).toSeconds();
         values.push(value);
     }
-    console.log(values);
     return values;
 }
 
@@ -123,19 +122,51 @@ function sleep(s) {
 }
 
 
-async function setMarkerHeight() {
+function setMarkerHeights() {
     window.scrollTo(0, 0);
-    let marker = document.querySelector('.playback-marker');
+    // notation marker -----------------------------------------------
+    let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
     let staveTop = barline.getBoundingClientRect().top
-    let markerHeight = marker.getBoundingClientRect().height
+    let markerHeight = marker.getBoundingClientRect().height;
     let difference = markerHeight - 44;
     marker.style.top = staveTop - (difference/2) + 'px';
+
+    // bar marker ----------------------------------------------------
+    marker = document.querySelector('.playback-marker--bar');
+    let bar = document.querySelector('.bar-container');
+    let barBoundaries = bar.getBoundingClientRect();
+    let barTop = barBoundaries.top;
+    let barHeight = barBoundaries.height;
+    markerHeight = marker.getBoundingClientRect().height;
+    difference = markerHeight - barHeight;
+    marker.style.top = barTop - (difference/2) + 'px';
 }
 
-function resetMarker() {
-    let marker = document.querySelector('.playback-marker');
+function resetNotationMarker() {
+    // notation marker -----------------------------------------------
+    let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
     marker.style.opacity = 0;
     marker.style.left = barline.getBoundingClientRect().left + 'px';
+}
+
+
+playButton.addEventListener('click', animateBarMarker);
+
+async function animateBarMarker() {
+    let barDuration = Tone.Time('1m').toSeconds();
+    let marker = document.querySelector('.playback-marker--bar');
+    marker.style.opacity = 1;
+    await sleep(barDuration);
+    let bar = document.querySelector('.bar-container');
+    let barBoundaries = bar.getBoundingClientRect();
+    marker.style.transition = `${barDuration}s linear`;
+    marker.style.transform = `translateX(${barBoundaries.width}px)`;
+    await sleep(barDuration);
+    marker.style.transition = '0s';
+    
+    // reset
+    marker.style.opacity = 0;
+    marker.style.transform = 'none';
 }
