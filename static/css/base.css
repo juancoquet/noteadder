@@ -119,6 +119,13 @@ div {
     max-width: 600px;
 }
 
+.playback-marker {
+    height: 80px;
+    border-left: 2px solid green;
+    position: absolute;
+    opacity: 0;
+}
+
 
 
 

@@ -1,7 +1,9 @@
 const playButton = document.querySelector('.play');
 
+window.addEventListener('DOMContentLoaded', setMarkerHeight);
 playButton.addEventListener('click', playMetronome);
 playButton.addEventListener('click', playNotes);
+playButton.addEventListener('click', showMarker);
 
 
 // Metronome playback 
@@ -45,15 +47,27 @@ synth.envelope.release = 0.01;
 const gain = new Tone.Gain(0.3).toDestination();
 synth.connect(gain);
 
-function playNotes() {
+function playNotes() {    
+    let noteData = getNoteData();
+    let notes = noteData.notes;
+    let startTimes = noteData.startTimes;
+    let velocities = noteData.velocities;
+    
+    for (let i = 0; i < notes.length; i++) {
+        synth.triggerAttackRelease('C4', notes[i], startTimes[i], velocities[i]);
+      }
+}
+
+function getNoteData() {
     let placed = document.querySelectorAll('.placed');
     let notes = [];
     let velocities = [];
-    placed.forEach(noteBlock => {
-        notes.push(noteBlock.getAttribute('tonejs-duration'));
-        velocities.push(+! noteBlock.classList.contains('rest')); // +! turns t=>0, f=>1
-    })
-    let now = Tone.now()
+    for (let block of placed) {
+        notes.push(block.getAttribute('tonejs-duration'));
+        velocities.push(+! block.classList.contains('rest')); // +! turns true=>0, false=>1
+    };
+
+    now = Tone.now();
     let oneMeasure = Tone.Time('1m').toSeconds();
     let startTimes = [now + oneMeasure, ];
     
@@ -65,8 +79,63 @@ function playNotes() {
         startTimes.push(nextStart);
         i++;
     }
+    return { startTimes: startTimes, notes: notes, velocities: velocities }
+}
+
+
+async function showMarker() {
+    let marker = document.querySelector('.playback-marker');
+    marker.style.opacity = 1;
+    let drawnNotes = document.querySelectorAll('.vf-note');
+    let notePositions = [];
+    drawnNotes.forEach(note => {
+        let boundaries = note.getBoundingClientRect();
+        notePositions.push(boundaries.left);
+    })
+
+    let noteData = getNoteData()
+    let sleepVals = getSleepValues(noteData.notes);
+    let lastVal = sleepVals.pop();
     
-    for (let i = 0; i < notes.length; i++) {
-        synth.triggerAttackRelease('C4', notes[i], startTimes[i], velocities[i]);
-      }
+    for (let i = 0; i < sleepVals.length; i++) {
+        await sleep(sleepVals[i]);
+        marker.style.left = notePositions[i] - 4 + 'px';
+    }
+    await sleep(lastVal);
+    resetMarker();
+}
+
+function getSleepValues(notes) {
+    notes.unshift('1m');
+    values = [];
+    for (let note of notes) {
+        let value = Tone.Time(note).toSeconds();
+        values.push(value);
+    }
+    console.log(values);
+    return values;
+}
+
+function sleep(s) {
+    let ms = s * 1000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+    // call await sleep(s); inside an async fucntion to use.
+}
+
+
+async function setMarkerHeight() {
+    window.scrollTo(0, 0);
+    let marker = document.querySelector('.playback-marker');
+    let barline = document.getElementsByTagName('path')[0];
+    let staveTop = barline.getBoundingClientRect().top
+    let markerHeight = marker.getBoundingClientRect().height
+    let difference = markerHeight - 44;
+    marker.style.top = staveTop - (difference/2) + 'px';
+}
+
+function resetMarker() {
+    let marker = document.querySelector('.playback-marker');
+    let barline = document.getElementsByTagName('path')[0];
+    marker.style.opacity = 0;
+    marker.style.left = barline.getBoundingClientRect().left + 'px';
 }

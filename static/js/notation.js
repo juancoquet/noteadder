@@ -21,7 +21,7 @@ function generateNotation() {
 
   let width = notationContainer.offsetWidth;
   
-  renderer.resize(width, 150);
+  renderer.resize(width, 100);
   const context = renderer.getContext();
   
   const stave = new vf.Stave(0, 0, width);
