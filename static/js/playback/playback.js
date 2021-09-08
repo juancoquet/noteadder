@@ -24,7 +24,6 @@ function playMetronome () {
     for (let note of metronomeNotes) {
         if (i === metronomeNotes.length-1) { break; };
         let duration = Tone.Time(bottom + 'n').toSeconds();
-        console.log(duration);
         let nextStart = startTimes[i] + duration;
         startTimes.push(nextStart);
         i++;
