@@ -57,9 +57,13 @@ function buildMetronome() {
     let timeSig = document.querySelector('.time-signature.pressed');
     let top = parseInt(timeSig.getAttribute('top'));
     metronomeNotes = ['C5'];
-    [...Array(top-1).keys()].forEach(() => {
+    for (let i = 1; i < top; i++) {
         metronomeNotes.push('C4');
-    })
+    }
+    metronomeNotes = metronomeNotes.concat(metronomeNotes);
+    // [...Array(top-1).keys()].forEach(() => {
+    //     metronomeNotes.push('C4');
+    // })
 }
 
 
@@ -80,6 +84,8 @@ function toggleDotted() {
                 let newDuration = block.getAttribute('vf-duration').concat('d');
                 block.setAttribute('vf-duration', newDuration);
             };
+            let tonejsDuration = block.getAttribute('tonejs-duration');
+            block.setAttribute('tonejs-duration', tonejsDuration.concat('.'))
         });
     } else {
         noteBlocks.forEach(block => {
@@ -95,6 +101,8 @@ function toggleDotted() {
                 let newDuration = dottedDuration.slice(0, -1);
                 block.setAttribute('vf-duration', newDuration);
             }
+            let newTonejsDuration = block.getAttribute('tonejs-duration').slice(0, -1);
+            block.setAttribute('tonejs-duration', newTonejsDuration);
         })
     }
     calculateBlockWidths();
