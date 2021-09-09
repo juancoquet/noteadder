@@ -48,3 +48,19 @@ class FunctionalTest(StaticLiveServerTestCase):
         filename = f'{filepath}/source-{timestamp}.html'
         with open(filename, 'w') as f:
             f.write(self.browser.page_source)
+
+    def execute_js_file(self, filepath):
+        self.browser.execute_script(open(filepath).read())
+
+    def simulate_drag_drop(self, source_selector, target_selector):
+        source = self.browser.find_element_by_css_selector(source_selector)
+        target = self.browser.find_element_by_css_selector(target_selector)
+        jquery_url = "https://code.jquery.com/jquery-3.6.0.min.js"
+        with open('functional_tests/sim-scripts/jquery_load_helper.js') as f:
+            load_jquery_js = f.read()
+        with open('functional_tests/sim-scripts/drag_and_drop_helper.js') as f:
+            drag_and_drop_js = f.read()
+        self.browser.execute_async_script(load_jquery_js, jquery_url)
+        self.browser.execute_script(drag_and_drop_js + 
+            f"$('{source_selector}').simulateDragDrop({{ dropTarget: '{target_selector}' }});")
+        return source, target
