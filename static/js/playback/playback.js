@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded', setMarkerHeights);
 playButton.addEventListener('click', playMetronome);
 playButton.addEventListener('click', playNotes);
 playButton.addEventListener('click', showNotationMarker);
+playButton.addEventListener('click', animateBarMarker);
+playButton.addEventListener('click', disablePlayButtonDuringPlayback);
 
 
 // Metronome playback 
@@ -83,6 +85,8 @@ function getNoteData() {
 }
 
 
+// Markers
+
 async function showNotationMarker() {
     let marker = document.querySelector('.playback-marker');
     marker.style.opacity = 1;
@@ -151,9 +155,6 @@ function resetNotationMarker() {
     marker.style.left = barline.getBoundingClientRect().left + 'px';
 }
 
-
-playButton.addEventListener('click', animateBarMarker);
-
 async function animateBarMarker() {
     let barDuration = Tone.Time('1m').toSeconds();
     let marker = document.querySelector('.playback-marker--bar');
@@ -169,4 +170,12 @@ async function animateBarMarker() {
     // reset
     marker.style.opacity = 0;
     marker.style.transform = 'none';
+}
+
+async function disablePlayButtonDuringPlayback() {
+    let playButton = document.querySelector('.play');
+    playButton.classList.remove('play--active');
+    let barDuration = Tone.Time('1m').toSeconds();
+    await sleep(barDuration * 2);
+    playButton.classList.add('play--active');
 }

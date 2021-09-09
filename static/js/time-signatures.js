@@ -35,6 +35,7 @@ function timeSigPress() {
     calculateBlockWidths();
     calculateAllowedNotes();    // defined in drag.js
 
+    togglePlayEnabled();        // defined in playback.js
     changeToneTimeSig();
     buildMetronome();
 }

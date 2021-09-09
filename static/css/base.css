@@ -149,3 +149,14 @@ div {
 .time-signature.pressed {
     background-color: aquamarine;
 }
+
+.play {
+    pointer-events: none;
+    color: grey;
+}
+
+.play.play--active {
+    pointer-events: all;
+    background-color: goldenrod;
+    color: black;
+}

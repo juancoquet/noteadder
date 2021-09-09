@@ -8,6 +8,7 @@ bar.addEventListener('dragover', dragOver);
 bar.addEventListener('dragenter', dragEnter);
 bar.addEventListener('dragleave', dragLeave);
 bar.addEventListener('drop', dragDrop);
+bar.addEventListener('drop', togglePlayEnabled);
 
 // Draggables listeners
 draggables.forEach(draggable => {
@@ -20,6 +21,7 @@ bin.addEventListener('dragover', dragOverBin);
 bin.addEventListener('dragenter', dragEnterBin);
 bin.addEventListener('dragleave', dragLeaveBin);
 bin.addEventListener('drop', binDrop);
+bin.addEventListener('drop', togglePlayEnabled);
 
 
 // Bar drag functions
@@ -141,5 +143,15 @@ function binDrop() {
         calculateAllowedNotes();
     }
     this.style.transform = 'scale(1)'
+}
+
+function togglePlayEnabled() {
+    let playButton = document.querySelector('.play');
+    let barVal = parseFloat(bar.getAttribute('value'));
+    if (barVal === 0) {
+        playButton.classList.add('play--active');
+    } else {
+        playButton.classList.remove('play--active');
+    }
 }
 
