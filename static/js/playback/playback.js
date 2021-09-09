@@ -8,7 +8,7 @@ playButton.addEventListener('click', animateBarMarker);
 playButton.addEventListener('click', disablePlayButtonDuringPlayback);
 
 
-// Metronome playback 
+// Metronome playback  --------------------------------------------------------
 
 const click = new Tone.Sampler({
     urls: {
@@ -40,7 +40,7 @@ function playMetronome () {
 
 
 
-// Note playback
+// Note playback -------------------------------------------------------------
 
 const synth = new Tone.Synth();
 synth.envelope.attack = 0.001;
@@ -85,7 +85,8 @@ function getNoteData() {
 }
 
 
-// Markers
+
+// Markers -------------------------------------------------------------------
 
 async function showNotationMarker() {
     let marker = document.querySelector('.playback-marker');
@@ -109,26 +110,9 @@ async function showNotationMarker() {
     resetNotationMarker();
 }
 
-function getSleepValues(notes) {
-    notes.unshift('1m');
-    values = [];
-    for (let note of notes) {
-        let value = Tone.Time(note).toSeconds();
-        values.push(value);
-    }
-    return values;
-}
-
-function sleep(s) {
-    let ms = s * 1000;
-    return new Promise(resolve => setTimeout(resolve, ms));
-    // call await sleep(s); inside an async fucntion to use.
-}
-
-
 function setMarkerHeights() {
     window.scrollTo(0, 0);
-    // notation marker -----------------------------------------------
+    // notation marker
     let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
     let staveTop = barline.getBoundingClientRect().top
@@ -136,7 +120,7 @@ function setMarkerHeights() {
     let difference = markerHeight - 44;
     marker.style.top = staveTop - (difference/2) + 'px';
 
-    // bar marker ----------------------------------------------------
+    // bar marker
     marker = document.querySelector('.playback-marker--bar');
     let bar = document.querySelector('.bar-container');
     let barBoundaries = bar.getBoundingClientRect();
@@ -148,7 +132,6 @@ function setMarkerHeights() {
 }
 
 function resetNotationMarker() {
-    // notation marker -----------------------------------------------
     let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
     marker.style.opacity = 0;
@@ -170,6 +153,26 @@ async function animateBarMarker() {
     // reset
     marker.style.opacity = 0;
     marker.style.transform = 'none';
+}
+
+
+
+// Utility -------------------------------------------------------------------
+
+function getSleepValues(notes) {
+    notes.unshift('1m');
+    values = [];
+    for (let note of notes) {
+        let value = Tone.Time(note).toSeconds();
+        values.push(value);
+    }
+    return values;
+}
+
+function sleep(s) {
+    let ms = s * 1000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+    // call await sleep(s); inside an async fucntion to use.
 }
 
 async function disablePlayButtonDuringPlayback() {
