@@ -56,7 +56,7 @@ function playNotes() {
     let velocities = noteData.velocities;
     
     for (let i = 0; i < notes.length; i++) {
-        synth.triggerAttackRelease('C4', notes[i], startTimes[i], velocities[i]);
+        synth.triggerAttackRelease('G4', notes[i], startTimes[i], velocities[i]);
       }
 }
 
