@@ -168,3 +168,63 @@ class TimeSignatureTest(FunctionalTest):
             expected_val = int(sig.get_attribute('top')) * float(sig.get_attribute('bottom-value'))
             expected_val = str(expected_val).replace('.0', '')
             self.assertEqual(bar_val, expected_val)
+
+    def test_selecting_time_sig_clears_bar(self):
+        # The user drags some notes into the bar
+        _, bar = self.simulate_drag_drop('.note-block:not(.placed)', '.bar-container')
+        self.assertGreater(len(bar.find_elements_by_css_selector('.placed')), 0)
+
+        # They click a time signature button, and the bar is cleared
+        self.browser.find_element_by_css_selector('.time-signature').click()
+        self.assertEqual(len(bar.find_elements_by_css_selector('.placed')), 0)
+
+
+class PlaybackTest(FunctionalTest):
+
+    def test_play_button_only_enables_when_bar_full(self):
+        # The user sees that the play button is not clickable
+        play = self.browser.find_element_by_css_selector('.play')
+        self.assertEqual(play.value_of_css_property('pointer-events'), 'none')
+
+        # They fill up the bar and the play button becomes clickable
+        for _ in range(4):
+            self.simulate_drag_drop('.note-block.quarter-note:not(.rest):not(.placed)', '.bar-container')
+        play = self.browser.find_element_by_css_selector('.play')
+        self.assertEqual(play.value_of_css_property('pointer-events'), 'all')
+
+        # They remove a note and the button becomes disabled again
+        self.simulate_drag_drop('.placed:nth-child(4)', '.bin')
+        self.assertEqual(play.value_of_css_property('pointer-events'), 'none')
+
+    def test_play_displays_markers(self):
+        # The user fills up the bar
+        for _ in range(4):
+            self.simulate_drag_drop('.note-block.quarter-note:not(.rest):not(.placed)', '.bar-container')
+
+        # They don't see any markers on the page
+        markers = self.browser.find_elements_by_css_selector('.playback-marker')
+        for m in markers:
+            self.assertEquals(m.value_of_css_property('opacity'), '0')
+        
+        # They click the play button, and the markers are shown
+        self.browser.find_element_by_css_selector('.play').click()
+        for m in markers:
+            self.assertGreater(float(m.value_of_css_property('opacity')), 0)
+        
+        # The markers disappear when playback is done
+        self.sleep(4)
+        for m in markers:
+            self.assertEqual(m.value_of_css_property('opacity'), '0')
+
+    def test_changing_time_sig_disables_play_button(self):
+        # The user fills up the bar
+        for _ in range(4):
+            self.simulate_drag_drop('.note-block.quarter-note:not(.rest):not(.placed)', '.bar-container')
+        
+        # The play button is now enabled
+        play = self.browser.find_element_by_css_selector('.play')
+        self.assertEqual(play.value_of_css_property('pointer-events'), 'all')
+
+        # They change the time signature, and the play button becomes diabled once again
+        self.browser.find_element_by_css_selector('.time-signature').click()
+        self.assertEqual(play.value_of_css_property('pointer-events'), 'none')
