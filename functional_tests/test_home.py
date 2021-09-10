@@ -152,3 +152,19 @@ class NotationTest(FunctionalTest):
             self.simulate_drag_drop(selector, '.bin')
             stave_notes = self.browser.find_elements_by_css_selector('.vf-note')
             self.assertEqual(len(stave_notes), len(bar.find_elements_by_css_selector('.note-block')))
+
+
+class TimeSignatureTest(FunctionalTest):
+
+    def test_selecting_time_sig_changes_bar_value(self):
+        # The user sees that there a buttons to select different time signatures
+        time_sigs = self.browser.find_elements_by_css_selector('.time-signature')
+        bar = self.browser.find_element_by_css_selector('.bar-container')
+
+        # When they click each time signature, the value of the bar changes
+        for sig in time_sigs:
+            sig.click()
+            bar_val = bar.get_attribute('absolute-value')
+            expected_val = int(sig.get_attribute('top')) * float(sig.get_attribute('bottom-value'))
+            expected_val = str(expected_val).replace('.0', '')
+            self.assertEqual(bar_val, expected_val)
