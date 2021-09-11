@@ -7,6 +7,7 @@ playButton.addEventListener('click', showNotationMarker);
 playButton.addEventListener('click', animateBarMarker);
 playButton.addEventListener('click', disablePlayButtonDuringPlayback);
 playButton.addEventListener('click', disableTimeSigsDuringPlayback);
+playButton.addEventListener('click', disablePlacedNotesDuringPlayback);
 
 
 // Metronome playback  --------------------------------------------------------
@@ -194,4 +195,19 @@ async function disableTimeSigsDuringPlayback() {
     timeSigs.forEach(sig => {
         sig.classList.remove('disabled');
     })
+}
+
+async function disablePlacedNotesDuringPlayback() {
+    let placedNotes = document.querySelectorAll('.placed');
+    placedNotes.forEach(block => {
+        block.classList.add('disabled');
+        block.setAttribute('draggable', 'false');
+    })
+    let barDuration = Tone.Time('1m').toSeconds();
+    await sleep(barDuration * 2);
+    placedNotes.forEach(block => {
+        block.classList.remove('disabled');
+        block.setAttribute('draggable', 'true');
+    })
+
 }
