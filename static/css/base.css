@@ -150,6 +150,11 @@ div {
     background-color: aquamarine;
 }
 
+.disabled {
+    pointer-events: none;
+    color: grey;
+}
+
 .play {
     pointer-events: none;
     color: grey;

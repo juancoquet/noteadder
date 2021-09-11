@@ -6,6 +6,7 @@ playButton.addEventListener('click', playNotes);
 playButton.addEventListener('click', showNotationMarker);
 playButton.addEventListener('click', animateBarMarker);
 playButton.addEventListener('click', disablePlayButtonDuringPlayback);
+playButton.addEventListener('click', disableTimeSigsDuringPlayback);
 
 
 // Metronome playback  --------------------------------------------------------
@@ -56,7 +57,7 @@ function playNotes() {
     let velocities = noteData.velocities;
     
     for (let i = 0; i < notes.length; i++) {
-        synth.triggerAttackRelease('C4', notes[i], startTimes[i], velocities[i]);
+        synth.triggerAttackRelease('E4', notes[i], startTimes[i], velocities[i]);
       }
 }
 
@@ -181,4 +182,16 @@ async function disablePlayButtonDuringPlayback() {
     let barDuration = Tone.Time('1m').toSeconds();
     await sleep(barDuration * 2);
     playButton.classList.add('play--active');
+}
+
+async function disableTimeSigsDuringPlayback() {
+    let timeSigs = document.querySelectorAll('.time-signature');
+    timeSigs.forEach(sig => {
+        sig.classList.add('disabled');
+    })
+    let barDuration = Tone.Time('1m').toSeconds();
+    await sleep(barDuration * 2);
+    timeSigs.forEach(sig => {
+        sig.classList.remove('disabled');
+    })
 }

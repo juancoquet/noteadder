@@ -228,3 +228,22 @@ class PlaybackTest(FunctionalTest):
         # They change the time signature, and the play button becomes diabled once again
         self.browser.find_element_by_css_selector('.time-signature').click()
         self.assertEqual(play.value_of_css_property('pointer-events'), 'none')
+
+    def test_cant_change_time_sig_during_playback(self):
+        # The user fills up the bar
+        for _ in range(4):
+            self.simulate_drag_drop('.note-block.quarter-note:not(.rest):not(.placed)', '.bar-container')
+        
+        # They click play, and the time signature buttons are disabled
+        play = self.browser.find_element_by_css_selector('.play')
+        play.click()
+        time_sigs = self.browser.find_elements_by_css_selector('.time-signature')
+        for sig in time_sigs:
+            self.assertTrue('disabled' in sig.get_attribute('class'))
+            self.assertEqual(sig.value_of_css_property('pointer-events'), 'none')
+        
+        # After playback finishes, the timesignatures become clickable once again.
+        self.sleep(4)
+        for sig in time_sigs:
+            self.assertTrue('disabled' not in sig.get_attribute('class'))
+            self.assertEqual(sig.value_of_css_property('pointer-events'), 'auto')
