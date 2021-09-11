@@ -8,6 +8,7 @@ playButton.addEventListener('click', animateBarMarker);
 playButton.addEventListener('click', disablePlayButtonDuringPlayback);
 playButton.addEventListener('click', disableTimeSigsDuringPlayback);
 playButton.addEventListener('click', disablePlacedNotesDuringPlayback);
+playButton.addEventListener('click', easterEgg);
 
 
 // Metronome playback  --------------------------------------------------------
@@ -209,5 +210,29 @@ async function disablePlacedNotesDuringPlayback() {
         block.classList.remove('disabled');
         block.setAttribute('draggable', 'true');
     })
-
 }
+
+function easterEgg() {
+    let triggerPhrase = ['qr', '8r', '16', '16', '16r', '16', '16', '16', '16', '16', '16', '16'];
+    let triggerPhrase2 = ['qdr', '16', '16', '16r', '16', '16', '16', '16', '16', '16', '16'];
+    let triggerPhrase3 = ["16", "16", "16r", "16", "16", "16r", "16", "16", "16r", "16", "16", "16r", "8", "8"]
+    let triggerPhrase4 = ["16", "8", "16", "8", "16", "16", "16r", "16", "8", "8", "8"]
+    let placedNotes = document.querySelectorAll('.placed');
+    let placedPhrase = [];
+    placedNotes.forEach(note => {
+        placedPhrase.push(note.getAttribute('vf-duration'));
+    })
+    if (arrayEquals(triggerPhrase, placedPhrase) || arrayEquals(triggerPhrase2, placedPhrase)) {
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus();
+    }
+    if (arrayEquals(triggerPhrase3, placedPhrase) || arrayEquals(triggerPhrase4, placedPhrase)){
+        window.open("https://www.youtube.com/watch?v=YkADj0TPrJA&t=196s", '_blank').focus();
+    }
+}
+
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+  }
