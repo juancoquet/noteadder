@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 
 from .views import home_view
 
 
 urlpatterns = [
     path('', home_view, name='home'),
+    path('learn/', include('learn.urls')),
 ]
