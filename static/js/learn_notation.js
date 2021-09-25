@@ -45,19 +45,21 @@ function learnNotation() {
         
         let notesToAdd = notationContainer.getAttribute('notes').split(',');
         let notes = [];
-        notesToAdd.forEach(note => {
-            let dotted = false;
-            if (note.endsWith('.')) {
-                dotted = true;
-                note = note.replace('.', '');
-            };
-            let toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: note});
-            if (dotted) {
-                toAppend.addDotToAll();
-            };
-            notes.push(toAppend);
-        });
-        
+        if (notesToAdd[0] != "") {
+            notesToAdd.forEach(note => {
+                let dotted = false;
+                if (note.endsWith('.')) {
+                    dotted = true;
+                    note = note.replace('.', '');
+                };
+                let toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: note});
+                if (dotted) {
+                    toAppend.addDotToAll();
+                };
+                notes.push(toAppend);
+            });
+        }
+            
         let beams = vf.Beam.generateBeams(notes);
         if (timeSig === '6/8') {
             beams = vf.Beam.generateBeams(notes, {
@@ -65,18 +67,21 @@ function learnNotation() {
             });
         }
         
-        
         const voice = new vf.Voice({num_beats: 4, beat_value:4}).setStrict(false);
         voice.addTickables(notes);
         
-        let startX = stave.getNoteStartX();
-        
-        const formatter = new vf.Formatter().joinVoices([voice]).format([voice], width - startX);
+        let startX = 0;
+        if (notes.length > 0) {
+            startX = stave.getNoteStartX();
+            const formatter = new vf.Formatter().joinVoices([voice]).format([voice], width - startX);
+        }
         
         voice.draw(context, stave);
-
+        
         beams.forEach(beam => {
             beam.setContext(context).draw();
-          });
+        });
     });
 }
+
+// TODO: add barline (line 246 of learn.html) & labels

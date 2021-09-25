@@ -32,7 +32,7 @@
 
         <p>Quarter notes are also referred to as <em>crotchets</em>, but we’ll call them quarter notes going forward. So why are quarter notes the most fundamental note value? The answer is simple — because they last for exactly <em>one beat</em>.</p>
 
-        <p>Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout <em>“...five, six, seven, eight!”</em> before beginning their choreography. It’s what even allows dancers to all dance together — in time — in the first place. For an obvious example, listen to the drum intro of <a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean, by Michael Jackson</a>. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.</p>
+        <p>Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout <em>“...five, six, seven, eight!”</em> before beginning their choreography. It’s what even allows dancers to all dance together — <em>in time</em> — in the first place. For an obvious example, listen to the drum intro of <a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean, by Michael Jackson</a>. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.</p>
 
         <p>Try counting each hit of the drums — each beat — in groups of four as you listen. Like this:</p>
             
@@ -74,6 +74,7 @@
 
     {% comment %} [blocks]
     [stave & play button] {% endcomment %}
+    <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
 
     <p>Now we know what they sound like, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
 
@@ -96,11 +97,11 @@
 
     <p>First things first, here is what a sixteenth note looks like:</p>
 
-    {% comment %} [sixteenth note] {% endcomment %}
+    <div id="notation-sixteenth_note" time-signature="" notes="16"class="notation"></div>
 
     <p>Notice that this time, the note has two flags. This is what tells you a note’s value — no flag means quarter note, one flag means eighth note, and two flags means sixteenth note. Much like eighth notes, when we have multiple sixteenth notes their flags connect to form two beams between the notes:</p>
 
-    {% comment %} [beamed sixteenths] {% endcomment %}
+    <div id="notation-sixteenth_notes" time-signature="" notes="16,16,16,16"class="notation"></div>
 
     <p>Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:</p>
 
@@ -130,7 +131,7 @@
 
     <p>As before, the beat numbers and the + <em>‘ands’</em> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
 
-    <p>Great, so what do sixteenth notes sound like? Listen to the start of <a href="https://www.youtube.com/watch?v=Dn8-4tjPxD8" target="_blank">Edge of Seventeen, by Stevie Nicks</a> (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an accent) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the <em>‘1… 2… 3… 4…’</em> — and playing the rest of the sixteenth notes around the pulse <em>‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’</em>.</p>
+    <p>Great, so what do sixteenth notes sound like? Listen to the start of <a href="https://www.youtube.com/watch?v=Dn8-4tjPxD8" target="_blank">Edge of Seventeen, by Stevie Nicks</a> (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an <em>accent</em>) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the <em>‘1… 2… 3… 4…’</em> — and playing the rest of the sixteenth notes around the pulse <em>‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’</em>.</p>
 
     <p>Try counting along to Edge of Seventeen — the beat numbers <em>‘1… 2… 3… 4…’</em> go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.</p>
 
@@ -138,6 +139,7 @@
 
     {% comment %} [blocks]
     [notation & playback] {% endcomment %}
+    <div id="notation-sixteenth_note_mix" time-signature="" notes="q,q,8,8,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
 
     <p>Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.</p>
 
@@ -151,7 +153,7 @@
     
     <p>What’s a dotted note? A dotted note is just a regular note but with a dot next to it — here’s a dotted quarter note:</p>
     
-    {% comment %} <p>[dotted quarter note]</p> {% endcomment %}
+    <div id="notation-d_quarter_note" time-signature="" notes="q."class="notation"></div>
     
     <p>But what does the dot do? Here’s where it can get a little confusing. The dot extends a note’s duration by <em>half of its original value</em>. You can think of it as multiplying a note’s duration by 1.5 when you attach a dot to it.</p>
     
@@ -204,17 +206,18 @@
     
     <p>Now that we have the fundamental note values down, it's time to take a look at rests. Rests are easy to understand, they are just blank versions of the note values we already know. Here is what a quarter note rest, and eighth note rest, and a sixteenth note rest look like:</p>
 
-    {% comment %} <p>[rests]</p> {% endcomment %}
+    <div id="notation-rests" time-signature="" notes="qr,8r,16r"class="notation"></div>
 
     <p>We can also have dotted rests:</p>
 
-    <p>[dotted rests]</p>
+    <div id="notation-d_rests" time-signature="" notes="qr.,8r.,16r."class="notation"></div>
 
     <p>We can think of a rest as an empty glass — for example, a quarter note is like a tall glass full of water, and a quarter note rest is the same glass but it’s empty. The key thing to note is that the glass (the note value) is the same in both cases. A quarter note means we play a note that lasts for one beat, and a quarter note rest means we <em>don’t</em> play anything for the duration of one beat.</p>
 
     <p>Let’s take a listen to an example:</p>
 
     {% comment %} <p>[qn, qn, qnr, qn]</p> {% endcomment %}
+    <div id="notation-rest_phrase" time-signature="" notes="q,q,qr,q"class="notation"></div>
 
     <p>There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.</p>
     <button class="btn btn--previous">Previous</button>
@@ -240,6 +243,7 @@
     <p>So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of <em>barlines</em>. A barline is just a vertical line that represents a boundary between two bars; it looks like this:</p>
 
     {% comment %} <p>[‘Notes go here’ labels & arrows] [stave with barline] [‘barline’ label]</p> {% endcomment %}
+    <div id="notation-rests" time-signature="" notes=""class="notation"></div>
 
     <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <em>“1… 2… 3… 4… 1… 2… 3… 4..”</em>, not <em>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</em>.</p>
 
@@ -256,6 +260,9 @@
     <p>Here’s what three different time signatures look like:</p>
 
     {% comment %} <p>[4/4, 5/4, 6/8]</p> {% endcomment %}
+    <div id="notation-44" time-signature="4/4" notes=""class="notation"></div>
+    <div id="notation-54" time-signature="5/4" notes=""class="notation"></div>
+    <div id="notation-68" time-signature="6/8" notes=""class="notation"></div>
 
     <p>As you can see, they look a lot like fractions — they have a top number and a bottom number. They are not pronounced like fractions though. It’s not ‘four quarters’, ‘five quarters’, and ‘six eighths’, it’s ‘four-four’, ‘five-four’, and ‘six-eight’.</p>
 
@@ -289,23 +296,23 @@
 
     <p><em>‘The duration of’</em> four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should <em>‘be’</em> four quarter notes means, well, that the bar should <em>actually be</em> four quarter notes — far less exciting.</p>
 
-    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar is four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with different time signatures.</p>
+    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar <em>is</em> four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to the duration of four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with each other and with different time signatures.</p>
 
     <p>We can make up a 4/4 bar with four quarter notes, like this:</p>
 
-    {% comment %} <p>[qn qn qn qn]</p> {% endcomment %}
+    <div time-signature="4/4" notes="q,q,q,q" class="notation"></div>
 
     <p>Or with eight eighth notes, like this:</p>
 
-    {% comment %} <p>[8n 8n 8n 8n 8n 8n 8n 8n]</p> {% endcomment %}
+    <div time-signature="4/4" notes="8,8,8,8,8,8,8,8" class="notation"></div>
 
     <p>Or with sixteen sixteenth notes, like this:</p>
 
-    {% comment %} <p>[16n..]</p> {% endcomment %}
+    <div time-signature="4/4" notes="16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16" class="notation"></div>
 
     <p>We can even mix and match notes as much as we want:</p>
 
-    {% comment %} <p>[simple mixed note value bar]</p> {% endcomment %}
+    <div time-signature="4/4" notes="q,16,16,16,16,8,8,q" class="notation"></div>
 
     <p>The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.</p>
     
