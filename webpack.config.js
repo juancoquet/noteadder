@@ -1,9 +1,13 @@
 const path = require('path')
 
 module.exports = {
-    entry: './static/js/notation.js',
+    entry: {
+        notation: {import: './static/js/notation.js', dependOn: 'shared'},
+        learn_notation: {import: './static/js/learn_notation.js', dependOn: 'shared'},
+        shared: 'vexflow',
+    },
     output: {
-        filename: 'notation_bundle.js',
+        filename: '[name]_bundle.js',
         path: path.resolve('./static/js/'),
     }
 }

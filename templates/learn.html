@@ -26,7 +26,7 @@
     <h2>Quarter notes</h2>
         <p>We’ll begin with the most fundamental note value of them all — the <em>quarter note</em>. It looks like this:</p>
 
-        {% comment %} [quarter note] {% endcomment %}
+        <div id="notation-quarter_note" time-signature="" notes="q"class="notation"></div>
 
         <p>It has a <em>notehead</em> (the big dot) and a <em>stem</em> (the vertical line). Those fainter horizontal lines on which we write notes are called a <em>stave</em>. Notes that appear higher on the stave are higher in pitch than those that appear lower on the stave, but for the purpose of learning rhythmic note values we will not be concerning ourselves with pitch.</p>
 
@@ -443,4 +443,6 @@
 
 
 <script src="{% static '/js/learn.js' %}"></script>
+<script src="{% static '/js/shared_bundle.js' %}" type="module" defer></script>
+<script src="{% static '/js/learn_notation_bundle.js' %}" type="module" defer></script>
 {% endblock content %}
