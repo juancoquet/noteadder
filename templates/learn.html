@@ -1,339 +1,446 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-Learn
-Introduction
-This page will take you through the basics of rhythmic music notation. By the end of it you’ll have a good understanding of time signatures and three fundamental note values — quarter notes, eighth notes, and sixteenth notes.
-Note values
-Music would be extremely boring if every note were the same length. Thankfully, notes can vary both in pitch and duration allowing musicians to craft catchy melodies. In this section, we will focus on the duration of notes, which we refer to as note values.
-Quarter notes
-We’ll begin with the most fundamental note value of them all — the quarter note. It looks like this:
 
-[quarter note]
+<h1>Learn</h1>
 
-It has a notehead (the big dot) and a stem (the vertical line). Those fainter horizontal lines on which we write notes are called a stave. Notes that appear higher on the stave are higher in pitch than those that appear lower on the stave, but for the purpose of learning rhythmic note values we will not be concerning ourselves with pitch.
+<section id="introduction" sidebar="sb-introduction" class="learn-section visible">
+    <h2>Introduction</h2>
+    <p>
+        This page will take you through the basics of rhythmic music notation. By the end of it you’ll have a good understanding of time signatures and three fundamental note values — quarter notes, eighth notes, and sixteenth notes.
+    </p>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Quarter notes are also referred to as crotchets, but we’ll call them quarter notes going forward. So why are quarter notes the most fundamental note value? The answer is simple — because they last for exactly one beat.
+<section id="note_values" sidebar="sb-note_values" class="learn-section hidden">
+    <h2>Note values</h2>
+    <p>
+        Music would be extremely boring if every note were the same length. Thankfully, notes can vary both in pitch and duration allowing musicians to craft catchy melodies. In this section, we will focus on the duration of notes, which we refer to as <em>note values</em>.
+    </p>
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout “...five, six, seven, eight!” before beginning their choreography. It’s what even allows dancers to all dance together — in time — in the first place. For an obvious example, listen to the drum intro of Billie Jean, by Michael Jackson. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.
+<section id"quarter_notes" sidebar="sb-quarter_notes" class="learn-section hidden">
+    <h2>Quarter notes</h2>
+        <p>We’ll begin with the most fundamental note value of them all — the <em>quarter note</em>. It looks like this:</p>
 
-Try counting each hit of the drums — each beat — in groups of four as you listen. Like this:
+        {% comment %} [quarter note] {% endcomment %}
+
+        <p>It has a <em>notehead</em> (the big dot) and a <em>stem</em> (the vertical line). Those fainter horizontal lines on which we write notes are called a <em>stave</em>. Notes that appear higher on the stave are higher in pitch than those that appear lower on the stave, but for the purpose of learning rhythmic note values we will not be concerning ourselves with pitch.</p>
+
+        <p>Quarter notes are also referred to as <em>crotchets</em>, but we’ll call them quarter notes going forward. So why are quarter notes the most fundamental note value? The answer is simple — because they last for exactly <em>one beat</em>.</p>
+
+        <p>Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout <em>“...five, six, seven, eight!”</em> before beginning their choreography. It’s what even allows dancers to all dance together — in time — in the first place. For an obvious example, listen to the drum intro of <a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean, by Michael Jackson</a>. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.</p>
+
+        <p>Try counting each hit of the drums — each beat — in groups of four as you listen. Like this:</p>
+            
+            <p><em>“One… two… three… four… one… two… three… four…”</em></p>
+
+        <p>It should sound like this:</p>
+
+        {% comment %} [voice/midi drums] {% endcomment %}
+
+        <p>When you count each drum note like this, you are counting quarter notes. That’s simple enough, let’s take things up a gear.</p>
+
+        <button class="btn btn--previous">Previous</button>
+        <button class="btn btn--continue">Continue</button>
+</section>
+
+<section id="eighth_notes" sidebar="sb-eighth_notes" class="learn-section hidden">
+    <h2>Eighth notes</h2>
+    <p>Now that we understand beats and quarter notes, we’re ready to move on to eighth notes (also known as <em>quavers</em>). An eighth note looks like this:</p>
+
+    {% comment %} [eighth note] {% endcomment %}
+
+    <p>As well as having a head and stem, it also has a <em>flag</em> (the ‘flick’ that comes off the end of the stem).</p>
+
+    <p>When there are two eighth notes next to each other, their flags turn into a <em>beam</em> — a horizontal line that connects them:</p>
+
+    {% comment %} [two eighth notes] {% endcomment %}
+
+    <p>The beam has no special significance, its only purpose is to group eighth notes together visually to make the music easier to read.</p>
+
+    <p>Eighth notes last for half a beat each — half as long as quarter notes. We can visualise this by representing these notes as coloured blocks. Notice that two eighth notes take up the same amount of space (which represents the same amount of time) as a single quarter note.</p>
+
+    {% comment %} <-- 1 beat -->
+    [quarter note block]
+    [eight note blocks] {% endcomment %}
+
+    <p>So eighth notes are half the length quarter notes, but what do they sound like? Let’s go back to Billie Jean. After the drum intro (through which we were counting quarter notes), the bass comes in. The bassline goes up and down in pitch throughout, but every single note it plays is an eighth note. If you listen closely, you’ll notice that there are two bass notes being played for every beat that you hear on the drums.</p>
+
+    <p>Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.</p>
+
+    {% comment %} [blocks]
+    [stave & play button] {% endcomment %}
+
+    <p>Now we know what they sound like, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
+
+    {% comment %} 1 2 3 4
+    [quarter note blocks]
+    1 + 2 + 3 + 4 +
+    [eighth note blocks] {% endcomment %}
+
+    <p>Notice that the beat numbers are aligned with the longer quarter notes above. This is because the rate of the pulse has not changed when we play eighth notes, we are just playing an extra note in between each pulse.</p>
+
+    <p>Great, now we understand quarter notes and eighth notes. Let’s learn another note value.</p>
+
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
+
+<section id="sixteenth_notes" sidebar="sb-sixteenth_notes" class="learn-section hidden">
+    <h2>Sixteenth notes</h2>
+    <p>If you managed to get your head around eighth notes, understanding sixteenth notes (also known as <em>semi-quavers</em>) will be much easier. This is because the process is the same — to get from quarter notes to eighth notes, we took each quarter note and halved it; now to get from eighth notes to sixteenth notes, we will take each eighth note and half it again.</p>
+
+    <p>First things first, here is what a sixteenth note looks like:</p>
+
+    {% comment %} [sixteenth note] {% endcomment %}
+
+    <p>Notice that this time, the note has two flags. This is what tells you a note’s value — no flag means quarter note, one flag means eighth note, and two flags means sixteenth note. Much like eighth notes, when we have multiple sixteenth notes their flags connect to form two beams between the notes:</p>
+
+    {% comment %} [beamed sixteenths] {% endcomment %}
+
+    <p>Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:</p>
+
+    {% comment %} 1 2 3 4
+    [quarter note blocks]
+    1 + 2 + 3 + 4 +
+    [eighth note blocks] {% endcomment %}
+
+    <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <em>1</em> and <em>+</em>, between <em>+</em> and <em>2</em>, between <em>2</em> and <em>+</em>, and so on…</p>
+
+    {% comment %} 1 2 3 4
+    [quarter note blocks]
+    1 + 2 + 3 + 4 +
+    [eighth note blocks]
+    [sixteenth note blocks] {% endcomment %}
+
+    <p>And how do we label these extra notes we just created? Typically, we use the vowel sounds <em>‘e’</em> and <em>‘a’</em> (pronounced like “he” and “ha”, without the ‘h’). There is no right or wrong way to count different note values, and the way we count them sometimes changes depending on the musical context (more on that later), but using these labels is what most musicians tend to opt for.</p>
+
+    <p>Let’s add these labels to our note blocks:</p>
+
+    {% comment %} 1 2 3 4
+    [quarter note blocks]
+    1 + 2 + 3 + 4 +
+    [eighth note blocks]
+    1e+a...
+    [sixteenth note blocks] {% endcomment %}
+
+    <p>As before, the beat numbers and the + <em>‘ands’</em> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
+
+    <p>Great, so what do sixteenth notes sound like? Listen to the start of <a href="https://www.youtube.com/watch?v=Dn8-4tjPxD8" target="_blank">Edge of Seventeen, by Stevie Nicks</a> (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an accent) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the <em>‘1… 2… 3… 4…’</em> — and playing the rest of the sixteenth notes around the pulse <em>‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’</em>.</p>
+
+    <p>Try counting along to Edge of Seventeen — the beat numbers <em>‘1… 2… 3… 4…’</em> go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.</p>
+
+    <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear two quarter notes, followed by four eighth notes, followed by eight sixteenth notes — that’s two full beats’ worth of each note value:</p>
+
+    {% comment %} [blocks]
+    [notation & playback] {% endcomment %}
+
+    <p>Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.</p>
+
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
+
+<section id="dotted_notes" sidebar="sb-dotted_notes" class="learn-section hidden">
+    <h2>Dotted notes</h2>
+    <p>The dreaded <em>dot</em>. Dotted notes often cause a lot of confusion among new learners, but with the help of our note value blocks it should be easy to understand what’s going on.</p>
     
-    “One… two… three… four… one… two… three… four…”
+    <p>What’s a dotted note? A dotted note is just a regular note but with a dot next to it — here’s a dotted quarter note:</p>
+    
+    {% comment %} <p>[dotted quarter note]</p> {% endcomment %}
+    
+    <p>But what does the dot do? Here’s where it can get a little confusing. The dot extends a note’s duration by <em>half of its original value</em>. You can think of it as multiplying a note’s duration by 1.5 when you attach a dot to it.</p>
+    
+    <p>Let’s see what this looks like using our note value blocks. Here’s a quarter note compared to a dotted quarter note.</p>
+    
+    {% comment %} <p>[quarter note block]</p>
+    <p>[dotted quarter note block]</p> {% endcomment %}
+    
+    <p>In the case of a quarter note, when we append a dot to it (multiply it by 1.5) we are adding half a beat to it. This is because a quarter note is one beat long, and one beat multiplied by 1.5 is one and a half beats. Here’s what this process looks like:</p>
+    
+    {% comment %} <p>[quarter note block] = 1 beat</p>
+    <p>[quarter note block with halfway line] = 0.5 beats, 0.5 beats</p>
+    <p>[quarter note block plus half quarter note block] = 1 beat + 0.5 beats</p>
+    <p>[dotted quarter note block] = 1.5 beats</p> {% endcomment %}
+    
+    <p>What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.</p>
+    
+    {% comment %} <p>[eighth note block]</p>
+    <p>[dotted eighth note block]</p> {% endcomment %}
+    
+    <p>As with the dotted quarter note we looked at, you can see that the dotted eighth note’s duration is 1.5 times as long as its undotted version. Let’s go through the steps:</p>
+    
+    {% comment %} <p>[eighth note block] = 0.5 beats</p>
+    <p>[eighth note block with halfway line] = 0.25 beats, 0.25 beats</p>
+    <p>[eighth note block plus half eighth note block] = 0.5 beats + 0.25 beats</p>
+    <p>[dotted eighth note block] = 0.75 beats</p> {% endcomment %}
+    
+    <p>Here you can see that a dotted eighth note becomes three quarters (0.75) of a beat long. That’s because a regular eighth note is half (0.5) a beat long, which becomes three quarters (0.75) of a beat when multiplied by 1.5.</p>
+    
+    <p>Thankfully, these note values quickly become intuitive as you gain experience hearing and playing them — musicians are not performing mathematical calculations on the fly as they play their instruments. You can add a dot to any note value, and the process always remains the same — the original note’s duration is multiplied by 1.5, creating a new, longer note.</p>
+    
+    <p>But why do we need dotted notes in the first place? Why go through the complication of interpolating arithmetic into music? Well, what if you wanted to play a note that is longer than an eighth note, but not as long as a quarter note? Then you need a dotted eighth note. Dotted notes allow for finer increments between note values.</p>
+    
+    <p>So what do dotted notes actually sound like? This will be a little trickier to understand, as dotted notes fundamentally sound more fragmented than regular notes bacause they break the pulse up in weird ways. Here is an example nonetheless, the <a href="https://youtu.be/XgSPVhwqjX0?t=64" target="_blank">chorus of Birthday, by Kings of Leon</a> (timestamped) — a stream of dotted eighth notes can be heard being played on the bass drum (the low, thuddy drum sound) until the end of the chorus.</p>
+    
+    <p>You can hear that they sound somewhat tense, almost like they’re going against the overall pulse and creating their own pulse, but they never sound out of time. Dotted notes can be used to create very interesting musical phrases.</p>
+    
+    <p>Another example of dotted eight notes, on vocals this time — the verses of <a href="https://www.youtube.com/watch?v=5jXltdnw330" target="_blank">Listen to Your Friends by Airways</a>. You can hear a similar kind of tension being created against the steady pulse being played on the drums.</p>
+    
+    <p>What about dotted quarter notes? They can be heard in the vocals of <a href="https://youtu.be/p47fEXGabaY?t=52" target="_blank">Livin La Vida Loca, by Ricky Martin</a> during the chorus (timestamped) (brace yourself for an excessive dose of 2000’s fashion if you click on that link). Listen to the phrasing of the lines <em>“upside, inside out”</em>, <em>“push and pull you down”</em>, <em>“lips are devil red”</em>, and <em>“she will wear you out”</em>.</p>
+    
+    <p>It might be difficult to intuitively understand the value of the dotted notes while listening to these examples, but that will come with time as long as you understand the underlying logic.</p>
+    
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
+
+<section id="rests" sidebar="sb-rests" class="learn-section hidden">
+    <h2>Rests</h2>
+    
+    <p>Now that we have the fundamental note values down, it's time to take a look at rests. Rests are easy to understand, they are just blank versions of the note values we already know. Here is what a quarter note rest, and eighth note rest, and a sixteenth note rest look like:</p>
+
+    {% comment %} <p>[rests]</p> {% endcomment %}
 
-It should sound like this:
+    <p>We can also have dotted rests:</p>
 
-[voice/midi drums]
+    <p>[dotted rests]</p>
 
-When you count each drum note like this, you are counting quarter notes. That’s simple enough, let’s take things up a gear.
-Eighth notes
-Now that we understand beats and quarter notes, we’re ready to move on to eighth notes (also known as quavers). An eighth note looks like this:
+    <p>We can think of a rest as an empty glass — for example, a quarter note is like a tall glass full of water, and a quarter note rest is the same glass but it’s empty. The key thing to note is that the glass (the note value) is the same in both cases. A quarter note means we play a note that lasts for one beat, and a quarter note rest means we <em>don’t</em> play anything for the duration of one beat.</p>
+
+    <p>Let’s take a listen to an example:</p>
 
-[eighth note]
+    {% comment %} <p>[qn, qn, qnr, qn]</p> {% endcomment %}
+
+    <p>There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.</p>
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-As well as having a head and stem, it also has a flag (the ‘flick’ that comes off the end of the stem).
+<section id="bars_time_sigs" sidebar="sb-bars_time_sigs" class="learn-section hidden">
+    <h2>Bars & time signatures</h2>
+    <p>Now that we understand some note values, it’s time to start stringing them together into musical phrases. To do that though, we’ll need to know about <em>bars and time signatures</em>.</p>
 
-When there are two eighth notes next to each other, their flags turn into a beam — a horizontal line that connects them:
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-[two eighth notes]
+<section id="bars" sidebar="sb-bars" class="learn-section hidden">
+    <h2>Bars</h2>
+    <p>Music is arranged into bars, which are essentially groupings of notes. Bars help give music structure — to use an analogy to regular language, each bar is like a musical sentence.</p>
 
-The beam has no special significance, its only purpose is to group eighth notes together visually to make the music easier to read.
+    <p>Remember when we counted <em>“1… 2… 3… 4… 1… 2… 3… 4…”</em> along to Billie Jean? In doing so we were grouping the notes into bars — each group of 4 quarter notes that we counted was a bar.</p>
 
-Eighth notes last for half a beat each — half as long as quarter notes. We can visualise this by representing these notes as coloured blocks. Notice that two eighth notes take up the same amount of space (which represents the same amount of time) as a single quarter note.
+    <p>If you count along to Billie Jean again, you’ll notice that the bassline comes in after two lots of four — after <em>two bars</em>. You’ll then hear a string part come in after a further eight bars, before the vocal comes in four bars after that — this is how bars provide musical structure.</p>
 
-<-- 1 beat -->
-[quarter note block]
-[eight note blocks]
+    <p>So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of <em>barlines</em>. A barline is just a vertical line that represents a boundary between two bars; it looks like this:</p>
 
-So eighth notes are half the length quarter notes, but what do they sound like? Let’s go back to Billie Jean. After the drum intro (through which we were counting quarter notes), the bass comes in. The bassline goes up and down in pitch throughout, but every single note it plays is an eighth note. If you listen closely, you’ll notice that there are two bass notes being played for every beat that you hear on the drums.
+    {% comment %} <p>[‘Notes go here’ labels & arrows] [stave with barline] [‘barline’ label]</p> {% endcomment %}
 
-Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.
+    <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <em>“1… 2… 3… 4… 1… 2… 3… 4..”</em>, not <em>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</em>.</p>
 
-[blocks]
-[stave & play button]
+    <p>But why were we counting to 4 during Billie Jean? Why not 6? Why not 19? This is where the time signature comes in…</p>
 
-Now we know what they sound like, we need some kind of label for them so we can count them. We simply add the word ‘and’, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-1 2 3 4
-[quarter note blocks]
-1 + 2 + 3 + 4 +
-[eighth note blocks]
+<section id="time_signatures" sidebar="sb-time_signatures" class="learn-section hidden">
+    <h2>Time signatures</h2>
+    <p>A time signature is responsible for telling you how long each bar needs to be — it tells you which number to count up to, before starting again from 1. This is where the structure of music comes from — notes are grouped into bars, and each bar needs to meet the duration established by the time signature.</p>
 
-Notice that the beat numbers are aligned with the longer quarter notes above. This is because the rate of the pulse has not changed when we play eighth notes, we are just playing an extra note in between each pulse.
+    <p>Here’s what three different time signatures look like:</p>
 
-Great, now we understand quarter notes and eighth notes. Let’s learn another note value.
-Sixteenth notes
-If you managed to get your head around eighth notes, understanding sixteenth notes (also known as semi-quavers) will be much easier. This is because the process is the same — to get from quarter notes to eighth notes, we took each quarter note and halved it; now to get from eighth notes to sixteenth notes, we will take each eighth note and half it again.
+    {% comment %} <p>[4/4, 5/4, 6/8]</p> {% endcomment %}
 
-First things first, here is what a sixteenth note looks like:
+    <p>As you can see, they look a lot like fractions — they have a top number and a bottom number. They are not pronounced like fractions though. It’s not ‘four quarters’, ‘five quarters’, and ‘six eighths’, it’s ‘four-four’, ‘five-four’, and ‘six-eight’.</p>
 
-[sixteenth note]
+    <p>Let’s dive into what the numbers mean, beginning with the bottom number.</p>
 
-Notice that this time, the note has two flags. This is what tells you a note’s value — no flag means quarter note, one flag means eighth note, and two flags means sixteenth note. Much like eighth notes, when we have multiple sixteenth notes their flags connect to form two beams between the notes:
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-[beamed sixteenths]
+<section id="bottom_number" sidebar="sb-bottom_number" class="learn-section hidden">
+    <h2>The bottom number</h2>
+    <p>The bottom number represents a note value — a 4 represents a quarter note, 8 represents an eighth note and 16 represents a 16th note. That alone doesn’t tell us much about how long the bar should be though. For that, we also need a top number.</p>
+    
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:
+<section id="top_number" sidebar="sb-top_number" class="learn-section hidden">
+    <h2>The top number</h2>
+    <p>The top number is simple, it’s just a quantity. It tells you how many of the type of note established by the bottom number should fit into a bar. So both numbers together tell us how long the bar should be — the time signature is essentially saying <em>“the bar should be as long as *this many* of *that type* of note”</em>.</p>
 
-1 2 3 4
-[quarter note blocks]
-1 + 2 + 3 + 4 +
-[eighth note blocks]
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between 1 and +, between + and 2, between 2 and +, and so on…
+<section id="four-four" sidebar="sb-four-four" class="learn-section hidden">
+    <h2>4/4</h2>
+    <p>Let’s look at some examples to bring this all together. The most popular time signature in western music, by far, is 4/4. So what does this mean? It means that the bar should be the duration of four (top number) quarter notes (bottom number).</p>
 
-1 2 3 4
-[quarter note blocks]
-1 + 2 + 3 + 4 +
-[eighth note blocks]
-[sixteenth note blocks]
+    <p>Notice the language being used here — there is a subtle, yet significant difference between saying that a bar should be <em>‘the duration of’</em> four quarter notes, and saying that a bar should <em>‘be’</em> four quarter notes.</p>
 
-And how do we label these extra notes we just created? Typically, we use the vowel sounds ‘e’ and ‘a’ (pronounced like “he” and “ha”, without the ‘h’). There is no right or wrong way to count different note values, and the way we count them sometimes changes depending on the musical context (more on that later), but using these labels is what most musicians tend to opt for.
+    <p><em>‘The duration of’</em> four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should <em>‘be’</em> four quarter notes means, well, that the bar should <em>actually be</em> four quarter notes — far less exciting.</p>
 
-Let’s add these labels to our note blocks:
+    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar is four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with different time signatures.</p>
 
-1 2 3 4
-[quarter note blocks]
-1 + 2 + 3 + 4 +
-[eighth note blocks]
-1e+a...
-[sixteenth note blocks]
+    <p>We can make up a 4/4 bar with four quarter notes, like this:</p>
 
-As before, the beat numbers and the + ‘ands’ align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.
+    {% comment %} <p>[qn qn qn qn]</p> {% endcomment %}
 
-Great, so what do sixteenth notes sound like? Listen to the start of Edge of Seventeen, by Stevie Nicks (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an accent) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the ‘1… 2… 3… 4…’ — and playing the rest of the sixteenth notes around the pulse ‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’.
+    <p>Or with eight eighth notes, like this:</p>
 
-Try counting along to Edge of Seventeen — the beat numbers ‘1… 2… 3… 4…’ go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.
+    {% comment %} <p>[8n 8n 8n 8n 8n 8n 8n 8n]</p> {% endcomment %}
 
-And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear two quarter notes, followed by four eighth notes, followed by eight sixteenth notes — that’s two full beats’ worth of each note value:
+    <p>Or with sixteen sixteenth notes, like this:</p>
 
-[blocks]
-[notation & playback]
+    {% comment %} <p>[16n..]</p> {% endcomment %}
 
-Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.
+    <p>We can even mix and match notes as much as we want:</p>
 
-Dotted notes
-The dreaded dot. Dotted notes often cause a lot of confusion among new learners, but with the help of our note value blocks it should be easy to understand what’s going on.
+    {% comment %} <p>[simple mixed note value bar]</p> {% endcomment %}
 
-What’s a dotted note? A dotted note is just a regular note but with a dot next to it — here’s a dotted quarter note:
+    <p>The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.</p>
+    
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-[dotted quarter note]
+<section id="five_four" sidebar="sb-five_four" class="learn-section hidden">
+    <h2>5/4</h2>
+    <p>Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes. Some example songs are <a href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
 
-But what does the dot do? Here’s where it can get a little confusing. The dot extends a note’s duration by half of its original value. You can think of it as multiplying a note’s duration by 1.5 when you attach a dot to it.
+    <p>These might be a little tricky, as 5/4 is not a common time signature, but see if you can count the five quarter notes in each bar as you listen.</p>
 
-Let’s see what this looks like using our note value blocks. Here’s a quarter note compared to a dotted quarter note.
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-[quarter note block]
-[dotted quarter note block]
+<section id="compound" sidebar="sb-compound" class="learn-section hidden">
+    <h2>Compound time signatures</h2>
+    <p>It’s time to enter the confusing world of <em>compound time</em>. So far, our beats — the pulses that we feel and hear in music — have been nicely delineated by regular quarter notes. When we encounter compound time signatures, that is no longer the case.</p>
 
-In the case of a quarter note, when we append a dot to it (multiply it by 1.5) we are adding half a beat to it. This is because a quarter note is one beat long, and one beat multiplied by 1.5 is one and a half beats. Here’s what this process looks like:
+    <p>So what does compound time actually mean? It is when the beats of the music take the value of a dotted quarter note instead of a regular quarter note.</p>
 
-[quarter note block] = 1 beat
-[quarter note block with halfway line] = 0.5 beats, 0.5 beats
-[quarter note block plus half quarter note block] = 1 beat + 0.5 beats
-[dotted quarter note block] = 1.5 beats
+    <p>To understand this, let’s try to unravel the differences between two commonly confused time signares — ¾ and 6/8.</p>
 
-What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-[eighth note block]
-[dotted eighth note block]
+<section id="three_four_six_eight" sidebar="sb-three_four_six_eight" class="learn-section hidden">
+    <h2>3/4 vs 6/8</h2>
+    <p>I know what you’re thinking — ¾ and 6/8? Surely they’re the same thing, right? Well, no… remember, time signatures are not fractions. There is one key difference between the two, being that 6/8 is a compound time signature.</p>
 
-As with the dotted quarter note we looked at, you can see that the dotted eighth note’s duration is 1.5 times as long as its undotted version. Let’s go through the steps:
+    <p>Let’s dig into the similarities first — a bar of ¾ and a bar of 6/8 are the same length. Let’s break that down. A ¾ bar must be the duration of three quarter notes, while a 6/8 bar must be the duration of six eighth notes. Let’s compare these visually using our note blocks:</p>
 
-[eighth note block] = 0.5 beats
-[eighth note block with halfway line] = 0.25 beats, 0.25 beats
-[eighth note block plus half eighth note block] = 0.5 beats + 0.25 beats
-[dotted eighth note block] = 0.75 beats
+    {% comment %} <p>[¾ note blocks] [6/8 note blocks]</p> {% endcomment %}
 
-Here you can see that a dotted eighth note becomes three quarters (0.75) of a beat long. That’s because a regular eighth note is half (0.5) a beat long, which becomes three quarters (0.75) of a beat when multiplied by 1.5.
+    <p>See? The same length. Remember, two eighth notes are the same duration as one quarter note, so six eighth notes are the same duration as three quarter notes.</p>
 
-Thankfully, these note values quickly become intuitive as you gain experience hearing and playing them — musicians are not performing mathematical calculations on the fly as they play their instruments. You can add a dot to any note value, and the process always remains the same — the original note’s duration is multiplied by 1.5, creating a new, longer note.
+    <p>Where they differ is in how these notes are grouped. As previously mentioned, 6/8 is a compound time signature while ¾ is not. This means that when a bar is in 6/8 time, we feel the beats as dotted quarter notes instead of regular quarter notes, so let’s use note blocks to show how long each beat is</p>
 
-But why do we need dotted notes in the first place? Why go through the complication of interpolating arithmetic into music? Well, what if you wanted to play a note that is longer than an eighth note, but not as long as a quarter note? Then you need a dotted eighth note. Dotted notes allow for finer increments between note values.
+    {% comment %} <p>[¾ quarter notes (beats)] [¾ quarter notes] [6/8 dotted quarter notes (beats)] [six eighth notes]</p> {% endcomment %}
 
-So what do dotted notes actually sound like? This will be a little trickier to understand, as dotted notes fundamentally sound more fragmented than regular notes bacause they break the pulse up in weird ways. Here is an example nonetheless, the chorus of Birthday, by Kings of Leon (timestamped) — a stream of dotted eighth notes can be heard being played on the bass drum (the low, thuddy drum sound) until the end of the chorus.
+    <p>The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as <em>“1… 2… 3… 1… 2… 3…”</em>. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.</p>
 
-You can hear that they sound somewhat tense, almost like they’re going against the overall pulse and creating their own pulse, but they never sound out of time. Dotted notes can be used to create very interesting musical phrases.
+    <p>The 6/8 bar though now has two dotted quarter note beats. This is because it <em>is</em> a compound time signature, meaning that each beat is a dotted quarter note long. If you remember what we looked at in the chapter on dotted notes, you’ll know that a dotted quarter note is one and a half beats long — that’s the same duration as three eighth notes!</p>
 
-Another example of dotted eight notes, on vocals this time — the verses of Listen to Your Friends by Airways. You can hear a similar kind of tension being created against the steady pulse being played on the drums.
+    <p>This means that we <em>feel</em> a bar of 6/8 as two groups of three eighth notes — two beats, each the duration of three eighth notes. Earlier, we talked about how we count eighth notes with <em>‘and’</em>s in between the beat numbers. There was also mention about this not being the case in some musical contexts — that was referring to when we’re in compound time.</p>
 
-What about dotted quarter notes? They can be heard in the vocals of Livin La Vida Loca, by Ricky Martin during the chorus (timestamped) (brace yourself for an excessive dose of 2000’s fashion if you click on that link). Listen to the phrasing of the lines “upside, inside out”, “push and pull you down”, “lips are devil red”, and “she will wear you out”.
+    <p>When counting 6/8, it’s most common to simply count each eighth note as a number — <em>“1… 2… 3… 4… 5… 6… 1… 2… 3… 4… 5… 6…”</em>. If we were counting with <em>‘and’</em> instead, it would make it seem like we’re in ¾, which we’re not — <em>“1 + 2 + 3 + 1 + 2 + 3 +...”</em>.</p>
 
-It might be difficult to intuitively understand the value of the dotted notes while listening to these examples, but that will come with time as long as you understand the underlying logic.
-Rests
-Now that we have the fundamental note values down, it’s time to take a look at rests. Rests are easy to understand, they are just blank versions of the note values we already know. Here is what a quarter note rest, and eighth note rest, and a sixteenth note rest look like:
+    <p>Although it’s far less common, you could also choose to only count the two dotted quarter note beats of a 6/8 bar, and let the eighth notes go uncounted — <em>“1……… 2……… 1……… 2………”</em>. However, counting all the eighth notes up to six is usually the better, clearer option.</p>
 
-[rests]
+    <p>Enough talking, let’s listen to some examples to understand the difference.</p>
 
-We can also have dotted rests:
+    <p>An easily recognisable example of 6/8 is <a href="https://www.youtube.com/watch?v=7VBex8zbDRs" target="_blank">Gravity, by John Mayer</a>. It’s easy to pick out the six eighth notes being played on the hi hat (the crisp cymbal sound). Try counting along, it should sound like this:</p>
 
-[dotted rests]
+    {% comment %} <p>[audio]</p> {% endcomment %}
 
-We can think of a rest as an empty glass — for example, a quarter note is like a tall glass full of water, and a quarter note rest is the same glass but it’s empty. The key thing to note is that the glass (the note value) is the same in both cases. A quarter note means we play a note that lasts for one beat, and a quarter note rest means we don’t play anything for the duration of one beat.
+    <p>You could also count only the dotted quarter note beats, which are being played on the bass drum and snare drum. It should sound like this:</p>
 
-Let’s take a listen to an example:
+    {% comment %} <p>[audio]</p> {% endcomment %}
 
-[qn, qn, qnr, qn]
+    <p>Another example of 6/8 is <a href="https://www.youtube.com/watch?v=Ju8Hr50Ckwk" target="_blank">If I Ain’t Got You, by Alicia Keys</a> — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.</p>
 
-There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.
-Bars & time signatures
-Now that we understand some note values, it’s time to start stringing them together into musical phrases. To do that though, we’ll need to know about bars and time signatures.
+    <p>6/8 is the second most common time signature heard in western music after 4/4, it’s probable that you’ve heard it before. ¾ on the other hand, is less common so it’s difficult to find clear examples.</p>
 
-Bars
-Music is arranged into bars, which are essentially groupings of notes. Bars help give music structure — to use an analogy to regular language, each bar is like a musical sentence.
+    <p>¾ is most often used in waltz music, and when used in pop music it often ends up sounding very much like 6/8.</p>
 
-Remember when we counted “1… 2… 3… 4… 1… 2… 3… 4…” along to Billie Jean? In doing so we were grouping the notes into bars — each group of 4 quarter notes that we counted was a bar.
+    <p>A good example, however, is <a href="https://www.youtube.com/watch?v=2KEsC1Jt2Y8" taget="_blank">The Good In Me, by Jon Belliam</a>. The first thing you’ll hear is actually <em>“1… 2… 3… 1… 2… 3…”</em> — two bars of ¾ being counted. Try to keep counting after these two initial bars so you can identify what ¾ sounds like once the rest of the music starts.</p>
 
-If you count along to Billie Jean again, you’ll notice that the bassline comes in after two lots of four — after two bars. You’ll then hear a string part come in after a further eight bars, before the vocal comes in four bars after that — this is how bars provide musical structure.
+    <p>It’s somewhat similar to 6/8, but I hope you can hear the difference between the three distinct beats of ¾ vs the two dotted quarter note pulses of 6/8.</p>
 
-So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of barlines. A barline is just a vertical line that represents a boundary between two bars; it looks like this:
+    <p>A slightly trickier example is <a href="https://www.youtube.com/watch?v=RvcgaAqWYN4" target="_blank">Crappy Love Song, by Theo Katzman</a>. It’s slightly trickier because this song changes between ¾ and 4/4 every other bar. You can try counting along like this <em>“1… 2… 3… 1… 2… 3… 4… 1… 2… 3… 1… 2… 3… 4…”</em>.</p>
 
-[‘Notes go here’ labels & arrows]
-[stave with barline]
-[‘barline’ label]
+    <p>One final, more difficult example of ¾ is <a href="https://www.youtube.com/watch?v=Cx3QmqV2pHg" target="_blank">She’s Always a Woman, by Billy Joel</a>. This one is more difficult because there aren’t any drums to give it away, and because it feels close to 6/8 during the choruses. See if you can identify the bars and count along.</p>
 
-If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count “1… 2… 3… 4… 1… 2… 3… 4..”, not “1… 2… 3… 4… [pause]... 1… 2… 3… 4…”.
+    <p>Now that we understand how time signatures work, we’re almost at the end. There are just a few more bits to look at to polish everything off...</p>
 
-But why were we counting to 4 during Billie Jean? Why not 6? Why not 19? This is where the time signature comes in…
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Time signatures
-A time signature is responsible for telling you how long each bar needs to be — it tells you which number to count up to, before starting again from 1. This is where the structure of music comes from — notes are grouped into bars, and each bar needs to meet the duration established by the time signature.
+<section id="tempo" sidebar="sb-tempo" class="learn-section hidden">
+    <h2>Tempo</h2>
 
-Here’s what three different time signatures look like:
+    <p>You’ve probably noticed that not every song is the same speed — there are fast songs, and there are slow songs. We call this <em>tempo</em>. Tempo is measured in <em>beats per minute</em>, or <em>BPM</em> for short. Beats per minute means just what it sounds like — how many musical beats fit into one minute of standard time.</p>
 
-[4/4, 5/4, 6/8]
+    <p>You may have experienced some confusion in previous sections when learning about note values — <em>“That’s great, a quarter note is one beat long. But how long is one beat??”</em>.</p>
 
-As you can see, they look a lot like fractions — they have a top number and a bottom number. They are not pronounced like fractions though. It’s not ‘four quarters’, ‘five quarters’, and ‘six eighths’, it’s ‘four-four’, ‘five-four’, and ‘six-eight’.
+    <p>There’s a reason this hasn’t been addressed until now, and that’s because a beat is a <em>relative</em> unit of time. That means that its actual duration can change, and that depends on how fast the tempo is. So a regular quarter note is always one beat long, but the duration of a beat changes depending on how many beats fit into one minute (how high the BPM is).</p>
 
-Let’s dive into what the numbers mean, beginning with the bottom number.
+    <p>Let’s use 60BPM as an example. If we have 60 beats in one minute, that means each beat must be one second long since there are 60 seconds in a minute. 60 beats divided by 60 seconds means 1 beat per second. If we double that to 120BPM, each beat is now only half a second — a higher BPM means a faster tempo.</p>
 
-The bottom number
-The bottom number represents a note value — a 4 represents a quarter note, 8 represents an eighth note and 16 represents a 16th note. That alone doesn’t tell us much about how long the bar should be though. For that, we also need a top number.
+    <p>But how do we know how many BPM we’re playing at? Do we time a minute and count the beats? Thankfully, we have a very helpful tool called a <em>metronome…</em></p>
 
-The top number
-The top number is simple, it’s just a quantity. It tells you how many of the type of note established by the bottom number should fit into a bar. So both numbers together tell us how long the bar should be — the time signature is essentially saying “the bar should be as long as *this many* of *that type* of note”.
-4/4
-Let’s look at some examples to bring this all together. The most popular time signature in western music, by far, is 4/4. So what does this mean? It means that the bar should be the duration of four (top number) quarter notes (bottom number).
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Notice the language being used here — there is a subtle, yet significant difference between saying that a bar should be ‘the duration of’ four quarter notes, and saying that a bar should ‘be’ four quarter notes.
+<section id="metronome" sidebar="sb-metronome" class="learn-section hidden">
+    <h2>Metronome</h2>
+    <p>A metronome is a musician’s best friend, or at least it should be.... Perhaps it’s best to say that it’s a disciplined musician’s best friend. Metronomes have a simple job — all they do is play a steady pulse. You can choose the BPM you want and the metronome will play a pulse at precisely that tempo. Try selecting a tempo using the slider below. When you click play, you’ll hear two 4/4 bars’ worth of clicks at your chosen tempo.</p>
 
-‘The duration of’ four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should ‘be’ four quarter notes means, well, that the bar should actually be four quarter notes — far less exciting.
+    {% comment %} <p>[metronome]</p> {% endcomment %}
 
-Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar is four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with different time signatures.
+    <p>We often refer to the metronome as the <em>click</em> because of the way it sounds.</p>
 
-We can make up a 4/4 bar with four quarter notes, like this:
+    <p>A metronome is very useful for musicians when they practise their instrument, as it is extremely unforgiving — it will reveal even tiny inconsistencies in a musician’s ability to keep steady time.</p>
 
-[qn qn qn qn]
+    <p>Quite often, as humans, we start playing faster when trying to do something particularly tricky like a fiddly guitar run or a complex drum fill. The worst part is that it’s very difficult to tell when we do it as we’re too caught up in trying to actually play the part. The metronome is there to highlight these events, and to give us the context of a steady pulse so that we can correct our inconsistencies.</p>
 
-Or with eight eighth notes, like this:
+    <p>With advancements in technology, metronomes have even started making their way onto the stage. It’s not at all uncommon for musicians to use a click when performing live. In fact, you’ve probably seen a live performance where the musicians were playing to a click and you didn’t realise. The performers would have been hearing the click in their in-ear monitors (special in-ear headphones for stage use) and playing along to it in order to keep steady time.</p>
 
-[8n 8n 8n 8n 8n 8n 8n 8n]
+    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--continue">Continue</button>
+</section>
 
-Or with sixteen sixteenth notes, like this:
+<section id="whats_next" sidebar="sb-whats_next" class="learn-section hidden">
+    <h2>What's next?</h2>
+    <p>Now that you know about note values and time signatures, you can try building your own musical phrases and listening to how they sound by going back to the home page.</p>
 
-[16n..]
+    <p>The Note Adder contains four different sections — first, you’ll find the note blocks that represent the three different note values we’ve looked at (you can also toggle these between regular and dotted notes).</p>
 
-We can even mix and match notes as much as we want:
+    <p>Below the note blocks, you’ll find a box that represents an empty bar. By default, the bar has a time signature of 4/4. You can drag the note blocks into this box to start building rhythmic phrases.</p>
 
-[simple mixed note value bar]
+    <p>Below the bar-box there is a stave. Here you’ll see the phrase you’re building translated into actual musical notation, with the note heads colour coded to match the note blocks above.</p>
 
-The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.
-5/4
-Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes. Some example songs are tolerate it by Taylor Swift, the beginning of the Mission Impossible Theme, and Lingus by Snarky Puppy (this one’s for the music nerds).
+    <p>Finally, at the bottom is the control panel. Here you can change the time signature, adjust the tempo and play back your rhythmic phrase once you have filled out the bar — you’ll hear a metronome for one bar, and then the phrase will play along to the metronome.</p>
 
-These might be a little tricky, as 5/4 is not a common time signature, but see if you can count the five quarter notes in each bar as you listen.
+    <p>That’s it! You’ve made it to the end. Go drag around some note blocks and build musical phrases. You can even try to figure out the phrases you hear in your favourite songs.</p>
 
-Compound time signatures
-It’s time to enter the confusing world of compound time. So far, our beats — the pulses that we feel and hear in music — have been nicely delineated by regular quarter notes. When we encounter compound time signatures, that is no longer the case.
+    <button class="btn btn--previous">Previous</button>
+</section>
 
-So what does compound time actually mean? It is when the beats of the music take the value of a dotted quarter note instead of a regular quarter note.
 
-To understand this, let’s try to unravel the differences between two commonly confused time signares — ¾ and 6/8.
-
-¾ vs 6/8
-I know what you’re thinking — ¾ and 6/8? Surely they’re the same thing, right? Well, no… remember, time signatures are not fractions. There is one key difference between the two, being that 6/8 is a compound time signature.
-
-Let’s dig into the similarities first — a bar of ¾ and a bar of 6/8 are the same length. Let’s break that down. A ¾ bar must be the duration of three quarter notes, while a 6/8 bar must be the duration of six eighth notes. Let’s compare these visually using our note blocks:
-
-[¾ note blocks]
-[6/8 note blocks]
-
-See? The same length. Remember, two eighth notes are the same duration as one quarter note, so six eighth notes are the same duration as three quarter notes.
-
-Where they differ is in how these notes are grouped. As previously mentioned, 6/8 is a compound time signature while ¾ is not. This means that when a bar is in 6/8 time, we feel the beats as dotted quarter notes instead of regular quarter notes, so let’s use note blocks to show how long each beat is
-
-[¾ quarter notes (beats)]
-[¾ quarter notes]
-[6/8 dotted quarter notes (beats)]
-[six eighth notes]
-
-The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as “1… 2… 3… 1… 2… 3…”. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.
-
-The 6/8 bar though now has two dotted quarter note beats. This is because it is a compound time signature, meaning that each beat is a dotted quarter note long. If you remember what we looked at in the chapter on dotted notes, you’ll know that a dotted quarter note is one and a half beats long — that’s the same duration as three eighth notes!
-
-This means that we feel a bar of 6/8 as two groups of three eighth notes — two beats, each the duration of three eighth notes. Earlier, we talked about how we count eighth notes with ‘and’s in between the beat numbers. There was also mention about this not being the case in some musical contexts — that was referring to when we’re in compound time.
-
-When counting 6/8, it’s most common to simply count each eighth note as a number — “1… 2… 3… 4… 5… 6… 1… 2… 3… 4… 5… 6…”. If we were counting with ‘and’ instead, it would make it seem like we’re in ¾, which we’re not — “1 + 2 + 3 + 1 + 2 + 3 +...”.
-
-Although it’s far less common, you could also choose to only count the two dotted quarter note beats of a 6/8 bar, and let the eighth notes go uncounted — “1……… 2……… 1……… 2………”. However, counting all the eighth notes up to six is usually the better, clearer option.
-
-Enough talking, let’s listen to some examples to understand the difference.
-
-An easily recognisable example of 6/8 is Gravity, by John Mayer. It’s easy to pick out the six eighth notes being played on the hi hat (the crisp cymbal sound). Try counting along, it should sound like this:
-
-[audio]
-
-You could also count only the dotted quarter note beats, which are being played on the bass drum and snare drum. It should sound like this:
-
-[audio]
-
-Another example of 6/8 is If I Ain’t Got You, by Alicia Keys — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.
-
-6/8 is the second most common time signature heard in western music after 4/4, it’s probable that you’ve heard it before. ¾ on the other hand, is less common so it’s difficult to find clear examples.
-
-¾ is most often used in waltz music, and when used in pop music it often ends up sounding very much like 6/8.
-
-A good example, however, is The Good In Me, by Jon Belliam. The first thing you’ll hear is actually “1… 2… 3… 1… 2… 3…” — two bars of ¾ being counted. Try to keep counting after these two initial bars so you can identify what ¾ sounds like once the rest of the music starts.
-
-It’s somewhat similar to 6/8, but I hope you can hear the difference between the three distinct beats of ¾ vs the two dotted quarter note pulses of 6/8.
-
-A slightly trickier example is Crappy Love Song, by Theo Katzman. It’s slightly trickier because this song changes between ¾ and 4/4 every other bar. You can try counting along like this “1… 2… 3… 1… 2… 3… 4… 1… 2… 3… 1… 2… 3… 4…”.
-
-One final, more difficult example of ¾ is She’s Always a Woman, by Billy Joel. This one is more difficult because there aren’t any drums to give it away, and because it feels close to 6/8 during the choruses. See if you can identify the bars and count along.
-
-Now that we understand how time signatures work, we’re almost at the end. There are just a few more bits to look at to polish everything off...
-Tempo
-You’ve probably noticed that not every song is the same speed — there are fast songs, and there are slow songs. We call this tempo. Tempo is measured in beats per minute, or BPM for short. Beats per minute means just what it sounds like — how many musical beats fit into one minute of standard time.
-
-You may have experienced some confusion in previous sections when learning about note values — “That’s great, a quarter note is one beat long. But how long is one beat??”.
-
-There’s a reason this hasn’t been addressed until now, and that’s because a beat is a relative unit of time. That means that its actual duration can change, and that depends on how fast the tempo is. So a regular quarter note is always one beat long, but the duration of a beat changes depending on how many beats fit into one minute (how high the BPM is).
-
-Let’s use 60BPM as an example. If we have 60 beats in one minute, that means each beat must be one second long since there are 60 seconds in a minute. 60 beats divided by 60 seconds means 1 beat per second. If we double that to 120BPM, each beat is now only half a second — a higher BPM means a faster tempo.
-
-But how do we know how many BPM we’re playing at? Do we time a minute and count the beats? Thankfully, we have a very helpful tool called a metronome…
-Metronome
-A metronome is a musician’s best friend, or at least it should be.... Perhaps it’s best to say that it’s a disciplined musician’s best friend. Metronomes have a simple job — all they do is play a steady pulse. You can choose the BPM you want and the metronome will play a pulse at precisely that tempo. Try selecting a tempo using the slider below. When you click play, you’ll hear two 4/4 bars’ worth of clicks at your chosen tempo.
-
-[metronome]
-
-We often refer to the metronome as the click because of the way it sounds.
-
-A metronome is very useful for musicians when they practise their instrument, as it is extremely unforgiving — it will reveal even tiny inconsistencies in a musician’s ability to keep steady time.
-
-Quite often, as humans, we start playing faster when trying to do something particularly tricky like a fiddly guitar run or a complex drum fill. The worst part is that it’s very difficult to tell when we do it as we’re too caught up in trying to actually play the part. The metronome is there to highlight these events, and to give us the context of a steady pulse so that we can correct our inconsistencies.
-
-With advancements in technology, metronomes have even started making their way onto the stage. It’s not at all uncommon for musicians to use a click when performing live. In fact, you’ve probably seen a live performance where the musicians were playing to a click and you didn’t realise. The performers would have been hearing the click in their in-ear monitors (special in-ear headphones for stage use) and playing along to it in order to keep steady time.
-What’s next?
-Now that you know about note values and time signatures, you can try building your own musical phrases and listening to how they sound by going back to the home page.
-
-The Note Adder contains four different sections — first, you’ll find the note blocks that represent the three different note values we’ve looked at (you can also toggle these between regular and dotted notes).
-
-Below the note blocks, you’ll find a box that represents an empty bar. By default, the bar has a time signature of 4/4. You can drag the note blocks into this box to start building rhythmic phrases.
-
-Below the bar-box there is a stave. Here you’ll see the phrase you’re building translated into actual musical notation, with the note heads colour coded to match the note blocks above.
-
-Finally, at the bottom is the control panel. Here you can change the time signature, adjust the tempo and play back your rhythmic phrase once you have filled out the bar — you’ll hear a metronome for one bar, and then the phrase will play along to the metronome.
-
-That’s it! You’ve made it to the end. Go drag around some note blocks and build musical phrases. You can even try to figure out the phrases you hear in your favourite songs.
+<script src="{% static '/js/learn.js' %}"></script>
 {% endblock content %}
