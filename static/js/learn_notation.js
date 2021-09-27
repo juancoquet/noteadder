@@ -15,6 +15,12 @@ prevBtns.forEach(btn => {
 const vf = Vex.Flow;
 
 
+// Dynamically generate stave, time sig and notes by parsing from HTML attrs.
+// To add notation, make a div with class "notation", a 'time-signature' attr, and 
+// add a 'notes' attr with comma-separated note values
+// eg <div time-signature="2/4" notes="q,8r,16,16,bl,qr.,8"' class="notation"></div>
+// 'r' means rest, '.' means dotted note, 'bl' means barline.
+
 function learnNotation() {
     let visibleSection = document.querySelector('.visible');
     let notationContainers = visibleSection.querySelectorAll('.notation');
@@ -47,16 +53,7 @@ function learnNotation() {
         let notes = [];
         if (notesToAdd[0] != "") {
             notesToAdd.forEach(note => {
-                let dotted = false;
-                if (note.endsWith('.')) {
-                    dotted = true;
-                    note = note.replace('.', '');
-                };
-                let toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: note});
-                if (dotted) {
-                    toAppend.addDotToAll();
-                };
-                notes.push(toAppend);
+                notes.push(parseNote(note));
             });
         }
             
@@ -84,4 +81,20 @@ function learnNotation() {
     });
 }
 
-// TODO: add barline (line 246 of learn.html) & labels
+function parseNote(note) {
+    let dotted = false;
+    if (note.endsWith('.')) {
+        dotted = true;
+        note = note.replace('.', '');
+    };
+    let toAppend;
+    if (note == 'bl') {
+        toAppend = new vf.BarNote();
+    } else {
+        toAppend = new vf.StaveNote({clef: 'percussion', keys: ['c/5'], duration: note});
+        if (dotted) {
+            toAppend.addDotToAll();
+        };
+    }
+    return toAppend;
+}

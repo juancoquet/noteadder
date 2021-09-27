@@ -64,24 +64,49 @@
 
     <p>Eighth notes last for half a beat each — half as long as quarter notes. We can visualise this by representing these notes as coloured blocks. Notice that two eighth notes take up the same amount of space (which represents the same amount of time) as a single quarter note.</p>
 
-    {% comment %} <-- 1 beat -->
-    [quarter note block]
-    [eight note blocks] {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+    </div>
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
 
     <p>So eighth notes are half the length quarter notes, but what do they sound like? Let’s go back to Billie Jean. After the drum intro (through which we were counting quarter notes), the bass comes in. The bassline goes up and down in pitch throughout, but every single note it plays is an eighth note. If you listen closely, you’ll notice that there are two bass notes being played for every beat that you hear on the drums.</p>
 
     <p>Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.</p>
 
-    {% comment %} [blocks]
-    [stave & play button] {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
     <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
+    {% comment %} play button {% endcomment %}
 
     <p>Now we know what they sound like, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
 
-    {% comment %} 1 2 3 4
-    [quarter note blocks]
-    1 + 2 + 3 + 4 +
-    [eighth note blocks] {% endcomment %}
+    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
 
     <p>Notice that the beat numbers are aligned with the longer quarter notes above. This is because the rate of the pulse has not changed when we play eighth notes, we are just playing an extra note in between each pulse.</p>
 
@@ -105,18 +130,63 @@
 
     <p>Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:</p>
 
-    {% comment %} 1 2 3 4
-    [quarter note blocks]
-    1 + 2 + 3 + 4 +
-    [eighth note blocks] {% endcomment %}
+    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
 
     <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <em>1</em> and <em>+</em>, between <em>+</em> and <em>2</em>, between <em>2</em> and <em>+</em>, and so on…</p>
 
-    {% comment %} 1 2 3 4
-    [quarter note blocks]
-    1 + 2 + 3 + 4 +
-    [eighth note blocks]
-    [sixteenth note blocks] {% endcomment %}
+    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
+    <div class="note-group">
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+    </div>
 
     <p>And how do we label these extra notes we just created? Typically, we use the vowel sounds <em>‘e’</em> and <em>‘a’</em> (pronounced like “he” and “ha”, without the ‘h’). There is no right or wrong way to count different note values, and the way we count them sometimes changes depending on the musical context (more on that later), but using these labels is what most musicians tend to opt for.</p>
 
@@ -243,7 +313,7 @@
     <p>So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of <em>barlines</em>. A barline is just a vertical line that represents a boundary between two bars; it looks like this:</p>
 
     {% comment %} <p>[‘Notes go here’ labels & arrows] [stave with barline] [‘barline’ label]</p> {% endcomment %}
-    <div id="notation-rests" time-signature="" notes=""class="notation"></div>
+    <div id="notation-barline" time-signature="" notes="q,q,bl,q,q" class="notation"></div>
 
     <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <em>“1… 2… 3… 4… 1… 2… 3… 4..”</em>, not <em>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</em>.</p>
 
@@ -296,8 +366,6 @@
 
     <p><em>‘The duration of’</em> four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should <em>‘be’</em> four quarter notes means, well, that the bar should <em>actually be</em> four quarter notes — far less exciting.</p>
 
-    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar <em>is</em> four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to the duration of four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with each other and with different time signatures.</p>
-
     <p>We can make up a 4/4 bar with four quarter notes, like this:</p>
 
     <div time-signature="4/4" notes="q,q,q,q" class="notation"></div>
@@ -315,6 +383,9 @@
     <div time-signature="4/4" notes="q,16,16,16,16,8,8,q" class="notation"></div>
 
     <p>The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.</p>
+
+    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar <em>is</em> four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to the duration of four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with each other and with different time signatures.</p>
+
     
     <button class="btn btn--previous">Previous</button>
     <button class="btn btn--continue">Continue</button>
@@ -322,7 +393,11 @@
 
 <section id="five_four" sidebar="sb-five_four" class="learn-section hidden">
     <h2>5/4</h2>
-    <p>Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes. Some example songs are <a href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
+    <p>Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes.</p>
+
+    <div time-signature="5/4" notes="q,q,q,q,q" class="notation"></div>
+    
+    <p>Some example songs are <a href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
 
     <p>These might be a little tricky, as 5/4 is not a common time signature, but see if you can count the five quarter notes in each bar as you listen.</p>
 
