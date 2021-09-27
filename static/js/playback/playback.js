@@ -118,7 +118,7 @@ function setMarkerHeights() {
     // notation marker
     let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
-    let staveTop = barline.getBoundingClientRect().top
+    let staveTop = barline.getBoundingClientRect().top;
     let markerHeight = marker.getBoundingClientRect().height;
     let difference = markerHeight - 44;
     marker.style.top = staveTop - (difference/2) + 'px';

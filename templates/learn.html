@@ -192,12 +192,43 @@
 
     <p>Let’s add these labels to our note blocks:</p>
 
-    {% comment %} 1 2 3 4
-    [quarter note blocks]
-    1 + 2 + 3 + 4 +
-    [eighth note blocks]
-    1e+a...
-    [sixteenth note blocks] {% endcomment %}
+    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
+    {% comment %} 1e+a... {% endcomment %}
+    <div class="note-group">
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+    </div>
 
     <p>As before, the beat numbers and the + <em>‘ands’</em> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
 
@@ -205,11 +236,23 @@
 
     <p>Try counting along to Edge of Seventeen — the beat numbers <em>‘1… 2… 3… 4…’</em> go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.</p>
 
-    <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear two quarter notes, followed by four eighth notes, followed by eight sixteenth notes — that’s two full beats’ worth of each note value:</p>
+    <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear one quarter note, followed by two eighth notes, followed by eight sixteenth notes — that’s one beat of quarter notes, one beat of eighth notes, and two full beats’ worth of sixteenth notes:</p>
 
-    {% comment %} [blocks]
-    [notation & playback] {% endcomment %}
-    <div id="notation-sixteenth_note_mix" time-signature="" notes="q,q,8,8,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">16</div>
+    </div>
+    <div id="notation-sixteenth_note_mix" time-signature="" notes="q,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
+    {% comment %} [playback] {% endcomment %}
 
     <p>Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.</p>
 
@@ -229,27 +272,47 @@
     
     <p>Let’s see what this looks like using our note value blocks. Here’s a quarter note compared to a dotted quarter note.</p>
     
-    {% comment %} <p>[quarter note block]</p>
-    <p>[dotted quarter note block]</p> {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+    </div>
+    <div class="note-group">
+        <div class="note-block quarter-note--dotted">4.</div>
+    </div>
     
     <p>In the case of a quarter note, when we append a dot to it (multiply it by 1.5) we are adding half a beat to it. This is because a quarter note is one beat long, and one beat multiplied by 1.5 is one and a half beats. Here’s what this process looks like:</p>
     
-    {% comment %} <p>[quarter note block] = 1 beat</p>
-    <p>[quarter note block with halfway line] = 0.5 beats, 0.5 beats</p>
-    <p>[quarter note block plus half quarter note block] = 1 beat + 0.5 beats</p>
-    <p>[dotted quarter note block] = 1.5 beats</p> {% endcomment %}
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div><p>= 1 beat</p>
+    </div>
+    <div class="note-group">
+        <div class="note-block quarter-note split-note">4</div><p>= 0.5 beats, 0.5 beats</p>
+        <div class="splitter"></div>
+    </div>
+    <div class="note-group">
+        <div class="note-block quarter-note--dotted">4</div><p>= 1 beat + 0.5 beats = 1.5 beats</p>
+    </div>
     
     <p>What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.</p>
     
-    {% comment %} <p>[eighth note block]</p>
-    <p>[dotted eighth note block]</p> {% endcomment %}
+     <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+    </div>
+    <div class="note-group">
+        <div class="note-block eighth-note--dotted">8.</div>
+    </div>
     
     <p>As with the dotted quarter note we looked at, you can see that the dotted eighth note’s duration is 1.5 times as long as its undotted version. Let’s go through the steps:</p>
     
-    {% comment %} <p>[eighth note block] = 0.5 beats</p>
-    <p>[eighth note block with halfway line] = 0.25 beats, 0.25 beats</p>
-    <p>[eighth note block plus half eighth note block] = 0.5 beats + 0.25 beats</p>
-    <p>[dotted eighth note block] = 0.75 beats</p> {% endcomment %}
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div><p>= 0.5 beats</p>
+    </div>
+    <div class="note-group">
+        <div class="note-block eighth-note split-note">8</div><p>= 0.25 beats, 0.25 beats</p>
+        <div class="splitter"></div>
+    </div>
+    <div class="note-group">
+        <div class="note-block eighth-note--dotted">8.</div><p>= 0.5 beats + 0.25 beats = 0.75 beats</p>
+    </div>
     
     <p>Here you can see that a dotted eighth note becomes three quarters (0.75) of a beat long. That’s because a regular eighth note is half (0.5) a beat long, which becomes three quarters (0.75) of a beat when multiplied by 1.5.</p>
     
@@ -286,8 +349,8 @@
 
     <p>Let’s take a listen to an example:</p>
 
-    {% comment %} <p>[qn, qn, qnr, qn]</p> {% endcomment %}
     <div id="notation-rest_phrase" time-signature="" notes="q,q,qr,q"class="notation"></div>
+    {% comment %} playback {% endcomment %}
 
     <p>There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.</p>
     <button class="btn btn--previous">Previous</button>
@@ -312,7 +375,6 @@
 
     <p>So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of <em>barlines</em>. A barline is just a vertical line that represents a boundary between two bars; it looks like this:</p>
 
-    {% comment %} <p>[‘Notes go here’ labels & arrows] [stave with barline] [‘barline’ label]</p> {% endcomment %}
     <div id="notation-barline" time-signature="" notes="q,q,bl,q,q" class="notation"></div>
 
     <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <em>“1… 2… 3… 4… 1… 2… 3… 4..”</em>, not <em>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</em>.</p>
@@ -329,7 +391,6 @@
 
     <p>Here’s what three different time signatures look like:</p>
 
-    {% comment %} <p>[4/4, 5/4, 6/8]</p> {% endcomment %}
     <div id="notation-44" time-signature="4/4" notes=""class="notation"></div>
     <div id="notation-54" time-signature="5/4" notes=""class="notation"></div>
     <div id="notation-68" time-signature="6/8" notes=""class="notation"></div>
@@ -423,13 +484,52 @@
 
     <p>Let’s dig into the similarities first — a bar of ¾ and a bar of 6/8 are the same length. Let’s break that down. A ¾ bar must be the duration of three quarter notes, while a 6/8 bar must be the duration of six eighth notes. Let’s compare these visually using our note blocks:</p>
 
-    {% comment %} <p>[¾ note blocks] [6/8 note blocks]</p> {% endcomment %}
+    <p>3/4 duration:</p>
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    <p>6/8 duration:</p>
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
 
     <p>See? The same length. Remember, two eighth notes are the same duration as one quarter note, so six eighth notes are the same duration as three quarter notes.</p>
 
-    <p>Where they differ is in how these notes are grouped. As previously mentioned, 6/8 is a compound time signature while ¾ is not. This means that when a bar is in 6/8 time, we feel the beats as dotted quarter notes instead of regular quarter notes, so let’s use note blocks to show how long each beat is</p>
+    <p>Where they differ is in how these notes are grouped. As previously mentioned, 6/8 is a compound time signature while ¾ is not. This means that when a bar is in 6/8 time, we feel the beats as dotted quarter notes instead of regular quarter notes, so let’s use note blocks to show how long each beat is:</p>
 
-    {% comment %} <p>[¾ quarter notes (beats)] [¾ quarter notes] [6/8 dotted quarter notes (beats)] [six eighth notes]</p> {% endcomment %}
+    <p>3/4 beats:</p>
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    <p>3/4 duration:</p>
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+    </div>
+    <p>6/8 beats:</p>
+    <div class="note-group">
+        <div class="note-block quarter-note--dotted">4.</div>
+        <div class="note-block quarter-note--dotted">4.</div>
+    </div>
+    <p>6/8 duration:</p>
+    <div class="note-group">
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
 
     <p>The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as <em>“1… 2… 3… 1… 2… 3…”</em>. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.</p>
 

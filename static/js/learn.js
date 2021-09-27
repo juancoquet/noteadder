@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', indexSections);
+window.addEventListener('resize', positionSplitter);
 
 const sections = document.querySelectorAll('.learn-section');
 const continueButtons = document.querySelectorAll('.btn--continue');
@@ -28,6 +29,8 @@ function continueSection() {
     let nextSection = document.querySelector('[index="' + nextIndex + '"]');
     nextSection.classList.remove('hidden');
     nextSection.classList.add('visible');
+    window.scrollTo(0, 0);
+    positionSplitter();
 }
 
 function prevSection() {
@@ -39,4 +42,38 @@ function prevSection() {
     let previousSection = document.querySelector('[index="' + prevIndex + '"]');
     previousSection.classList.remove('hidden');
     previousSection.classList.add('visible');
+    window.scrollTo(0, 0);
+    positionSplitter();
+}
+
+async function positionSplitter() {
+    let splitters = document.querySelectorAll('.splitter');
+    splitters.forEach(splitter => {
+        splitter.style.opacity = 0;
+    });
+    await sleep(0.01);  // wait 10ms for dom objecs to position properly
+    let i = 0;
+    let notes = document.querySelectorAll('.split-note');
+
+    splitters.forEach(splitter => {
+        splitter.style.opacity = 1;
+        let note = notes[i];
+        let noteBoundaries = note.getBoundingClientRect();
+        let noteTop = noteBoundaries.top;
+        let noteHeight = noteBoundaries.height;
+        let splitterHeight = splitter.getBoundingClientRect().height;
+        let difference = splitterHeight - noteHeight;
+        splitter.style.top = noteTop - (difference/2) + 'px';    
+    
+        let noteWidth = noteBoundaries.width;
+        let noteLeft = noteBoundaries.left;
+        splitter.style.left = noteLeft + (noteWidth / 2) + 'px';
+        i++;
+    })
+}
+
+function sleep(s) {
+    let ms = s * 1000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+    // call await sleep(s); inside an async fucntion to use.
 }

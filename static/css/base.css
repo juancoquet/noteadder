@@ -98,6 +98,16 @@ div {
     border-color: red;
 }
 
+.quarter-note--dotted {
+    width: 37.5%;
+    border-color: blue;
+}
+
+.eighth-note--dotted {
+    width: 18.75%;
+    border-color: purple;
+}
+
 .rest {
     opacity: 50%;
 }
@@ -122,16 +132,17 @@ div {
     max-width: 600px;
 }
 
+.playback-marker--bar,
 .playback-marker {
-    height: 80px;
+    height: 8rem;
     border-left: 2px solid green;
     position: absolute;
     opacity: 0;
 }
 
-.playback-marker--bar {
+.splitter {
     height: 8rem;
-    border-left: 2px solid green;
+    border-left: 2px dotted black;
     position: absolute;
     opacity: 0;
 }
