@@ -4,12 +4,16 @@ window.addEventListener('resize', learnNotation);
 
 const contBtns = document.querySelectorAll('.btn--continue');
 const prevBtns = document.querySelectorAll('.btn--previous');
+const tocItems = document.querySelectorAll('.toc__item');
 contBtns.forEach(btn => {
     btn.addEventListener('click', learnNotation);
 });
 prevBtns.forEach(btn => {
     btn.addEventListener('click', learnNotation);
 });
+tocItems.forEach(item => {
+    item.addEventListener('click', learnNotation);
+})
 
 
 const vf = Vex.Flow;

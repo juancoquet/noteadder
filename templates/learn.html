@@ -22,7 +22,7 @@
     <button class="btn btn--continue">Continue</button>
 </section>
 
-<section id"quarter_notes" sidebar="sb-quarter_notes" class="learn-section hidden">
+<section id="quarter_notes" sidebar="sb-quarter_notes" class="learn-section hidden">
     <h2>Quarter notes</h2>
         <p>We’ll begin with the most fundamental note value of them all — the <em>quarter note</em>. It looks like this:</p>
 
@@ -452,7 +452,7 @@
     <button class="btn btn--continue">Continue</button>
 </section>
 
-<section id="five_four" sidebar="sb-five_four" class="learn-section hidden">
+<section id="five-four" sidebar="sb-five_four" class="learn-section hidden">
     <h2>5/4</h2>
     <p>Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes.</p>
 
@@ -547,10 +547,6 @@
 
     {% comment %} <p>[audio]</p> {% endcomment %}
 
-    <p>You could also count only the dotted quarter note beats, which are being played on the bass drum and snare drum. It should sound like this:</p>
-
-    {% comment %} <p>[audio]</p> {% endcomment %}
-
     <p>Another example of 6/8 is <a href="https://www.youtube.com/watch?v=Ju8Hr50Ckwk" target="_blank">If I Ain’t Got You, by Alicia Keys</a> — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.</p>
 
     <p>6/8 is the second most common time signature heard in western music after 4/4, it’s probable that you’ve heard it before. ¾ on the other hand, is less common so it’s difficult to find clear examples.</p>
@@ -623,8 +619,46 @@
     <button class="btn btn--previous">Previous</button>
 </section>
 
+<ul class="toc">
+    <li class="toc__item" sb="introduction"><a href="#">Introduction</a></li>
+    <li class="toc__item" sb="note_values"><a href="#">Note values</a>
+        <ul class="toc toc__sub-list">
+            <li class="toc__item toc__sub-list__item" sb="quarter_notes"><a href="#">Quarter notes</a></li>
+            <li class="toc__item toc__sub-list__item" sb="eighth_notes"><a href="#">Eighth notes</a></li>
+            <li class="toc__item toc__sub-list__item" sb="sixteenth_notes"><a href="#">Sixteenth notes</a></li>
+            <li class="toc__item toc__sub-list__item" sb="dotted_notes"><a href="#">Dotted notes</a></li>
+            <li class="toc__item toc__sub-list__item" sb="rests"><a href="#">Rests</a></li>
+        </ul>
+    <li class="toc__item" sb="bars_time_sigs"><a href="#">Bars & time signatures</a>
+        <ul class="toc toc__sub-list">
+            <li class="toc__item toc__sub-list__item" sb="bars"><a href="#">Bars</a></li>
+            <li class="toc__item toc__sub-list__item" sb="time_signatures"><a href="#">Time signatures</a>
+                <ul class="toc toc__sub-list">
+                    <li class="toc__item toc__sub-list__item" sb="bottom_number"><a href="#">The bottom number</a></li>
+                    <li class="toc__item toc__sub-list__item" sb="top_number"><a href="#">The top number</a></li>
+                    <li class="toc__item toc__sub-list__item" sb="four-four"><a href="#">4/4</a></li>
+                    <li class="toc__item toc__sub-list__item" sb="five-four"><a href="#">5/4</a></li>
+                    <li class="toc__item toc__sub-list__item" sb="compound"><a href="#">Compound time signatures</a>
+                        <ul class="toc toc__sub-list">
+                            <li class="toc__item toc__sub-list__item" sb="three_four_six_eight"><a href="#">3/4 vs 6/8</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="toc__item" sb="tempo"><a href="#">Tempo</a>
+        <ul class="toc toc__sub-list">
+            <li class="toc__item toc__sub-list__item" sb="metronome"><a href="#">Metronome</a></li>
+        </ul>
+    </li>
+    <li class="toc__item" sb="whats_next"><a href="#">What's next?</a></li>
+    </li>
+</ul>
 
 <script src="{% static '/js/learn.js' %}"></script>
+<script src="{% static '/js/learn_toc.js' %}"></script>
 <script src="{% static '/js/shared_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/learn_notation_bundle.js' %}" type="module" defer></script>
+
 {% endblock content %}

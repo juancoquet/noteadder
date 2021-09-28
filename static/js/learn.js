@@ -4,6 +4,7 @@ window.addEventListener('resize', positionSplitter);
 const sections = document.querySelectorAll('.learn-section');
 const continueButtons = document.querySelectorAll('.btn--continue');
 const prevButtons = document.querySelectorAll('.btn--previous');
+const tocItems = document.querySelectorAll('.toc__item');
 
 continueButtons.forEach(btn => {
     btn.addEventListener('click', continueSection);
@@ -11,6 +12,10 @@ continueButtons.forEach(btn => {
 prevButtons.forEach(btn => {
     btn.addEventListener('click', prevSection);
 });
+tocItems.forEach(item => {
+    item.addEventListener('click', positionSplitter);
+})
+
 
 function indexSections() {
     let i = 0;
