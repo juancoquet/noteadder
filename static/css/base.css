@@ -184,24 +184,6 @@ div {
 
 
 
-/*---------------------------*\
-    #LEARN SECTION
-\*---------------------------*/
-
-.visible {
-    display: flex;
-    flex-direction: column;
-    pointer-events: all;
-}
-
-.hidden {
-    display: none;
-    pointer-events: none;
-}
-
-
-
-
 
 /*---------------------------*\
     #COUNT
@@ -322,4 +304,23 @@ div {
 
 .count__item--16 {
     grid-column: 16/17;
+}
+
+
+
+
+
+/*---------------------------*\
+    #HIDE UTILITY
+\*---------------------------*/
+
+.visible {
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+}
+
+.hidden {
+    display: none;
+    pointer-events: none;
 }

@@ -38,6 +38,8 @@ function timeSigPress() {
     togglePlayEnabled();        // defined in playback.js
     changeToneTimeSig();
     buildMetronome();
+
+    showCount();
 }
 
 function calculateBlockWidths() {
@@ -108,4 +110,14 @@ function toggleDotted() {
     }
     calculateBlockWidths();
     calculateAllowedNotes();
+}
+
+function showCount() {
+    let currentCount = document.querySelector('.count:not(.hidden)');
+    currentCount.classList.add('hidden');
+
+    let clickedSig = document.querySelector('.time-signature.pressed');
+    let clickedSigTopNum = clickedSig.getAttribute('top');
+    let toReveal = document.querySelector('.count--' + clickedSigTopNum);
+    toReveal.classList.remove('hidden');
 }
