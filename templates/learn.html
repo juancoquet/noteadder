@@ -72,31 +72,30 @@
         <div class="note-block eighth-note">8</div>
     </div>
 
-    <p>So eighth notes are half the length quarter notes, but what do they sound like? Let’s go back to Billie Jean. After the drum intro (through which we were counting quarter notes), the bass comes in. The bassline goes up and down in pitch throughout, but every single note it plays is an eighth note. If you listen closely, you’ll notice that there are two bass notes being played for every beat that you hear on the drums.</p>
+    <p>Now we know that eighth notes are half the length of quarter notes, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
 
-    <p>Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.</p>
-
-    <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+    <div class="count count--4">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">2</p>
+        <p class="count__item count__item--3">3</p>
+        <p class="count__item count__item--4">4</p>
     </div>
-    <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
-    {% comment %} play button {% endcomment %}
-
-    <p>Now we know what they sound like, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
-
-    {% comment %} 1 2 3 4 labels {% endcomment %}
     <div class="note-group">
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
     </div>
-    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="count count--8">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">+</p>
+        <p class="count__item count__item--3">2</p>
+        <p class="count__item count__item--4">+</p>
+        <p class="count__item count__item--5">3</p>
+        <p class="count__item count__item--6">+</p>
+        <p class="count__item count__item--7">4</p>
+        <p class="count__item count__item--8">+</p>
+    </div>
     <div class="note-group">
         <div class="note-block eighth-note">8</div>
         <div class="note-block eighth-note">8</div>
@@ -109,6 +108,31 @@
     </div>
 
     <p>Notice that the beat numbers are aligned with the longer quarter notes above. This is because the rate of the pulse has not changed when we play eighth notes, we are just playing an extra note in between each pulse.</p>
+
+    <p>So eighth notes are half the length quarter notes, but what do they sound like? Let’s go back to Billie Jean. After the drum intro (through which we were counting quarter notes), the bass comes in. The bassline goes up and down in pitch throughout, but every single note it plays is an eighth note. If you listen closely, you’ll notice that there are two bass notes being played for every beat that you hear on the drums.</p>
+
+    <p>Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.</p>
+
+    <div class="count count--8">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item--hidden count__item--2">+</p>
+        <p class="count__item count__item--3">2</p>
+        <p class="count__item--hidden count__item--4">+</p>
+        <p class="count__item count__item--5">3</p>
+        <p class="count__item count__item--6">+</p>
+        <p class="count__item count__item--7">4</p>
+        <p class="count__item count__item--8">+</p>
+    </div>
+    <div class="note-group">
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">4</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">8</div>
+    </div>
+    <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
+    {% comment %} play button {% endcomment %}
 
     <p>Great, now we understand quarter notes and eighth notes. Let’s learn another note value.</p>
 
@@ -130,14 +154,28 @@
 
     <p>Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:</p>
 
-    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="count count--4">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">2</p>
+        <p class="count__item count__item--3">3</p>
+        <p class="count__item count__item--4">4</p>
+    </div>
     <div class="note-group">
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
     </div>
-    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="count count--8">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">+</p>
+        <p class="count__item count__item--3">2</p>
+        <p class="count__item count__item--4">+</p>
+        <p class="count__item count__item--5">3</p>
+        <p class="count__item count__item--6">+</p>
+        <p class="count__item count__item--7">4</p>
+        <p class="count__item count__item--8">+</p>
+    </div>
     <div class="note-group">
         <div class="note-block eighth-note">8</div>
         <div class="note-block eighth-note">8</div>
@@ -151,14 +189,28 @@
 
     <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <em>1</em> and <em>+</em>, between <em>+</em> and <em>2</em>, between <em>2</em> and <em>+</em>, and so on…</p>
 
-    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="count count--4">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">2</p>
+        <p class="count__item count__item--3">3</p>
+        <p class="count__item count__item--4">4</p>
+    </div>
     <div class="note-group">
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
     </div>
-    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="count count--8">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">+</p>
+        <p class="count__item count__item--3">2</p>
+        <p class="count__item count__item--4">+</p>
+        <p class="count__item count__item--5">3</p>
+        <p class="count__item count__item--6">+</p>
+        <p class="count__item count__item--7">4</p>
+        <p class="count__item count__item--8">+</p>
+    </div>
     <div class="note-group">
         <div class="note-block eighth-note">8</div>
         <div class="note-block eighth-note">8</div>
@@ -192,14 +244,28 @@
 
     <p>Let’s add these labels to our note blocks:</p>
 
-    {% comment %} 1 2 3 4 labels {% endcomment %}
+    <div class="count count--4">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">2</p>
+        <p class="count__item count__item--3">3</p>
+        <p class="count__item count__item--4">4</p>
+    </div>
     <div class="note-group">
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
         <div class="note-block quarter-note">4</div>
     </div>
-    {% comment %} 1+2+3+4+ labels {% endcomment %}
+    <div class="count count--8">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">+</p>
+        <p class="count__item count__item--3">2</p>
+        <p class="count__item count__item--4">+</p>
+        <p class="count__item count__item--5">3</p>
+        <p class="count__item count__item--6">+</p>
+        <p class="count__item count__item--7">4</p>
+        <p class="count__item count__item--8">+</p>
+    </div>
     <div class="note-group">
         <div class="note-block eighth-note">8</div>
         <div class="note-block eighth-note">8</div>
@@ -210,7 +276,24 @@
         <div class="note-block eighth-note">8</div>
         <div class="note-block eighth-note">8</div>
     </div>
-    {% comment %} 1e+a... {% endcomment %}
+    <div class="count count--16">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item count__item--2">e</p>
+        <p class="count__item count__item--3">+</p>
+        <p class="count__item count__item--4">a</p>
+        <p class="count__item count__item--5">2</p>
+        <p class="count__item count__item--6">e</p>
+        <p class="count__item count__item--7">+</p>
+        <p class="count__item count__item--8">a</p>
+        <p class="count__item count__item--9">3</p>
+        <p class="count__item count__item--10">e</p>
+        <p class="count__item count__item--11">+</p>
+        <p class="count__item count__item--12">a</p>
+        <p class="count__item count__item--13">4</p>
+        <p class="count__item count__item--14">e</p>
+        <p class="count__item count__item--15">+</p>
+        <p class="count__item count__item--16">a</p>
+    </div>
     <div class="note-group">
         <div class="note-block sixteenth-note">16</div>
         <div class="note-block sixteenth-note">16</div>
@@ -238,6 +321,24 @@
 
     <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear one quarter note, followed by two eighth notes, followed by eight sixteenth notes — that’s one beat of quarter notes, one beat of eighth notes, and two full beats’ worth of sixteenth notes:</p>
 
+    <div class="count count--16">
+        <p class="count__item count__item--1">1</p>
+        <p class="count__item--hidden count__item--2">e</p>
+        <p class="count__item--hidden count__item--3">+</p>
+        <p class="count__item--hidden count__item--4">a</p>
+        <p class="count__item count__item--5">2</p>
+        <p class="count__item--hidden count__item--6">e</p>
+        <p class="count__item count__item--7">+</p>
+        <p class="count__item--hidden count__item--8">a</p>
+        <p class="count__item count__item--9">3</p>
+        <p class="count__item count__item--10">e</p>
+        <p class="count__item count__item--11">+</p>
+        <p class="count__item count__item--12">a</p>
+        <p class="count__item count__item--13">4</p>
+        <p class="count__item count__item--14">e</p>
+        <p class="count__item count__item--15">+</p>
+        <p class="count__item count__item--16">a</p>
+    </div>
     <div class="note-group">
         <div class="note-block quarter-note">4</div>
         <div class="note-block eighth-note">8</div>
