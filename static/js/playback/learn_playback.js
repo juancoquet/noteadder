@@ -5,14 +5,17 @@ const tocItems = document.querySelectorAll('.toc__item');
 continueButtons.forEach(btn => {
     btn.addEventListener('click', eighthNotesMarkerHeights);
     btn.addEventListener('click', sixteenthNotesMarkerHeights);
+    btn.addEventListener('click', restMarkerHeights);
 });
 prevButtons.forEach(btn => {
     btn.addEventListener('click', eighthNotesMarkerHeights);
     btn.addEventListener('click', sixteenthNotesMarkerHeights);
+    btn.addEventListener('click', restMarkerHeights);
 });
 tocItems.forEach(item => {
     item.addEventListener('click', eighthNotesMarkerHeights);
     item.addEventListener('click', sixteenthNotesMarkerHeights);
+    item.addEventListener('click', restMarkerHeights);
 })
 
 
@@ -38,9 +41,6 @@ function playGravity() {
 
 
 // note playback ----------------------------------------------------
-
-const restPlayBtn = document.getElementById('play-rest');
-restPlayBtn.addEventListener('click', playRest);
 
 const synth = new Tone.Synth();
 synth.envelope.attack = 0.001;
@@ -254,6 +254,10 @@ async function animateSixteenthNoteBarMarker() {
 
 // rest example ----------------------------------------------------------------------------------------
 
+const restPlayBtn = document.getElementById('play-rest');
+restPlayBtn.addEventListener('click', playRest);
+restPlayBtn.addEventListener('click', showRestMarker);
+
 function playRest() {
     let notes = ['4n', '4n', '4n', '4n'];
     let velocities = [1, 1, 0, 1]
@@ -272,6 +276,53 @@ function playRest() {
     for (let i=0; i < notes.length; i++) {
         synth.triggerAttackRelease('E4', notes[i], startTimes[i], velocities[i]);
     }
+}
+
+function restMarkerHeights() {
+    window.scrollTo(0, 0);
+    // notation marker
+    let section = document.getElementById('rests');
+    let notation = document.getElementById('notation-rest_phrase');
+    let marker = section.querySelector('.playback-marker--notation');
+    let barline = notation.getElementsByTagName('path')[0];
+    let staveTop = barline.getBoundingClientRect().top;
+    let markerHeight = marker.getBoundingClientRect().height;
+    let difference = markerHeight - 44;
+    marker.style.top = staveTop - (difference/2) + 'px';
+}
+
+async function showRestMarker() {
+    let section = document.getElementById('rests');
+    let playButton = section.querySelector('.play');
+    playButton.classList.remove('play--active');
+    let marker = section.querySelector('.playback-marker--notation');
+    let notation = document.getElementById('notation-rest_phrase');
+    let drawnNotes = notation.querySelectorAll('.vf-note');
+    let notePositions = [];
+    drawnNotes.forEach(note => {
+        let boundaries = note.getBoundingClientRect();
+        notePositions.push(boundaries.left);
+    })
+    
+    let sleepVals = [0, 0.5, 0.5, 0.5];
+    
+    marker.style.opacity = 1;
+    for (let i = 0; i < sleepVals.length; i++) {
+        await sleep(sleepVals[i]);
+        marker.style.left = notePositions[i] - 4 + 'px';
+    }
+    await sleep(0.5);
+    resetRestMarker()
+    playButton.classList.add('play--active');
+}
+
+function resetRestMarker() {
+    let section = document.getElementById('rests');
+    let notation = document.getElementById('notation-rest_phrase');
+    let marker = section.querySelector('.playback-marker--notation');
+    let barline = notation.getElementsByTagName('path')[0];
+    marker.style.opacity = 0;
+    marker.style.left = barline.getBoundingClientRect().left + 'px';
 }
 
 
