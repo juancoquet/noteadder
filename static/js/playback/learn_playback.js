@@ -4,12 +4,15 @@ const tocItems = document.querySelectorAll('.toc__item');
 
 continueButtons.forEach(btn => {
     btn.addEventListener('click', eighthNotesMarkerHeights);
+    btn.addEventListener('click', sixteenthNotesMarkerHeights);
 });
 prevButtons.forEach(btn => {
     btn.addEventListener('click', eighthNotesMarkerHeights);
+    btn.addEventListener('click', sixteenthNotesMarkerHeights);
 });
 tocItems.forEach(item => {
     item.addEventListener('click', eighthNotesMarkerHeights);
+    item.addEventListener('click', sixteenthNotesMarkerHeights);
 })
 
 
@@ -36,9 +39,7 @@ function playGravity() {
 
 // note playback ----------------------------------------------------
 
-const sixteenthNoteMixPlayBtn = document.getElementById('play-sixteenth-note-mix');
 const restPlayBtn = document.getElementById('play-rest');
-sixteenthNoteMixPlayBtn.addEventListener('click', playSixteenthNoteMix);
 restPlayBtn.addEventListener('click', playRest);
 
 const synth = new Tone.Synth();
@@ -152,6 +153,12 @@ function resetEighthNoteMarker() {
 
 // sixteenth note mix example ------------------------------------------------------------------------
 
+const sixteenthNoteMixPlayBtn = document.getElementById('play-sixteenth-note-mix');
+sixteenthNoteMixPlayBtn.addEventListener('click', playSixteenthNoteMix);
+sixteenthNoteMixPlayBtn.addEventListener('click', showSixteenthNoteMarker);
+sixteenthNoteMixPlayBtn.addEventListener('click', animateSixteenthNoteBarMarker);
+
+
 function playSixteenthNoteMix() {
     let notes = ['4n', '8n', '8n', '16n', '16n', '16n', '16n', '16n', '16n', '16n', '16n'];
     let now = Tone.now()
@@ -171,6 +178,79 @@ function playSixteenthNoteMix() {
     }
 }
 
+function sixteenthNotesMarkerHeights() {
+    window.scrollTo(0, 0);
+    // notation marker
+    let section = document.getElementById('sixteenth_notes');
+    let notation = document.getElementById('notation-sixteenth_note_mix');
+    let marker = section.querySelector('.playback-marker--notation');
+    let barline = notation.getElementsByTagName('path')[0];
+    let staveTop = barline.getBoundingClientRect().top;
+    let markerHeight = marker.getBoundingClientRect().height;
+    let difference = markerHeight - 44;
+    marker.style.top = staveTop - (difference/2) + 'px';
+
+    // bar marker
+    marker = section.querySelector('.playback-marker--bar');
+    let example = section.querySelector('#sixteenth-notes-example');
+    let barBoundaries = example.getBoundingClientRect();
+    let barTop = barBoundaries.top;
+    let barHeight = barBoundaries.height;
+    markerHeight = marker.getBoundingClientRect().height;
+    difference = markerHeight - barHeight;
+    marker.style.top = barTop - (difference/2) + 'px';
+}
+
+async function showSixteenthNoteMarker() {
+    let section = document.getElementById('sixteenth_notes');
+    let playButton = section.querySelector('.play');
+    playButton.classList.remove('play--active');
+    let marker = section.querySelector('.playback-marker--notation');
+    let notation = document.getElementById('notation-sixteenth_note_mix');
+    let drawnNotes = notation.querySelectorAll('.vf-note');
+    let notePositions = [];
+    drawnNotes.forEach(note => {
+        let boundaries = note.getBoundingClientRect();
+        notePositions.push(boundaries.left);
+    })
+    
+    let sleepVals = [0, 0.5, 0.25, 0.25, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125];
+    
+    marker.style.opacity = 1;
+    for (let i = 0; i < sleepVals.length; i++) {
+        await sleep(sleepVals[i]);
+        marker.style.left = notePositions[i] - 4 + 'px';
+    }
+    await sleep(0.125);
+    resetSixteenthNoteMarker()
+    playButton.classList.add('play--active');
+}
+
+function resetSixteenthNoteMarker() {
+    let section = document.getElementById('sixteenth_notes');
+    let notation = document.getElementById('notation-sixteenth_note_mix');
+    let marker = section.querySelector('.playback-marker--notation');
+    let barline = notation.getElementsByTagName('path')[0];
+    marker.style.opacity = 0;
+    marker.style.left = barline.getBoundingClientRect().left + 'px';
+}
+
+async function animateSixteenthNoteBarMarker() {
+    let barDuration = 2
+    let section = document.getElementById('sixteenth_notes');
+    let marker = section.querySelector('.playback-marker--bar');
+    marker.style.opacity = 1;
+    let bar = section.querySelector('#sixteenth-notes-example');
+    let barBoundaries = bar.getBoundingClientRect();
+    marker.style.transition = `${barDuration}s linear`;
+    marker.style.transform = `translateX(${barBoundaries.width}px)`;
+    await sleep(barDuration);
+    marker.style.transition = '0s';
+    
+    // reset
+    marker.style.opacity = 0;
+    marker.style.transform = 'none';
+}
 
 // rest example ----------------------------------------------------------------------------------------
 
