@@ -28,7 +28,7 @@ function playMetronome () {
     let now = Tone.now();
     let startTimes = [now, ];
     let i = 0;
-    for (let note of metronomeNotes) {
+    for (let note of metronomeNotes) {      // metronomeNotes defined in time-signatures.js
         if (i === metronomeNotes.length-1) { break; };
         let duration = Tone.Time(bottom + 'n').toSeconds();
         let nextStart = startTimes[i] + duration;
@@ -72,7 +72,7 @@ function getNoteData() {
         velocities.push(+! block.classList.contains('rest')); // +! turns true=>0, false=>1
     };
 
-    now = Tone.now();
+    let now = Tone.now();
     let oneMeasure = Tone.Time('1m').toSeconds();
     let startTimes = [now + oneMeasure, ];
     

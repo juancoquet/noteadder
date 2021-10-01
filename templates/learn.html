@@ -40,7 +40,7 @@
 
         <p>It should sound like this:</p>
 
-        {% comment %} [voice/midi drums] {% endcomment %}
+        <button id="play-bj" class="play play--active">Play</button>
 
         <p>When you count each drum note like this, you are counting quarter notes. That’s simple enough, let’s take things up a gear.</p>
 
@@ -132,7 +132,7 @@
         <div class="note-block eighth-note">8</div>
     </div>
     <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
-    {% comment %} play button {% endcomment %}
+    <button id="play-eighth-note-mix" class="play play--active">Play</button>
 
     <p>Great, now we understand quarter notes and eighth notes. Let’s learn another note value.</p>
 
@@ -353,7 +353,8 @@
         <div class="note-block sixteenth-note">16</div>
     </div>
     <div id="notation-sixteenth_note_mix" time-signature="" notes="q,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
-    {% comment %} [playback] {% endcomment %}
+    
+    <button id="play-sixteenth-note-mix" class="play play--active">Play</button>
 
     <p>Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.</p>
 
@@ -451,7 +452,7 @@
     <p>Let’s take a listen to an example:</p>
 
     <div id="notation-rest_phrase" time-signature="" notes="q,q,qr,q"class="notation"></div>
-    {% comment %} playback {% endcomment %}
+    <button id="play-rest" class="play play--active">Play</button>
 
     <p>There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.</p>
     <button class="btn btn--previous">Previous</button>
@@ -646,7 +647,7 @@
 
     <p>An easily recognisable example of 6/8 is <a href="https://www.youtube.com/watch?v=7VBex8zbDRs" target="_blank">Gravity, by John Mayer</a>. It’s easy to pick out the six eighth notes being played on the hi hat (the crisp cymbal sound). Try counting along, it should sound like this:</p>
 
-    {% comment %} <p>[audio]</p> {% endcomment %}
+    <button id="play-gravity" class="play play--active">Play</button>
 
     <p>Another example of 6/8 is <a href="https://www.youtube.com/watch?v=Ju8Hr50Ckwk" target="_blank">If I Ain’t Got You, by Alicia Keys</a> — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.</p>
 
@@ -757,9 +758,12 @@
     </li>
 </ul>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
 <script src="{% static '/js/learn.js' %}"></script>
 <script src="{% static '/js/learn_toc.js' %}"></script>
 <script src="{% static '/js/shared_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/learn_notation_bundle.js' %}" type="module" defer></script>
+<script src="{% static '/js/playback/learn_playback.js' %}" type="module" defer></script>
+
 
 {% endblock content %}
