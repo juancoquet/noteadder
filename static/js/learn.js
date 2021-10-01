@@ -43,7 +43,7 @@ function prevSection() {
     let prevIndex = parseInt(parent.getAttribute('index')) - 1;
     parent.classList.remove('visible');
     parent.classList.add('hidden');
-
+    
     let previousSection = document.querySelector('[index="' + prevIndex + '"]');
     previousSection.classList.remove('hidden');
     previousSection.classList.add('visible');

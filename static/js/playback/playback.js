@@ -110,7 +110,7 @@ async function showNotationMarker() {
         marker.style.left = notePositions[i] - 4 + 'px';
     }
     await sleep(lastVal);
-    resetNotationMarker();
+    resetEighthNoteMarker();
 }
 
 function setMarkerHeights() {
@@ -134,7 +134,7 @@ function setMarkerHeights() {
     marker.style.top = barTop - (difference/2) + 'px';
 }
 
-function resetNotationMarker() {
+function resetEighthNoteMarker() {
     let marker = document.querySelector('.playback-marker--notation');
     let barline = document.getElementsByTagName('path')[0];
     marker.style.opacity = 0;
