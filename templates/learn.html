@@ -700,7 +700,9 @@
     <h2>Metronome</h2>
     <p>A metronome is a musician’s best friend, or at least it should be.... Perhaps it’s best to say that it’s a disciplined musician’s best friend. Metronomes have a simple job — all they do is play a steady pulse. You can choose the BPM you want and the metronome will play a pulse at precisely that tempo. Try selecting a tempo using the slider below. When you click play, you’ll hear two 4/4 bars’ worth of clicks at your chosen tempo.</p>
 
-    {% comment %} <p>[metronome]</p> {% endcomment %}
+    <div class="bpm-value">120</div>
+    <input type="range" min="70" max="180" value="120" class="bpm-slider">
+    <button id="play-metronome" class="play play--active">Play</button>
 
     <p>We often refer to the metronome as the <em>click</em> because of the way it sounds.</p>
 
@@ -774,6 +776,7 @@
 <script src="{% static '/js/shared_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/learn_notation_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/playback/learn_playback.js' %}" type="module" defer></script>
+<script src="{% static '/js/bpm.js' %}"></script>
 
 
 {% endblock content %}

@@ -326,6 +326,43 @@ function resetRestMarker() {
 }
 
 
+// metronome -------------------------------------------------------------------------------------------
+
+const metronomePlayBtn = document.getElementById('play-metronome');
+
+metronomePlayBtn.addEventListener('click', playMetronome);
+
+const click = new Tone.Sampler({
+    urls: {
+        "C5": "../static/js/playback/sounds/metronome-up.mp3",
+        "C4": "../static/js/playback/sounds/metronome.mp3",
+    },
+    release: 1,
+}).toDestination();
+
+async function playMetronome () {
+    let playBtn = document.getElementById('play-metronome');
+    playBtn.classList.remove('play--active');
+    let metronomeNotes = ['C5', 'C4', 'C4', 'C4', 'C5', 'C4', 'C4', 'C4',]
+    let now = Tone.now();
+    let startTimes = [now, ];
+    let i = 0;
+    for (let note of metronomeNotes) {
+        if (i === metronomeNotes.length-1) { break; };
+        let duration = Tone.Time('4n').toSeconds();
+        let nextStart = startTimes[i] + duration;
+        startTimes.push(nextStart);
+        i++;
+    }
+
+    for (let i = 0; i < metronomeNotes.length; i++) {
+        click.triggerAttackRelease(metronomeNotes[i], '4n', startTimes[i]);
+    }
+    let playbackDuration = Tone.Time('1m').toSeconds() * 2;
+    await sleep(playbackDuration);
+    playBtn.classList.add('play--active');
+};
+
 // utility ---------------------------------------------------------------------------------------------
 
 function sleep(s) {
