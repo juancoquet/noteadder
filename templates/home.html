@@ -64,6 +64,8 @@
   <div class="playback-marker playback-marker--notation"></div>
   <div class="playback-marker playback-marker--bar"></div>
 
+  <span id="help-button" class="material-icons">help_outline</span>
+
   <button class="time-signature" top="2" bottom="4" bottom-value="1" signature="2/4">2/4</button>
   <button class="time-signature" top="3" bottom="4" bottom-value="1" signature="3/4">3/4</button>
   <button class="time-signature pressed" top="4" bottom="4" bottom-value="1" signature="4/4">4/4</button>
@@ -78,6 +80,19 @@
 
   <button class="play">Play</button>
 
+
+  <div class="overlay overlay--help hidden">
+      <div id="help" class="card">
+            <span class="material-icons modal-close">highlight_off</span>
+            <h2>Help</h2>
+            <p>Note Adder helps you to visualise and understand musical note values.</p>
+            <p>The coloured blocks at the top represent quarter notes, eighth notes and sixteenth notes (and their respective rests). The box below the note blocks represents a bar of music which you can drag the note blocks into to create a musical phrase.</p>
+            <p>As you build a musical phrase using the note blocks, you'll see the notation updated in the stave below.</p>
+            <p>You can use the control panel at the bottom to play back the phrase, adjust the playback tempo and choose a different time signature.</p>
+            <p>If you are new to music, try going through the <a href="{% url 'learn' %}">learn section</a> to learn about rhythmic musical notation.</p>
+      </div>
+  </div>
+
   <script src="{% static '/js/drag.js' %}" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
   <script src="{% static '/js/time-signatures.js' %}" defer></script>
@@ -85,4 +100,5 @@
   <script src="{% static '/js/notation_bundle.js' %}" type="module" defer></script>
   <script src="{% static '/js/playback/playback.js' %}"></script>
   <script src="{% static '/js/bpm.js' %}"></script>
+  <script src="{% static '/js/modal.js' %}"></script>
 {% endblock content %}
