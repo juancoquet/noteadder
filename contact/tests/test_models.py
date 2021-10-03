@@ -5,8 +5,6 @@ from unittest.mock import patch
 
 from contact.models import Feedback, Contact
 
-User = get_user_model()
-
 
 @patch('contact.models.Feedback.send_notification')
 class FeedbackModelTest(TestCase):
@@ -43,44 +41,11 @@ class FeedbackModelTest(TestCase):
                 email='test@email.com'
             )
 
-    def test_authenticated_user_saves_to_object(self, mock_notification):
-        User.objects.create_user(
-            username='testuser',
-            day='01',
-            month='12',
-            year='1995',
-            dob='1995-12-01',
-            email='test@user.com',
-            password='testpass123'
-        )
-        user = User.objects.first()
-        Feedback.objects.create(
-            subject='Test feedback',
-            message='my feedback message',
-            email=None,
-            user=user
-        )
-        self.assertEqual(
-            Feedback.objects.first().user,
-            user
-        )
-
     def test_object_creation_sends_email(self, mock_notification):
-        User.objects.create_user(
-            username='testuser',
-            day='01',
-            month='12',
-            year='1995',
-            dob='1995-12-01',
-            email='test@user.com',
-            password='testpass123'
-        )
-        user = User.objects.first()
         Feedback.objects.create(
             subject='Test feedback',
             message='my feedback message',
             email='test@email.com',
-            user=user
         )
         self.assertTrue(mock_notification.called)
 
@@ -120,43 +85,10 @@ class ContactModelTest(TestCase):
                 email='test@email.com'
             )
 
-    def test_authenticated_user_saves_to_object(self, mock_notification):
-        User.objects.create_user(
-            username='testuser',
-            day='01',
-            month='12',
-            year='1995',
-            dob='1995-12-01',
-            email='test@user.com',
-            password='testpass123'
-        )
-        user = User.objects.first()
-        Contact.objects.create(
-            subject='Test contact',
-            message='my contact message',
-            email='test@user.com',
-            user=user
-        )
-        self.assertEqual(
-            Contact.objects.first().user,
-            user
-        )
-
     def test_object_creation_sends_email(self, mock_notification):
-        User.objects.create_user(
-            username='testuser',
-            day='01',
-            month='12',
-            year='1995',
-            dob='1995-12-01',
-            email='test@user.com',
-            password='testpass123'
-        )
-        user = User.objects.first()
         Contact.objects.create(
             subject='Test contact',
             message='my contact message',
             email='test@email.com',
-            user=user
         )
         self.assertTrue(mock_notification.called)
