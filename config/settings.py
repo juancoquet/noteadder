@@ -12,6 +12,24 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+from environs import Env
+
+env = Env()
+env.read_env()
+
+try:
+    from my_secrets import (
+        MY_EMAIL_HOST,
+        MY_EMAIL_HOST_USER,
+        MY_EMAIL_HOST_PASSWORD,
+        MY_EMAIL_PORT,
+    )
+except ModuleNotFoundError:
+    MY_EMAIL_HOST = env('MY_EMAIL_HOST')
+    MY_EMAIL_HOST_USER = env('MY_EMAIL_HOST_USER')
+    MY_EMAIL_HOST_PASSWORD = env('MY_EMAIL_HOST_PASSWORD')
+    MY_EMAIL_PORT = env.int('MY_EMAIL_PORT')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,13 +56,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'widget_tweaks',
+    'allauth',
+    'allauth.account',
     
     'note_adder',
     'learn',
     'contact',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,3 +158,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
+DEFAULT_FROM_EMAIL = 'noreply@noteadder.com'
+EMAIL_BACKEND = 'django.core.email.backends.smtp.EmailBackend'
