@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+
+    'widget_tweaks',
     
     'note_adder',
     'learn',
+    'contact',
 ]
 
 MIDDLEWARE = [
