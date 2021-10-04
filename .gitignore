@@ -6,6 +6,7 @@ my_secrets.py
 my_notes/
 docker-compose-prod.yml
 mysite.log
+design-idea.PNG
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

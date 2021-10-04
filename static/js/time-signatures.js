@@ -109,6 +109,7 @@ function toggleDotted() {
             block.setAttribute('tonejs-duration', newTonejsDuration);
         })
     }
+    replaceNotes();
     calculateBlockWidths();
     calculateAllowedNotes();
 }
@@ -117,6 +118,28 @@ function resetDotted() {
     let chBox = document.querySelector('.dot-toggle');
     chBox.checked = false;
 }
+
+function replaceNotes() {
+    let blocks = document.querySelectorAll('.note-block:not(.placed)');
+    let chBox = document.querySelector('.dot-toggle');
+    blocks.forEach(block => {
+        let note = block.querySelector('.block-note-label');
+        let src = note.getAttribute('src');
+        let filename = src.split("/").pop();
+        if (chBox.checked) {
+            let d_filename = "d_" + filename;
+            note.setAttribute('src', `/static/svg/${d_filename}`);
+            note.classList.add('dotted');
+        } else {
+            filename = filename.replace('d_', '');
+            note.setAttribute('src', `/static/svg/${filename}`);
+            note.classList.remove('dotted');
+        }
+    })
+}
+
+
+// counting labels
 
 function showCount() {
     let currentCount = document.querySelector('.count:not(.hidden)');

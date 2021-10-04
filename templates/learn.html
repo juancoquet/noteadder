@@ -65,11 +65,17 @@
     <p>Eighth notes last for half a beat each — half as long as quarter notes. We can visualise this by representing these notes as coloured blocks. Notice that two eighth notes take up the same amount of space (which represents the same amount of time) as a single quarter note.</p>
 
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>Now we know that eighth notes are half the length of quarter notes, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
@@ -81,10 +87,18 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="count count--8">
         <p class="count__item count__item--1">1</p>
@@ -97,14 +111,30 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>Notice that the beat numbers are aligned with the longer quarter notes above. This is because the rate of the pulse has not changed when we play eighth notes, we are just playing an extra note in between each pulse.</p>
@@ -124,12 +154,24 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div id="eighth-notes-example" class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
 
@@ -165,10 +207,18 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="count count--8">
         <p class="count__item count__item--1">1</p>
@@ -181,14 +231,30 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <em>1</em> and <em>+</em>, between <em>+</em> and <em>2</em>, between <em>2</em> and <em>+</em>, and so on…</p>
@@ -200,10 +266,18 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="count count--8">
         <p class="count__item count__item--1">1</p>
@@ -216,32 +290,80 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="note-group">
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>And how do we label these extra notes we just created? Typically, we use the vowel sounds <em>‘e’</em> and <em>‘a’</em> (pronounced like “he” and “ha”, without the ‘h’). There is no right or wrong way to count different note values, and the way we count them sometimes changes depending on the musical context (more on that later), but using these labels is what most musicians tend to opt for.</p>
@@ -255,10 +377,18 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="count count--8">
         <p class="count__item count__item--1">1</p>
@@ -271,14 +401,30 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="count count--16">
         <p class="count__item count__item--1">1</p>
@@ -299,22 +445,54 @@
         <p class="count__item count__item--16">a</p>
     </div>
     <div class="note-group">
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>As before, the beat numbers and the + <em>‘ands’</em> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
@@ -344,17 +522,39 @@
         <p class="count__item count__item--16">a</p>
     </div>
     <div id="sixteenth-notes-example" class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
-        <div class="note-block sixteenth-note">16</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block sixteenth-note">
+            <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div id="notation-sixteenth_note_mix" time-signature="" notes="q,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
     
@@ -382,45 +582,65 @@
     <p>Let’s see what this looks like using our note value blocks. Here’s a quarter note compared to a dotted quarter note.</p>
     
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">4.</div>
+        <div class="note-block quarter-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     
     <p>In the case of a quarter note, when we append a dot to it (multiply it by 1.5) we are adding half a beat to it. This is because a quarter note is one beat long, and one beat multiplied by 1.5 is one and a half beats. Here’s what this process looks like:</p>
     
     <div class="note-group">
-        <div class="note-block quarter-note">4</div><p>= 1 beat</p>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div><p>= 1 beat</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note split-note">4</div><p>= 0.5 beats, 0.5 beats</p>
+        <div class="note-block quarter-note split-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div><p>= 0.5 beats, 0.5 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">4</div><p>= 1 beat + 0.5 beats = 1.5 beats</p>
+        <div class="note-block quarter-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
+        </div><p>= 1 beat + 0.5 beats = 1.5 beats</p>
     </div>
     
     <p>What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.</p>
     
      <div class="note-group">
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note--dotted">8.</div>
+        <div class="note-block eighth-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
     
     <p>As with the dotted quarter note we looked at, you can see that the dotted eighth note’s duration is 1.5 times as long as its undotted version. Let’s go through the steps:</p>
     
     <div class="note-group">
-        <div class="note-block eighth-note">8</div><p>= 0.5 beats</p>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div><p>= 0.5 beats</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note split-note">8</div><p>= 0.25 beats, 0.25 beats</p>
+        <div class="note-block eighth-note split-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div><p>= 0.25 beats, 0.25 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note--dotted">8.</div><p>= 0.5 beats + 0.25 beats = 0.75 beats</p>
+        <div class="note-block eighth-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div><p>= 0.5 beats + 0.25 beats = 0.75 beats</p>
     </div>
     
     <p>Here you can see that a dotted eighth note becomes three quarters (0.75) of a beat long. That’s because a regular eighth note is half (0.5) a beat long, which becomes three quarters (0.75) of a beat when multiplied by 1.5.</p>
@@ -598,18 +818,36 @@
 
     <p>3/4 duration:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <p>6/8 duration:</p>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>See? The same length. Remember, two eighth notes are the same duration as one quarter note, so six eighth notes are the same duration as three quarter notes.</p>
@@ -618,29 +856,57 @@
 
     <p>3/4 beats:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <p>3/4 duration:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
-        <div class="note-block quarter-note">4</div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note">
+            <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <p>6/8 beats:</p>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">4.</div>
-        <div class="note-block quarter-note--dotted">4.</div>
+        <div class="note-block quarter-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block quarter-note--dotted">
+            <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
+        </div>
     </div>
     <p>6/8 duration:</p>
     <div class="note-group">
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
-        <div class="note-block eighth-note">8</div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
+        <div class="note-block eighth-note">
+            <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
+        </div>
     </div>
 
     <p>The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as <em>“1… 2… 3… 1… 2… 3…”</em>. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.</p>
