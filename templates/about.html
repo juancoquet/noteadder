@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>About</h1>
+  <p>Note Adder is a tool to help beginner musicians understand and build intuitions about note values and time signatures.</p>
+
+  <p>A common hurdle that many beginner musicians encounter is a difficulty understanding the durations of different note values, and how they can be combined to form musical phrases. They often struggle building intuitions about the particular start and end points of a note within a bar, as well as the rational relationships between different types of notes –– sometimes they might even understand the underlying mathematical relationships, but struggle to translate this understanding into how the notes should actually <em>sound</em>.</p>
+
+  <p>Note Adder solves this problem by representing musical notes in a visual way –– it uses draggable blocks of different lengths to represent different note values, making their start and end points (as well as the rational relationships between notes) evident. It also helps learners understand how the notes should sound with a smart playback feature –– as each note is played, its respective note block is highlighted in realtime.</p>
+
+  <h2>More info</h2>
+  <p>Hi, I'm Juan –– I'm a musician with several years of teaching experience. Having repeatedly faced the same issue with several beginner (and even up to intermediate) students, I began explaining note values by drawing them out as rectangular blocks. Over time I tested this method with many different students, and found that it's an extremely effective way of helping them understand what's really going on when different note values are combined. With this experience as a proof of concept, I wanted to build an interactive tool for other music teachers and learners, so I developped this web app.</p>
+
+  <p>Note Adder was written with Python (Django) and JavaScript. The source code can be found on my GitHub page — <a class="link" href="https://github.com/juancoquet/noteadder.git" target="_blank">https://github.com/juancoquet/noteadder.git</a></p>
+
+  <p>Follow me:</p>
+  <ul class="socials">
+    <li class="socials__item">
+      <a class="link" href="https://instagram.com/juan_coquet" target="_blank"><img class="icon" src="" />@juan_coquet</a>
+    </li>
+    <li class="socials__item">
+      <a class="link" href="https://twitter.com/juancoquet" target="_blank"><img src="" class="icon">@juancoquet</a><span class="socials-text">(I never tweet, but maybe one day...)</span>
+    </li>
+  </ul>
+  
+{% endblock content %}
