@@ -2,7 +2,8 @@ const timeSigs = document.querySelectorAll('.time-signature');
 const dotToggle = document.querySelector('.dot-toggle');
 // const notation = document.getElementById('notation-container');
 
-document.addEventListener('DOMContentLoaded', calculateBlockWidths);
+document.addEventListener('DOMContentLoaded', resetDotted);
+// document.addEventListener('DOMContentLoaded', calculateBlockWidths);
 document.addEventListener('DOMContentLoaded', buildMetronome);
 dotToggle.addEventListener('click', toggleDotted);
 
@@ -110,6 +111,11 @@ function toggleDotted() {
     }
     calculateBlockWidths();
     calculateAllowedNotes();
+}
+
+function resetDotted() {
+    let chBox = document.querySelector('.dot-toggle');
+    chBox.checked = false;
 }
 
 function showCount() {
