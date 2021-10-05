@@ -1,28 +1,95 @@
-const draggables = document.querySelectorAll('.draggable');
 const bar = document.querySelector('.bar-container');
 const bin = document.querySelector('.bin');
 
+let mouseX, mouseY;
 
-// Bar listeners
-bar.addEventListener('dragover', dragOver);
-bar.addEventListener('dragenter', dragEnter);
-bar.addEventListener('dragleave', dragLeave);
-bar.addEventListener('drop', dragDrop);
-bar.addEventListener('drop', togglePlayEnabled);
+document.addEventListener('dragover', setXY)
+
+function setXY(e) {
+    e.preventDefault();
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+}
+
+
+
 
 // Draggables listeners
+const draggables = document.querySelectorAll('.draggable');
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', dragStart);
+    draggable.addEventListener('drag', drag);
     draggable.addEventListener('dragend', dragEnd);
 })
 
-// Bin listeners
-bin.addEventListener('dragover', dragOverBin);
-bin.addEventListener('dragenter', dragEnterBin);
-bin.addEventListener('dragleave', dragLeaveBin);
-bin.addEventListener('drop', binDrop);
-bin.addEventListener('drop', togglePlayEnabled);
+// Draggable drag functions
 
+function dragStart(e) {
+    // // replace drag ghost with transparent image
+    let img = new Image();
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
+    e.dataTransfer.setDragImage(img, window.outerWidth, window.outerHeight);
+
+    let width = this.offsetWidth;
+    let height = this.offsetHeight;
+    let clone = this.cloneNode(true);
+    clone.addEventListener('dragstart', dragStart);
+    clone.addEventListener('drag', drag);
+    clone.addEventListener('dragend', dragEnd);
+    clone.classList.add('dragging');
+    clone.style.width = width + 'px';
+    clone.style.position = 'absolute';
+    this.parentElement.appendChild(clone);
+    clone.style.left = e.clientX - (width/2) + 'px';
+    clone.style.top = e.clientY - (height/2) + 'px';
+}
+
+function drag(e) {
+    let beingDragged = document.querySelector('.dragging');
+    let width = beingDragged.offsetWidth;
+    let height = beingDragged.offsetHeight;
+    beingDragged.style.left = mouseX - (width/2) + 'px';
+    beingDragged.style.top = mouseY - (height/2) + 'px';
+}
+
+function dragEnd(e) {
+    let beingDragged = document.querySelector('.dragging');
+    let barBounds = bar.getBoundingClientRect();
+    
+    if (mouseX < barBounds.left || mouseX > barBounds.right || mouseY < barBounds.top || mouseY > barBounds.bottom) {
+        beingDragged.remove();
+    } else {
+        beingDragged.style.position = 'static';
+        beingDragged.classList.remove('dragging');
+        beingDragged.classList.add('placed');
+        bar.appendChild(beingDragged);
+    }
+}
+
+
+// Function to reorder placed notes on drop, rewrite with my own algo
+function getDropOrder() {
+    const placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
+    
+    return placedElements.reduce((currentBlock, nextBlock) => {
+        const nextBlockBounds = nextBlock.getBoundingClientRect()
+        const offset = mouseX - nextBlockBounds.left - (nextBlockBounds.width / 2)
+        if (offset < 0 && offset > currentBlock.offset) {
+            return {offset: offset, element: nextBlock} 
+        } else {
+            return currentBlock
+        }
+    }, {offset: Number.NEGATIVE_INFINITY}).element
+}
+
+
+
+
+// Bar listeners
+// bar.addEventListener('dragover', dragOver);
+// bar.addEventListener('dragenter', dragEnter);
+// bar.addEventListener('drop', dragDrop);
+// bar.addEventListener('drop', togglePlayEnabled);
 
 // Bar drag functions
 
@@ -32,9 +99,6 @@ function dragOver(e) {
 
 function dragEnter(e) {
     e.preventDefault();
-}
-
-function dragLeave() {
 }
 
 function dragDrop(e) {
@@ -89,32 +153,15 @@ function calculateAllowedNotes() {
 }
 
 
-// Draggable drag functions
-
-function dragStart() {
-    this.classList.add('dragging');
-}
-
-function dragEnd() {
-    this.classList.remove('dragging');
-}
 
 
-// Function to get drop position
-function getDropPosition(bar, mouseX) {
-    const placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
-    
-    return placedElements.reduce((followingElement, child) => {
-        const childBoundaries = child.getBoundingClientRect()
-        const offset = mouseX - childBoundaries.left - (childBoundaries.width / 2)
-        if (offset < 0 && offset > followingElement.offset) {
-            return {offset: offset, element: child} 
-        } else {
-            return followingElement
-        }
-    }, {offset: Number.NEGATIVE_INFINITY}).element
-}
 
+// Bin listeners
+// bin.addEventListener('dragover', dragOverBin);
+// bin.addEventListener('dragenter', dragEnterBin);
+// bin.addEventListener('dragleave', dragLeaveBin);
+// bin.addEventListener('drop', binDrop);
+// bin.addEventListener('drop', togglePlayEnabled);
 
 // Bin drag functions
 
