@@ -3,12 +3,19 @@ const bin = document.querySelector('.bin');
 
 let mouseX, mouseY;
 
-document.addEventListener('dragover', setXY)
+document.addEventListener('dragover', setXY);
+document.addEventListener('touchmove', setXY);
 
 function setXY(e) {
     e.preventDefault();
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+    if(e.type == 'dragover') {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    } else {
+        let touchLocation = e.targetTouches[0];
+        mouseX = touchLocation.pageX;
+        mouseY = touchLocation.pageY;
+    }
 }
 
 
@@ -20,23 +27,35 @@ draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', dragStart);
     draggable.addEventListener('drag', drag);
     draggable.addEventListener('dragend', dragEnd);
+    
+    draggable.addEventListener('touchstart', dragStart);
+    draggable.addEventListener('touchmove', drag);
+    draggable.addEventListener('touchend', dragEnd);
 })
 
 // Draggable drag functions
 
 function dragStart(e) {
-    // // replace drag ghost with transparent image
-    let img = new Image();
-    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
-    e.dataTransfer.setDragImage(img, window.outerWidth, window.outerHeight);
+    if(e.type == 'dragstart') {
+        // // replace drag ghost with transparent image
+        let img = new Image();
+        img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
+        e.dataTransfer.setDragImage(img, window.outerWidth, window.outerHeight);
+    }
+    
     let width = this.offsetWidth;
     let height = this.offsetHeight;
 
     if (!this.classList.contains('placed')){
         let clone = this.cloneNode(true);
+
         clone.addEventListener('dragstart', dragStart);
         clone.addEventListener('drag', drag);
         clone.addEventListener('dragend', dragEnd);
+        clone.addEventListener('touchstart', dragStart);
+        clone.addEventListener('touchmove', drag);
+        clone.addEventListener('touchend', dragEnd);
+
         clone.classList.add('dragging');
         clone.style.width = width + 'px';
         clone.style.position = 'absolute';
@@ -62,6 +81,7 @@ function drag(e) {
 function dragEnd(e) {
     let beingDragged = document.querySelector('.dragging');
     let barBounds = bar.getBoundingClientRect();
+    console.log(barBounds.top, mouseY, barBounds.bottom);
     
     if (mouseX < barBounds.left || mouseX > barBounds.right || mouseY < barBounds.top || mouseY > barBounds.bottom) {
         beingDragged.remove();

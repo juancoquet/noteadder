@@ -6,6 +6,7 @@ timeSigs.forEach(button => {
   button.addEventListener('click', generateNotation);
 })
 window.addEventListener('dragend', generateNotation);
+window.addEventListener('touchend', generateNotation);
 
 
 const vf = Vex.Flow;
