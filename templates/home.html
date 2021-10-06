@@ -8,7 +8,7 @@
     <div class="draggable note-block quarter-note" value="1" draggable="true" vf-duration="q" tonejs-duration="4n"dotted="false" note-color="blue">
       <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
     </div>
-    <div class="draggable note-block quarter-note rest" value="1" draggable="true" vf-duration="qr" tonejs-duration="4n" dotted="false" note-color="blue">
+    <div class="draggable note-block quarter-note rest hidden" value="1" draggable="true" vf-duration="qr" tonejs-duration="4n" dotted="false" note-color="blue">
       <img class="block-note-label" src="{% static '/svg/quarter_note_rest.svg' %}" draggable="false">
     </div>
   </div>
@@ -17,7 +17,7 @@
     <div class="draggable note-block eighth-note" value="0.5" draggable="true" vf-duration="8" tonejs-duration="8n" dotted="false" note-color="purple">
       <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
     </div>
-    <div class="draggable note-block eighth-note rest" value="0.5" draggable="true" vf-duration="8r" tonejs-duration="8n" dotted="false"  note-color="purple">
+    <div class="draggable note-block eighth-note rest hidden" value="0.5" draggable="true" vf-duration="8r" tonejs-duration="8n" dotted="false"  note-color="purple">
       <img class="block-note-label" src="{% static '/svg/eighth_note_rest.svg' %}" draggable="false">
     </div>
   </div>
@@ -26,12 +26,13 @@
     <div class="draggable note-block sixteenth-note" value="0.25" draggable="true" vf-duration="16" tonejs-duration="16n" dotted="false"  note-color="red">
       <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
     </div>
-    <div class="draggable note-block sixteenth-note rest" value="0.25" draggable="true"  vf-duration="16r" tonejs-duration="16n" dotted="false" note-color="red">
+    <div class="draggable note-block sixteenth-note rest hidden" value="0.25" draggable="true"  vf-duration="16r" tonejs-duration="16n" dotted="false" note-color="red">
       <img class="block-note-label" src="{% static '/svg/sixteenth_note_rest.svg' %}" draggable="false">
     </div>
   </div>
 
-  <input class="dot-toggle" type="checkbox" name="dotted" label="dotted?">
+  <input class="toggle dot-toggle" type="checkbox" name="dotted" label="dotted?">
+  <input class="toggle rest-toggle" type="checkbox" name="rest" label="rest?">
 
   <div class="count count--2 hidden">
         <p class="count__item count__item--1">1</p>
@@ -74,7 +75,6 @@
   </div>
 
   <div class="bar-container" value="4" absolute-value="4" time-sig="4/4"></div>
-  <div class="bin">Bin</div>
 
   <div id="notation-container" class="notation"></div>
   <div class="playback-marker playback-marker--notation"></div>
@@ -117,6 +117,7 @@
   <script src="{% static '/js/playback/playback.js' %}"></script>
   <script src="{% static '/js/bpm.js' %}"></script>
   <script src="{% static '/js/modal.js' %}"></script>
+  <script src="{% static '/js/rest_toggle.js' %}"></script>
 {% endblock content %}
 
 

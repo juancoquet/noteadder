@@ -61,14 +61,6 @@ div {
     display: flex;
 }
 
-.bin {
-    width: 25%;
-    align-self: center;
-    margin: 3.2rem;
-    text-align: center;
-    border-color: grey;
-}
-
 .draggable {
     cursor: grab;
     touch-action: none;
@@ -78,6 +70,7 @@ div {
     cursor: grabbing;
     border-color: aquamarine;
     background-color: red;
+    opacity: 50%;
 }
 
 .bar-container {
@@ -110,7 +103,6 @@ div {
 }
 
 .rest {
-    opacity: 50%;
 }
 
 .surplus {
