@@ -1,9 +1,7 @@
 const timeSigs = document.querySelectorAll('.time-signature');
 const dotToggle = document.querySelector('.dot-toggle');
-// const notation = document.getElementById('notation-container');
 
 document.addEventListener('DOMContentLoaded', resetDotted);
-// document.addEventListener('DOMContentLoaded', calculateBlockWidths);
 document.addEventListener('DOMContentLoaded', buildMetronome);
 dotToggle.addEventListener('click', toggleDotted);
 
@@ -74,7 +72,6 @@ function buildMetronome() {
 // Dotted functions
 
 function toggleDotted() {
-    // TODO: update note symbol on change
     let noteBlocks = document.querySelectorAll('.note-block:not(.placed)');
     if (this.checked) {
         noteBlocks.forEach(block => {

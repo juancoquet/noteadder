@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', generateNotation);
 timeSigs.forEach(button => {
   button.addEventListener('click', generateNotation);
 })
-bar.addEventListener('drop', generateNotation);
-bin.addEventListener('drop', generateNotation);
+window.addEventListener('dragend', generateNotation);
+
 
 const vf = Vex.Flow;
 

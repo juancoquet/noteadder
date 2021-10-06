@@ -76,10 +76,12 @@ function dragEnd(e) {
         beingDragged.classList.add('placed');
         beingDragged.classList.remove('dragging');
     }
+    calculateBarValue();
+    calculateAllowedNotes();
 }
 
 
-// Function to return note block to append after on drop
+// Function to return note block to append before on drop
 function getAppendBefore() {
     let placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
     let midPoints = [];
@@ -104,59 +106,6 @@ function getAppendBefore() {
     return appendBefore;
 }
 
-
-
-
-// Bar listeners
-// bar.addEventListener('dragover', dragOver);
-// bar.addEventListener('dragenter', dragEnter);
-// bar.addEventListener('drop', dragDrop);
-// bar.addEventListener('drop', togglePlayEnabled);
-
-// Bar drag functions
-
-function dragOver(e) {
-    e.preventDefault();
-}
-
-function dragEnter(e) {
-    e.preventDefault();
-}
-
-function dragDrop(e) {
-    const beingDragged = document.querySelector('.dragging');
-
-    if(!beingDragged.classList.contains('placed')) {
-        // replace used block
-        const parent = beingDragged.parentElement;
-        const replacement = beingDragged.cloneNode(true);
-        replacement.classList.remove('dragging');
-        if (!beingDragged.classList.contains('rest')) {
-            parent.insertBefore(replacement, parent.firstChild);
-        } else {   
-            parent.appendChild(replacement);
-        }
-        replacement.addEventListener('dragstart', dragStart);
-        replacement.addEventListener('dragend', dragEnd);
-
-        // update remaining bar value
-        let barVal = parseFloat(bar.getAttribute('value'))
-        const subtractVal = parseFloat(beingDragged.getAttribute('value'))
-        barVal -= subtractVal
-        bar.setAttribute('value', barVal)
-    }
-    
-    beingDragged.classList.add('placed')
-    const followingElement = getDropPosition(this, e.clientX);
-    if (followingElement == null) {
-            bar.appendChild(beingDragged)
-    } else {
-        bar.insertBefore(beingDragged, followingElement)
-    }
-
-    calculateAllowedNotes();
-}
-
 function calculateAllowedNotes() {
     const noteBlocks = document.querySelectorAll('.note-block:not(.placed)');
     noteBlocks.forEach(block => {
@@ -174,45 +123,109 @@ function calculateAllowedNotes() {
     })
 }
 
-
-
-
-
-// Bin listeners
-// bin.addEventListener('dragover', dragOverBin);
-// bin.addEventListener('dragenter', dragEnterBin);
-// bin.addEventListener('dragleave', dragLeaveBin);
-// bin.addEventListener('drop', binDrop);
-// bin.addEventListener('drop', togglePlayEnabled);
-
-// Bin drag functions
-
-function dragOverBin(e) {
-    e.preventDefault();
-    this.style.transform = 'scale(1.025)'
+function calculateBarValue() {
+    let absVal = parseFloat(bar.getAttribute('absolute-value'));
+    let value = absVal;
+    let placedNotes = document.querySelectorAll('.placed');
+    placedNotes.forEach(note => {
+        value = value - parseFloat(note.getAttribute('value'));
+    })
+    bar.setAttribute('value', value);
 }
 
-function dragEnterBin(e) {
-    e.preventDefault();
-    this.style.transform = 'scale(1.025)'
-}
 
-function dragLeaveBin() {
-    this.style.transform = 'scale(1)'
-}
 
-function binDrop() {
-    const beingDragged = document.querySelector('.dragging');
-    if (beingDragged.classList.contains('placed')) {
-        let barVal = parseFloat(bar.getAttribute('value'))
-        const noteVal = parseFloat(beingDragged.getAttribute('value'))
-        barVal += noteVal
-        bar.setAttribute('value', barVal)
-        beingDragged.remove();
-        calculateAllowedNotes();
-    }
-    this.style.transform = 'scale(1)'
-}
+// Bar listeners
+// bar.addEventListener('dragover', dragOver);
+// bar.addEventListener('dragenter', dragEnter);
+// bar.addEventListener('drop', dragDrop);
+// bar.addEventListener('drop', togglePlayEnabled);
+
+// Bar drag functions
+
+// function dragOver(e) {
+//     e.preventDefault();
+// }
+
+// function dragEnter(e) {
+//     e.preventDefault();
+// }
+
+// function dragDrop(e) {
+//     const beingDragged = document.querySelector('.dragging');
+
+//     if(!beingDragged.classList.contains('placed')) {
+//         // replace used block
+//         const parent = beingDragged.parentElement;
+//         const replacement = beingDragged.cloneNode(true);
+//         replacement.classList.remove('dragging');
+//         if (!beingDragged.classList.contains('rest')) {
+//             parent.insertBefore(replacement, parent.firstChild);
+//         } else {   
+//             parent.appendChild(replacement);
+//         }
+//         replacement.addEventListener('dragstart', dragStart);
+//         replacement.addEventListener('dragend', dragEnd);
+
+//         // update remaining bar value
+//         let barVal = parseFloat(bar.getAttribute('value'))
+//         const subtractVal = parseFloat(beingDragged.getAttribute('value'))
+//         barVal -= subtractVal
+//         bar.setAttribute('value', barVal)
+//     }
+    
+//     beingDragged.classList.add('placed')
+//     const followingElement = getDropPosition(this, e.clientX);
+//     if (followingElement == null) {
+//             bar.appendChild(beingDragged)
+//     } else {
+//         bar.insertBefore(beingDragged, followingElement)
+//     }
+
+//     calculateAllowedNotes();
+// }
+
+
+
+
+
+
+
+// // Bin listeners
+// // bin.addEventListener('dragover', dragOverBin);
+// // bin.addEventListener('dragenter', dragEnterBin);
+// // bin.addEventListener('dragleave', dragLeaveBin);
+// // bin.addEventListener('drop', binDrop);
+// // bin.addEventListener('drop', togglePlayEnabled);
+
+// // Bin drag functions
+
+// function dragOverBin(e) {
+//     e.preventDefault();
+//     this.style.transform = 'scale(1.025)'
+// }
+
+// function dragEnterBin(e) {
+//     e.preventDefault();
+//     this.style.transform = 'scale(1.025)'
+// }
+
+// function dragLeaveBin() {
+//     this.style.transform = 'scale(1)'
+// }
+
+// function binDrop() {
+//     const beingDragged = document.querySelector('.dragging');
+//     if (beingDragged.classList.contains('placed')) {
+//         let barVal = parseFloat(bar.getAttribute('value'))
+//         const noteVal = parseFloat(beingDragged.getAttribute('value'))
+//         barVal += noteVal
+//         bar.setAttribute('value', barVal)
+//         beingDragged.remove();
+//         calculateAllowedNotes();
+//     }
+//     this.style.transform = 'scale(1)'
+// }
 
 function togglePlayEnabled() {
     let playButton = document.querySelector('.play');
