@@ -29,19 +29,26 @@ function dragStart(e) {
     let img = new Image();
     img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
     e.dataTransfer.setDragImage(img, window.outerWidth, window.outerHeight);
-
     let width = this.offsetWidth;
     let height = this.offsetHeight;
-    let clone = this.cloneNode(true);
-    clone.addEventListener('dragstart', dragStart);
-    clone.addEventListener('drag', drag);
-    clone.addEventListener('dragend', dragEnd);
-    clone.classList.add('dragging');
-    clone.style.width = width + 'px';
-    clone.style.position = 'absolute';
-    this.parentElement.appendChild(clone);
-    clone.style.left = e.clientX - (width/2) + 'px';
-    clone.style.top = e.clientY - (height/2) + 'px';
+
+    if (!this.classList.contains('placed')){
+        let clone = this.cloneNode(true);
+        clone.addEventListener('dragstart', dragStart);
+        clone.addEventListener('drag', drag);
+        clone.addEventListener('dragend', dragEnd);
+        clone.classList.add('dragging');
+        clone.style.width = width + 'px';
+        clone.style.position = 'absolute';
+        this.parentElement.appendChild(clone);
+        clone.style.left = e.clientX - (width/2) + 'px';
+        clone.style.top = e.clientY - (height/2) + 'px';
+    } else {
+        this.classList.add('dragging');
+        this.style.position = 'absolute';
+        this.style.left = e.clientX - (width/2) + 'px';
+        this.style.top = e.clientY - (height/2) + 'px';
+    }
 }
 
 function drag(e) {
@@ -59,27 +66,42 @@ function dragEnd(e) {
     if (mouseX < barBounds.left || mouseX > barBounds.right || mouseY < barBounds.top || mouseY > barBounds.bottom) {
         beingDragged.remove();
     } else {
+        let appendBefore = getAppendBefore();
+        if (appendBefore) {
+            bar.insertBefore(beingDragged, appendBefore);
+        } else {
+            bar.appendChild(beingDragged);
+        }
         beingDragged.style.position = 'static';
-        beingDragged.classList.remove('dragging');
         beingDragged.classList.add('placed');
-        bar.appendChild(beingDragged);
+        beingDragged.classList.remove('dragging');
     }
 }
 
 
-// Function to reorder placed notes on drop, rewrite with my own algo
-function getDropOrder() {
-    const placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
-    
-    return placedElements.reduce((currentBlock, nextBlock) => {
-        const nextBlockBounds = nextBlock.getBoundingClientRect()
-        const offset = mouseX - nextBlockBounds.left - (nextBlockBounds.width / 2)
-        if (offset < 0 && offset > currentBlock.offset) {
-            return {offset: offset, element: nextBlock} 
-        } else {
-            return currentBlock
+// Function to return note block to append after on drop
+function getAppendBefore() {
+    let placedElements = [...bar.querySelectorAll('.placed:not(.dragging)')];
+    let midPoints = [];
+    placedElements.forEach(el => {
+        let box = el.getBoundingClientRect();
+        let midPoint = (box.left + box.right) / 2;
+        midPoints.push(midPoint);
+    })
+    let appendBefore;
+
+    let barBounds = bar.getBoundingClientRect();
+    if (mouseX > barBounds.left && mouseX < midPoints[0]) {
+        appendBefore = placedElements[0];
+    }
+
+    for (i=0; i<midPoints.length-1; i++) {
+        if (mouseX > midPoints[i] && mouseX < midPoints[i+1]) {
+            appendBefore = placedElements[i+1];
+            { break };
         }
-    }, {offset: Number.NEGATIVE_INFINITY}).element
+    }
+    return appendBefore;
 }
 
 
