@@ -29,12 +29,14 @@ body {
     padding: 0 var(--side-padding);
     max-width: 1200px;
     background-color: var(--col-bg);
+    color: var(--col-blk);
 }
 
 p,
 li,
 div {
     font-size: 1.6rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -68,6 +70,7 @@ div {
     display: flex;
     align-items: center;
     margin-right: 0.8rem;
+    box-shadow: 5px 5px var(--col-shadow);
 }
 
 .bar-container {
@@ -88,6 +91,7 @@ div {
 .dragging {
     cursor: grabbing;
     opacity: 50%;
+    box-shadow: none;
 }
 
 .bar-container {
@@ -119,6 +123,7 @@ div {
 
 .note-block.placed {
     margin: 0%;
+    box-shadow: none;
 }
 
 .placed.disabled {
@@ -127,9 +132,8 @@ div {
 
 .block-note-label {
     max-height: 30px;
-    margin: 0.8rem;
+    margin: 0.4rem;
 }
-
 
 
 /*---------------------------*\
@@ -243,7 +247,7 @@ div {
 /* items */
 
 .count__item {
-    color: gray;
+    font-family: 'Fugaz One', cursive;
 }
 
 .count__item--hidden {

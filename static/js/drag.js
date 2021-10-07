@@ -70,7 +70,13 @@ function dragStart(e) {
         replacement.addEventListener('touchend', dragEnd);
         replacement.addEventListener('contextmenu', disableContextMenu, false);
 
-        this.parentElement.appendChild(replacement);
+        if (replacement.classList.contains('quarter-note')) {
+            this.parentElement.insertBefore(replacement, this.parentElement.children[1]);
+        } else if (replacement.classList.contains('eighth-note')) {
+            this.parentElement.insertBefore(replacement, this.parentElement.children[2]);
+        } else {
+            this.parentElement.insertBefore(replacement, this.parentElement.children[3]);
+        }
         resizeBlockToPercentage(replacement);
     }
 
