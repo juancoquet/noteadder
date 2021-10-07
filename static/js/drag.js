@@ -1,7 +1,8 @@
 const bar = document.querySelector('.bar-container');
 const bin = document.querySelector('.bin');
 
-let mouseX, mouseY;
+let clientX, clientY;
+let pageX, pageY;
 
 document.addEventListener('dragover', setXY);
 document.addEventListener('touchmove', setXY);
@@ -9,15 +10,18 @@ document.addEventListener('touchmove', setXY);
 function setXY(e) {
     e.preventDefault();
     if(e.type == 'dragover') {
-        mouseX = e.pageX;
-        mouseY = e.pageY;
+        clientX = e.clientX;
+        clientY = e.clientY;
+        pageX = e.pageX;
+        pageY = e.pageY;
     } else {
         let touchLocation = e.targetTouches[0];
-        mouseX = touchLocation.pageX;
-        mouseY = touchLocation.pageY;
+        clientX = touchLocation.clientX;
+        clientY = touchLocation.clientY;
+        pageX = touchLocation.pageX;
+        pageY = touchLocation.pageY;
     }
 }
-
 
 
 
@@ -31,6 +35,8 @@ draggables.forEach(draggable => {
     draggable.addEventListener('touchstart', dragStart);
     draggable.addEventListener('touchmove', drag);
     draggable.addEventListener('touchend', dragEnd);
+
+    draggable.addEventListener('contextmenu', disableContextMenu);
 })
 
 // Draggable drag functions
@@ -41,49 +47,54 @@ function dragStart(e) {
         let img = new Image();
         img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
         e.dataTransfer.setDragImage(img, window.outerWidth, window.outerHeight);
+        pageX = e.pageX;
+        pageY = e.pageY;
+    } else {
+        let touchLocation = e.targetTouches[0];
+        pageX = touchLocation.pageX;
+        pageY = touchLocation.pageY;
     }
     
     let width = this.offsetWidth;
     let height = this.offsetHeight;
-
+    this.style.width = width + 'px';
+    
     if (!this.classList.contains('placed')){
-        let clone = this.cloneNode(true);
+        let replacement = this.cloneNode(true);
+        
+        replacement.addEventListener('dragstart', dragStart);
+        replacement.addEventListener('drag', drag);
+        replacement.addEventListener('dragend', dragEnd);
+        replacement.addEventListener('touchstart', dragStart);
+        replacement.addEventListener('touchmove', drag);
+        replacement.addEventListener('touchend', dragEnd);
+        replacement.addEventListener('contextmenu', disableContextMenu, false);
 
-        clone.addEventListener('dragstart', dragStart);
-        clone.addEventListener('drag', drag);
-        clone.addEventListener('dragend', dragEnd);
-        clone.addEventListener('touchstart', dragStart);
-        clone.addEventListener('touchmove', drag);
-        clone.addEventListener('touchend', dragEnd);
-
-        clone.classList.add('dragging');
-        clone.style.width = width + 'px';
-        clone.style.position = 'absolute';
-        this.parentElement.appendChild(clone);
-        clone.style.left = e.clientX - (width/2) + 'px';
-        clone.style.top = e.clientY - (height/2) + 'px';
-    } else {
-        this.classList.add('dragging');
-        this.style.position = 'absolute';
-        this.style.left = e.clientX - (width/2) + 'px';
-        this.style.top = e.clientY - (height/2) + 'px';
+        // replacement.classList.add('dragging');
+        // replacement.style.position = 'absolute';
+        this.parentElement.appendChild(replacement);
+        // this.style.left = e.clientX - (width/2) + 'px';
+        // this.style.top = e.clientY - (height/2) + 'px';
     }
+    this.style.left = pageX - (width/2) + 'px';
+    this.style.top = pageY - (height/2) + 'px';
+    this.style.position = 'absolute';
+    this.classList.add('dragging');
 }
 
 function drag(e) {
     let beingDragged = document.querySelector('.dragging');
     let width = beingDragged.offsetWidth;
     let height = beingDragged.offsetHeight;
-    beingDragged.style.left = mouseX - (width/2) + 'px';
-    beingDragged.style.top = mouseY - (height/2) + 'px';
+    beingDragged.style.left = pageX - (width/2) + 'px';
+    beingDragged.style.top = pageY - (height/2) + 'px';
 }
 
 function dragEnd(e) {
     let beingDragged = document.querySelector('.dragging');
     let barBounds = bar.getBoundingClientRect();
-    console.log(barBounds.top, mouseY, barBounds.bottom);
     
-    if (mouseX < barBounds.left || mouseX > barBounds.right || mouseY < barBounds.top || mouseY > barBounds.bottom) {
+    if (clientX < barBounds.left || clientX > barBounds.right || clientY < barBounds.top || clientY > barBounds.bottom) {
         beingDragged.remove();
     } else {
         let appendBefore = getAppendBefore();
@@ -114,12 +125,12 @@ function getAppendBefore() {
     let appendBefore;
 
     let barBounds = bar.getBoundingClientRect();
-    if (mouseX > barBounds.left && mouseX < midPoints[0]) {
+    if (clientX > barBounds.left && clientX < midPoints[0]) {
         appendBefore = placedElements[0];
     }
 
     for (i=0; i<midPoints.length-1; i++) {
-        if (mouseX > midPoints[i] && mouseX < midPoints[i+1]) {
+        if (clientX > midPoints[i] && clientX < midPoints[i+1]) {
             appendBefore = placedElements[i+1];
             { break };
         }
@@ -162,4 +173,9 @@ function calculatePlayEnabled() {
     } else {
         playButton.classList.remove('play--active');
     }
+}
+
+function disableContextMenu(e) {
+    e.preventDefault();
+    dragEnd();
 }
