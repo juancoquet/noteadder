@@ -58,9 +58,6 @@ function dragStart(e) {
     let width = this.offsetWidth;
     let height = this.offsetHeight;
     this.style.width = width + 'px';
-    // let noteVal = parseFloat(this.getAttribute('value'));
-    // let barVal = parseFloat(bar.getAttribute('absolute-value'));
-    // let percentageWidth = (noteVal / barVal * 100) * 100 + '%';
     
     if (!this.classList.contains('placed')){
         let replacement = this.cloneNode(true);
@@ -76,9 +73,14 @@ function dragStart(e) {
         this.parentElement.appendChild(replacement);
         resizeBlockToPercentage(replacement);
     }
+
+    this.classList.remove('placed');
+    roundPlacedCorners();
+    
     this.style.left = pageX - (width/2) + 'px';
     this.style.top = pageY - (height/2) + 'px';
     this.style.position = 'absolute';
+    this.style.borderRadius = '6px';
     this.classList.add('dragging');
 }
 
@@ -109,6 +111,7 @@ function dragEnd(e) {
         resizeBlockToPercentage(beingDragged);
     }
     calculateBarValue();
+    roundPlacedCorners();
     calculateAllowedNotes();
     calculatePlayEnabled();
 }
@@ -198,4 +201,37 @@ function resizeBlockToPercentage(block) {
     let noteVal = parseFloat(block.getAttribute('value'));
     let percentageWidth = noteVal / barVal * 100 + '%';
     block.style.width = percentageWidth;
+}
+
+function roundPlacedCorners() {
+    calculateBarValue();
+    let placedNotes = [...bar.querySelectorAll('.placed')];
+    let first, last;
+    if (placedNotes.length > 1) {
+        first = placedNotes.shift();
+        last = placedNotes.pop()
+    } else if (placedNotes.length == 1) {
+        placedNotes[0].style.borderRadius = '6px';
+        placedNotes[0].style.borderLeft = 'none';
+        return
+    } else if (!placedNotes.length) {
+        return
+    }
+
+    placedNotes.forEach(block => {
+        block.style.borderRadius = 0;
+        block.style.borderLeft = 'none';
+    })
+    first.style.borderRadius = '6px 0 0 6px';
+    first.style.borderLeft = 'none';
+    
+    // last.style.borderRight = '2px solid #000004';
+    last.style.borderRadius = '0 6px 6px 0';
+    last.style.borderLeft = 'none';
+    let barVal = parseFloat(bar.getAttribute('value'));
+    if (!barVal) {
+        last.style.borderRight = 'none';
+    } else {
+        last.style.borderRight = '2px solid #000004';
+    }
 }

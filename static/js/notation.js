@@ -65,5 +65,13 @@ function generateNotation() {
 
   beams.forEach(beam => {
     beam.setContext(context).draw();
-  });
+  })
+  outlineNotes();
+}
+
+function outlineNotes() {
+  let notes = document.querySelectorAll('.vf-notehead>path');
+  notes.forEach(note => {
+    note.setAttribute('stroke', 'black');
+  })
 }
