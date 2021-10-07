@@ -58,6 +58,9 @@ function dragStart(e) {
     let width = this.offsetWidth;
     let height = this.offsetHeight;
     this.style.width = width + 'px';
+    // let noteVal = parseFloat(this.getAttribute('value'));
+    // let barVal = parseFloat(bar.getAttribute('absolute-value'));
+    // let percentageWidth = (noteVal / barVal * 100) * 100 + '%';
     
     if (!this.classList.contains('placed')){
         let replacement = this.cloneNode(true);
@@ -70,11 +73,8 @@ function dragStart(e) {
         replacement.addEventListener('touchend', dragEnd);
         replacement.addEventListener('contextmenu', disableContextMenu, false);
 
-        // replacement.classList.add('dragging');
-        // replacement.style.position = 'absolute';
         this.parentElement.appendChild(replacement);
-        // this.style.left = e.clientX - (width/2) + 'px';
-        // this.style.top = e.clientY - (height/2) + 'px';
+        resizeBlockToPercentage(replacement);
     }
     this.style.left = pageX - (width/2) + 'px';
     this.style.top = pageY - (height/2) + 'px';
@@ -106,12 +106,15 @@ function dragEnd(e) {
         beingDragged.style.position = 'static';
         beingDragged.classList.add('placed');
         beingDragged.classList.remove('dragging');
+        resizeBlockToPercentage(beingDragged);
     }
     calculateBarValue();
     calculateAllowedNotes();
     calculatePlayEnabled();
 }
 
+
+// utility ------------------------------------------------------------------------
 
 // Function to return note block to append before on drop
 function getAppendBefore() {
@@ -147,10 +150,18 @@ function calculateAllowedNotes() {
             block.setAttribute('draggable', false);
             block.classList.remove('draggable');
             block.classList.add('surplus');
+
+            block.removeEventListener('touchstart', dragStart);
+            block.removeEventListener('touchmove', drag);
+            block.removeEventListener('touchend', dragEnd);
         } else {
             block.setAttribute('draggable', true);
             block.classList.add('draggable');
             block.classList.remove('surplus');
+
+            block.addEventListener('touchstart', dragStart);
+            block.addEventListener('touchmove', drag);
+            block.addEventListener('touchend', dragEnd);
         }
     })
 }
@@ -177,5 +188,14 @@ function calculatePlayEnabled() {
 
 function disableContextMenu(e) {
     e.preventDefault();
+    clientX = e.clientX;
+    clientY = e.clientY;
     dragEnd();
+}
+
+function resizeBlockToPercentage(block) {
+    let barVal = parseFloat(bar.getAttribute('absolute-value'));
+    let noteVal = parseFloat(block.getAttribute('value'));
+    let percentageWidth = noteVal / barVal * 100 + '%';
+    block.style.width = percentageWidth;
 }

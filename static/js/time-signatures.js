@@ -1,6 +1,7 @@
 const timeSigs = document.querySelectorAll('.time-signature');
 const dotToggle = document.querySelector('.dot-toggle');
 
+// window.addEventListener('resize', calculateBlockWidths);
 document.addEventListener('DOMContentLoaded', resetDotted);
 document.addEventListener('DOMContentLoaded', buildMetronome);
 dotToggle.addEventListener('click', toggleDotted);
