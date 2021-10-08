@@ -81,7 +81,8 @@ function dragStart(e) {
     }
 
     this.classList.remove('placed');
-    roundPlacedCorners();
+    roundCorners();
+    this.style.border = '2px solid #000004';
     
     this.style.left = pageX - (width/2) + 'px';
     this.style.top = pageY - (height/2) + 'px';
@@ -117,7 +118,7 @@ function dragEnd(e) {
         resizeBlockToPercentage(beingDragged);
     }
     calculateBarValue();
-    roundPlacedCorners();
+    roundCorners();
     calculateAllowedNotes();
     calculatePlayEnabled();
 }
@@ -209,7 +210,7 @@ function resizeBlockToPercentage(block) {
     block.style.width = percentageWidth;
 }
 
-function roundPlacedCorners() {
+function roundCorners() {
     calculateBarValue();
     let placedNotes = [...bar.querySelectorAll('.placed')];
     let first, last;
@@ -240,4 +241,15 @@ function roundPlacedCorners() {
     } else {
         last.style.borderRight = '2px solid #000004';
     }
+}
+
+document.addEventListener('DOMContentLoaded', setOneBarWidth);
+window.addEventListener('resize', setOneBarWidth);
+
+function setOneBarWidth() {
+    let oneBar = bar.querySelector('.one-bar');
+    let width = bar.offsetWidth;
+    let barBounds = bar.getBoundingClientRect();
+    oneBar.style.width = width - 12 + 'px';
+    oneBar.style.left = barBounds.left + 6 + 'px';
 }

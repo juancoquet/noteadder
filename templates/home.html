@@ -70,7 +70,17 @@
         <p class="count__item count__item--7">7</p>
   </div>
 
-  <div class="bar-container" value="4" absolute-value="4" time-sig="4/4"></div>
+  <div class="bar-container" value="4" absolute-value="4" time-sig="4/4">
+    <div class="one-bar">
+      <div class="one-bar__letter">O</div>
+      <div class="one-bar__letter">N</div>
+      <div class="one-bar__letter">E</div>
+      <div class="one-bar__letter">&nbsp;</div>
+      <div class="one-bar__letter">B</div>
+      <div class="one-bar__letter">A</div>
+      <div class="one-bar__letter">R</div>
+    </div>
+  </div>
 
   <div id="notation-container" class="notation"></div>
   <div class="playback-marker playback-marker--notation"></div>
@@ -78,14 +88,34 @@
 
   <span id="help-button" class="material-icons">help_outline</span>
 
-  <button class="time-signature" top="2" bottom="4" bottom-value="1" signature="2/4">2/4</button>
-  <button class="time-signature" top="3" bottom="4" bottom-value="1" signature="3/4">3/4</button>
-  <button class="time-signature pressed" top="4" bottom="4" bottom-value="1" signature="4/4">4/4</button>
-  <button class="time-signature" top="5" bottom="4" bottom-value="1" signature="5/4">5/4</button>
-  <button class="time-signature" top="6" bottom="4" bottom-value="1" signature="6/4">6/4</button>
-  <button class="time-signature" top="5" bottom="8" bottom-value="0.5" signature="5/8">5/8</button>
-  <button class="time-signature" top="6" bottom="8" bottom-value="0.5" signature="6/8">6/8</button>
-  <button class="time-signature" top="7" bottom="8" bottom-value="0.5" signature="7/8">7/8</button>
+  <div class="time-sig-row">
+    <button class="time-signature" top="2" bottom="4" bottom-value="1" signature="2/4">
+      <img class="time-sig-label" src="{% static '/img/timesig24.png' %}" draggable="false">
+    </button>
+    <button class="time-signature" top="3" bottom="4" bottom-value="1" signature="3/4">
+      <img class="time-sig-label" src="{% static '/img/timesig34.png' %}" draggable="false">
+    </button>
+    <button class="time-signature pressed" top="4" bottom="4" bottom-value="1" signature="4/4">
+      <img class="time-sig-label" src="{% static '/img/timesig44.png' %}" draggable="false">
+    </button>
+    <button class="time-signature" top="5" bottom="4" bottom-value="1" signature="5/4">
+      <img class="time-sig-label" src="{% static '/img/timesig54.png' %}" draggable="false">
+    </button>
+  </div>
+  <div class="time-sig-row">
+    <button class="time-signature" top="6" bottom="4" bottom-value="1" signature="6/4">
+      <img class="time-sig-label" src="{% static '/img/timesig64.png' %}" draggable="false">
+    </button>
+    <button class="time-signature" top="5" bottom="8" bottom-value="0.5" signature="5/8">
+      <img class="time-sig-label" src="{% static '/img/timesig58.png' %}" draggable="false">
+    </button>
+    <button class="time-signature" top="6" bottom="8" bottom-value="0.5" signature="6/8">
+      <img class="time-sig-label" src="{% static '/img/timesig68.png' %}" draggable="false">
+    </button>
+    <button class="time-signature" top="7" bottom="8" bottom-value="0.5" signature="7/8">
+      <img class="time-sig-label" src="{% static '/img/timesig78.png' %}" draggable="false">
+    </button>
+  </div>
 
   <div class="bpm-value">120</div>
   <input type="range" min="70" max="180" value="120" class="bpm-slider">
