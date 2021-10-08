@@ -88,39 +88,48 @@
 
   <span id="help-button" class="material-icons">help_outline</span>
 
-  <div class="time-sig-row">
-    <button class="time-signature" top="2" bottom="4" bottom-value="1" signature="2/4">
-      <img class="time-sig-label" src="{% static '/img/timesig24.png' %}" draggable="false">
-    </button>
-    <button class="time-signature" top="3" bottom="4" bottom-value="1" signature="3/4">
-      <img class="time-sig-label" src="{% static '/img/timesig34.png' %}" draggable="false">
-    </button>
-    <button class="time-signature pressed" top="4" bottom="4" bottom-value="1" signature="4/4">
-      <img class="time-sig-label" src="{% static '/img/timesig44.png' %}" draggable="false">
-    </button>
-    <button class="time-signature" top="5" bottom="4" bottom-value="1" signature="5/4">
-      <img class="time-sig-label" src="{% static '/img/timesig54.png' %}" draggable="false">
-    </button>
-  </div>
-  <div class="time-sig-row">
-    <button class="time-signature" top="6" bottom="4" bottom-value="1" signature="6/4">
-      <img class="time-sig-label" src="{% static '/img/timesig64.png' %}" draggable="false">
-    </button>
-    <button class="time-signature" top="5" bottom="8" bottom-value="0.5" signature="5/8">
-      <img class="time-sig-label" src="{% static '/img/timesig58.png' %}" draggable="false">
-    </button>
-    <button class="time-signature" top="6" bottom="8" bottom-value="0.5" signature="6/8">
-      <img class="time-sig-label" src="{% static '/img/timesig68.png' %}" draggable="false">
-    </button>
-    <button class="time-signature" top="7" bottom="8" bottom-value="0.5" signature="7/8">
-      <img class="time-sig-label" src="{% static '/img/timesig78.png' %}" draggable="false">
+  <div class="container">
+
+    <div class="time-sig-panel">
+      <div class="time-sig-row">
+        <div class="time-signature time-signature--24" top="2" bottom="4" bottom-value="1" signature="2/4">
+          <img class="time-sig-label" src="{% static '/img/timesig24.png' %}" draggable="false">
+        </div>
+        <div class="time-signature time-signature--34" top="3" bottom="4" bottom-value="1" signature="3/4">
+          <img class="time-sig-label" src="{% static '/img/timesig34.png' %}" draggable="false">
+        </div>
+        <div class="time-signature time-signature--44 pressed" top="4" bottom="4" bottom-value="1" signature="4/4">
+          <img class="time-sig-label" src="{% static '/img/timesig44.png' %}" draggable="false">
+        </div>
+        <div class="time-signature time-signature--54" top="5" bottom="4" bottom-value="1" signature="5/4">
+          <img class="time-sig-label" src="{% static '/img/timesig54.png' %}" draggable="false">
+        </div>
+      </div>
+      <div class="time-sig-row">
+        <div class="time-signature time-signature--64" top="6" bottom="4" bottom-value="1" signature="6/4">
+          <img class="time-sig-label" src="{% static '/img/timesig64.png' %}" draggable="false">
+        </div>
+        <div class="time-signature time-signature--58" top="5" bottom="8" bottom-value="0.5" signature="5/8">
+          <img class="time-sig-label" src="{% static '/img/timesig58.png' %}" draggable="false">
+        </div>
+        <div class="time-signature  time-signature--68" top="6" bottom="8" bottom-value="0.5" signature="6/8">
+          <img class="time-sig-label" src="{% static '/img/timesig68.png' %}" draggable="false">
+        </div>
+        <div class="time-signature time-signature--78" top="7" bottom="8" bottom-value="0.5" signature="7/8">
+          <img class="time-sig-label" src="{% static '/img/timesig78.png' %}" draggable="false">
+        </div>
+      </div>
+    </div>
+    
+    <button class="play">
+          <img class="play-icon" src="{% static '/svg/play.svg' %}" draggable="false">
+          <img class="play-icon play--active hidden" src="{% static '/svg/play-active.svg' %}" draggable="false">
     </button>
   </div>
 
   <div class="bpm-value">120</div>
   <input type="range" min="70" max="180" value="120" class="bpm-slider">
 
-  <button class="play">Play</button>
 
 
   <div class="overlay overlay--help hidden">

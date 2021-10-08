@@ -44,6 +44,22 @@ div {
 
 
 /*---------------------------*\
+    #GENERIC
+\*---------------------------*/
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {}
+
+
+
+
+
+/*---------------------------*\
     #NAV BAR
 \*---------------------------*/
 
@@ -200,33 +216,87 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.time-signature--24 {
+    border-radius: 6px 0 0 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+.time-signature--34 {
+    border-right: none;
+    border-bottom: none;
+}
+
+.time-signature--44 {
+    border-right: none;
+    border-bottom: none;
+}
+
+.time-signature--54 {
+    border-radius: 0 6px 0 0;
+    border-bottom: none;
+}
+
+.time-signature--64 {
+    border-radius: 0 0 0 6px;
+    border-right: none;
+}
+
+.time-signature--58 {
+    border-right: none;
+}
+
+.time-signature--68 {
+    border-right: none;
+}
+
+.time-signature--78 {
+    border-radius: 0 0 6px 0;
 }
 
 .time-sig-label {
     height: 24px;
 }
 
+.time-sig-row {
+    display: flex;
+}
+
 .time-signature.pressed {
-    background-color: aquamarine;
+    background-color: var(--col-green);
 }
 
 .time-signature.disabled {
     pointer-events: none;
-    color: grey;
+    cursor: not-allowed;
+    background-color: var(--col-disabled);
+    opacity: 60%;
 }
 
 .play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     pointer-events: none;
-    color: grey;
+    height: 80px;
+    width: 80px;
+    border: 2px solid var(--col-blk);
+    border-radius: 6px;
+    cursor: not-allowed;
+    background-color: var(--col-disabled);
+    opacity: 60%;
 }
 
 .play.play--active {
     pointer-events: all;
-    background-color: goldenrod;
-    color: black;
+    background-color: var(--col-bg);
+    opacity: 100%;
+    cursor: pointer;
 }
-
-
 
 
 

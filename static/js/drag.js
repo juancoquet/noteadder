@@ -188,11 +188,17 @@ function calculateBarValue() {
 
 function calculatePlayEnabled() {
     let playButton = document.querySelector('.play');
+    let playIcon = playButton.querySelector('.play-icon:not(.play--active)');
+    let activeIcon = playButton.querySelector('.play-icon.play--active');
     let barVal = parseFloat(bar.getAttribute('value'));
     if (barVal === 0) {
         playButton.classList.add('play--active');
+        playIcon.classList.add('hidden');
+        activeIcon.classList.remove('hidden');
     } else {
         playButton.classList.remove('play--active');
+        playIcon.classList.remove('hidden');
+        activeIcon.classList.add('hidden');
     }
 }
 
