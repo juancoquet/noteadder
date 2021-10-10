@@ -53,6 +53,13 @@ div {
     justify-content: space-between;
 }
 
+.container--col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -62,6 +69,11 @@ div {
     background-color: var(--col-bg-dark);
     padding: 2.8rem;
     width: 100%;
+}
+
+.card-label {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 1.6rem;
 }
 
 
@@ -219,6 +231,15 @@ div {
     #CONTROL PANEL
 \*---------------------------*/
 
+.control-panel--notes {
+    flex-direction: row;
+    max-width: 35%;
+    height: 6.4rem;
+    padding: 0 0.8rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .time-signature {
     width: 3.8rem;
     height: 3.8rem;
@@ -306,6 +327,40 @@ div {
     opacity: 100%;
     cursor: pointer;
 }
+
+.toggle {
+    position: relative;
+    -webkit-appearance: none;
+    width: 3.2rem;
+    height: 1.6rem;
+    background-color: var(--col-bg);
+    border: 2px solid var(--col-blk);
+    border-radius: 3.2rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.toggle:checked {
+    background-color: var(--col-green);
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid var(--col-blk);
+    border-radius: 50%;
+    background-color: var(--col-blush);
+    top: -2px;
+    left: -2px;
+    transition: 0.3s;
+}
+
+.toggle:checked::before {
+    left: 1.4rem;
+}
+
 
 
 

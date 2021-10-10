@@ -25,10 +25,18 @@
     <div class="draggable note-block sixteenth-note rest hidden" value="0.25" draggable="true"  vf-duration="16r" tonejs-duration="16n" dotted="false" note-color="#87BCDE">
       <img class="block-note-label" src="{% static '/svg/sixteenth_note_rest.svg' %}" draggable="false">
     </div>
-  </div>
 
-  <input class="toggle dot-toggle" type="checkbox" name="dotted" label="dotted?">
-  <input class="toggle rest-toggle" type="checkbox" name="rest" label="rest?">
+    <div class="card control-panel--notes">
+      <div class="container--col">
+        <p class="card-label">DOT</p>
+        <input class="toggle dot-toggle" type="checkbox" name="dotted" label="dotted?">
+      </div>
+      <div class="container--col">
+        <p class="card-label">REST</p>
+        <input class="toggle rest-toggle" type="checkbox" name="rest" label="rest?">
+      </div>
+    </div>
+  </div>
 
   <div class="count count--2 hidden">
         <p class="count__item count__item--1">1</p>
