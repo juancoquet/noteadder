@@ -361,6 +361,38 @@ div {
     left: 1.4rem;
 }
 
+.bpm-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    border-radius: 30px;
+    position: relative;
+    border: 1px solid var(--col-blk);
+    height: 7px;
+    background: linear-gradient(90deg, var(--col-blush) 45%, var(--col-bg) 45%);
+}
+
+.bpm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    border: 1px solid var(--col-blk);
+    border-radius: 50%;
+    background-color: var(--col-blush);
+    position: relative;
+}
+
+.bpm-slider::-moz-range-thumb {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    border: 1px solid var(--col-blk);
+    border-radius: 50%;
+    background-color: var(--col-blush);
+}
+
+
 
 
 
