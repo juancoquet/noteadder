@@ -6,8 +6,11 @@ bpmSlider.setAttribute('value', 120);
 bpmSlider.addEventListener('input', updateValue);
 bpmSlider.addEventListener('input', updateTempo);
 bpmSlider.addEventListener('input', fillSlider);
+bpmSlider.addEventListener('touchmove', touchSlider);
+
 document.addEventListener('DOMContentLoaded', positionValue);
 document.addEventListener('input', positionValue);
+
 window.addEventListener('resize', positionValue);
 
 
@@ -51,4 +54,19 @@ function positionValue() {
     } else {
         bpmValue.style.left = position + 'px';
     }
+}
+
+function touchSlider(e) {
+    let sliderLeft = bpmSlider.getBoundingClientRect().left;
+    let x = e.targetTouches[0].pageX - sliderLeft;
+    let percent = x / bpmSlider.offsetWidth;
+    let min = parseInt(bpmSlider.getAttribute('min'));
+    let max = parseInt(bpmSlider.getAttribute('max'));
+    let toAdd = Math.round((max - min) * percent);
+    let newVal = min + toAdd;
+    bpmSlider.value = newVal;
+    updateValue();
+    updateTempo();
+    fillSlider();
+    positionValue();
 }
