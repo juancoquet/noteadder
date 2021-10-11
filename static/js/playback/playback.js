@@ -1,6 +1,6 @@
 const playButton = document.querySelector('.play');
 
-window.addEventListener('DOMContentLoaded', setMarkerHeights);
+playButton.addEventListener('click', setMarkerHeights);
 playButton.addEventListener('click', playMetronome);
 playButton.addEventListener('click', playNotes);
 playButton.addEventListener('click', showNotationMarker);

@@ -120,7 +120,6 @@ nav {
 .nav-item.menu.close {
     font-size: 2.8rem;
     transform: rotate(45deg);
-    /* color: var(--col-accent); */
     align-self: center;
 }
 
@@ -148,6 +147,7 @@ nav {
     align-items: center;
     margin-right: 0.8rem;
     box-shadow: 5px 5px var(--col-shadow);
+    margin-bottom: 1.2rem;
 }
 
 .bar-container {
@@ -246,6 +246,8 @@ nav {
 .notation {
     width: 100%;
     max-width: 600px;
+    margin-top: -0.8rem;
+    margin-bottom: 0.8rem;
 }
 
 .playback-marker--bar,
@@ -414,7 +416,7 @@ nav {
     border: 1px solid var(--col-blk);
     height: 7px;
     background: linear-gradient(90deg, var(--col-blush) 45%, var(--col-bg) 45%);
-    margin-top: 4.6rem;
+    margin-top: 5.6rem;
 }
 
 .bpm-slider::-webkit-slider-thumb {
@@ -444,7 +446,20 @@ nav {
     border-radius: 6px;
     position: absolute;
     padding: 0.4rem;
-    top: 11rem;
+    top: 11.6rem;
+}
+
+.help-button {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 1.6rem;
+    border: 2px solid var(--col-blk);
+    border-radius: 50%;
+    align-self: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    text-align: center;
+    margin-top: 2.4rem;
+    cursor: pointer;
 }
 
 
@@ -461,6 +476,7 @@ nav {
     grid-template-rows: 2.4rem;
     place-items: center start;
     width: 100%;
+    margin-top: 1rem;
 }
 
 /* containers */
