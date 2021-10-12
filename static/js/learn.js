@@ -26,7 +26,7 @@ function indexSections() {
 }
 
 function continueSection() {
-    let parent = this.parentElement;
+    let parent = document.querySelector('section:not(.hidden)');
     let nextIndex = parseInt(parent.getAttribute('index')) + 1;
     parent.classList.remove('visible');
     parent.classList.add('hidden');
@@ -39,7 +39,7 @@ function continueSection() {
 }
 
 function prevSection() {
-    let parent = this.parentElement;
+    let parent = document.querySelector('section:not(.hidden)');
     let prevIndex = parseInt(parent.getAttribute('index')) - 1;
     parent.classList.remove('visible');
     parent.classList.add('hidden');

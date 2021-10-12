@@ -73,9 +73,9 @@ function dragStart(e) {
         if (replacement.classList.contains('quarter-note')) {
             this.parentElement.insertBefore(replacement, this.parentElement.children[1]);
         } else if (replacement.classList.contains('eighth-note')) {
-            this.parentElement.insertBefore(replacement, this.parentElement.children[2]);
-        } else {
             this.parentElement.insertBefore(replacement, this.parentElement.children[3]);
+        } else {
+            this.parentElement.insertBefore(replacement, this.parentElement.children[5]);
         }
         resizeBlockToPercentage(replacement);
     }

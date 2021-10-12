@@ -33,6 +33,24 @@ body {
     color: var(--col-blk);
 }
 
+h1,
+h2,
+h3 {
+    font-family: 'Fugaz One', sans-serif;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
 p,
 li,
 div {
@@ -40,8 +58,16 @@ div {
     font-family: 'Open Sans', sans-serif;
 }
 
+p {
+    margin-bottom: 1.6rem;
+}
+
 a {
     text-decoration: none;
+    color: var(--col-accent);
+}
+
+em {
     color: var(--col-accent);
 }
 
@@ -50,6 +76,14 @@ nav {
     padding-bottom: 0.7rem;
     margin-bottom: 1.6rem;
 }
+
+button {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 
 
 
@@ -85,6 +119,50 @@ nav {
 .card-label {
     font-family: 'Fugaz One', sans-serif;
     font-size: 1.6rem;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: 0.8rem;
+    border: 2px solid var(--col-blk);
+    border-radius: 6px;
+    background-color: var(--col-green);
+    margin: 0.8rem 0;
+    box-shadow: 5px 5px var(--col-shadow);
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-0.8rem);
+    transition: 0.3s;
+    box-shadow: 5px 13px 4px -1px var(--col-shadow);
+}
+
+.link {
+    text-decoration: underline;
+}
+
+
+
+.btn--continue {}
+
+.btn--previous {
+    background-color: var(--col-blush);
+}
+
+.btn-icon {
+    align-self: center;
+    justify-self: center;
+    height: 1.2rem;
+}
+
+.btn-icon.continue {
+    padding-left: 0.2rem;
+}
+
+.btn-icon.previous {
+    padding-left: 0.2rem;
+    transform: rotate(180deg);
 }
 
 
@@ -97,6 +175,10 @@ nav {
 
 .logo {
     height: 64px;
+}
+
+.logo:hover {
+    transform: rotate(-2deg);
 }
 
 .nav-item {
@@ -115,6 +197,7 @@ nav {
 .nav-item.menu {
     align-self: center;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 .nav-item.menu.close {
@@ -148,6 +231,29 @@ nav {
     margin-right: 0.8rem;
     box-shadow: 5px 5px var(--col-shadow);
     margin-bottom: 1.2rem;
+}
+
+.note-block.learn {
+    margin-right: 0;
+}
+
+.note-block.left {
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+}
+
+.note-block.middle {
+    border-radius: 0;
+    border-right: none;
+}
+
+.note-block.middle-last {
+    border-right: none;
+    border-radius: 0;
+}
+
+.note-block.right {
+    border-radius: 0 6px 6px 0;
 }
 
 .bar-container {
@@ -374,6 +480,10 @@ nav {
     cursor: pointer;
 }
 
+.play.learn {
+    margin: 0.8rem 0;
+}
+
 .toggle {
     position: relative;
     -webkit-appearance: none;
@@ -462,6 +572,10 @@ nav {
     cursor: pointer;
 }
 
+.help-button:hover {
+    color: var(--col-accent);
+}
+
 
 
 
@@ -477,6 +591,10 @@ nav {
     place-items: center start;
     width: 100%;
     margin-top: 1rem;
+}
+
+.count__item {
+    margin-bottom: 0;
 }
 
 /* containers */
@@ -609,17 +727,19 @@ nav {
 }
 
 .modal {
-    background-color: white;
-    border-radius: 10px;
+    background-color: var(--col-bg-dark);
+    border-radius: 6px;
     width: 90%;
     max-width: 450px;
     position: relative;
+    border: 2px solid var(--col-blk);
+    padding: 2.4rem;
 }
 
 .modal-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3rem;
+    right: 2.4rem;
 }
 
 .material-icons {

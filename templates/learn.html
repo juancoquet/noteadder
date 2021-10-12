@@ -10,7 +10,10 @@
     <p>
         This page will take you through the basics of rhythmic music notation. By the end of it you’ll have a good understanding of time signatures and three fundamental note values — quarter notes, eighth notes, and sixteenth notes.
     </p>
-    <button class="btn btn--continue">Continue</button>
+    <button class="btn btn--continue">
+        Continue
+        <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+    </button>
 </section>
 
 <section id="note_values" sidebar="sb-note_values" class="learn-section hidden">
@@ -18,34 +21,51 @@
     <p>
         Music would be extremely boring if every note were the same length. Thankfully, notes can vary both in pitch and duration allowing musicians to craft catchy melodies. In this section, we will focus on the duration of notes, which we refer to as <em>note values</em>.
     </p>
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="quarter_notes" sidebar="sb-quarter_notes" class="learn-section hidden">
     <h2>Quarter notes</h2>
         <p>We’ll begin with the most fundamental note value of them all — the <em>quarter note</em>. It looks like this:</p>
-
         <div id="notation-quarter_note" time-signature="" notes="q"class="notation"></div>
 
         <p>It has a <em>notehead</em> (the big dot) and a <em>stem</em> (the vertical line). Those fainter horizontal lines on which we write notes are called a <em>stave</em>. Notes that appear higher on the stave are higher in pitch than those that appear lower on the stave, but for the purpose of learning rhythmic note values we will not be concerning ourselves with pitch.</p>
 
         <p>Quarter notes are also referred to as <em>crotchets</em>, but we’ll call them quarter notes going forward. So why are quarter notes the most fundamental note value? The answer is simple — because they last for exactly <em>one beat</em>.</p>
 
-        <p>Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout <em>“...five, six, seven, eight!”</em> before beginning their choreography. It’s what even allows dancers to all dance together — <em>in time</em> — in the first place. For an obvious example, listen to the drum intro of <a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean, by Michael Jackson</a>. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.</p>
+        <p>Okay, so what’s a beat? A beat is a basic unit of time; it’s a regular pulse. It’s what your foot taps along to when you listen to your favourite song. It’s what dancers accentuate when they emphatically shout <i>“...five, six, seven, eight!”</i> before beginning their choreography. It’s what even allows dancers to all dance together — <em>in time</em> — in the first place. For an obvious example, listen to the drum intro of <a class="link" href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean, by Michael Jackson</a>. You’ll hear the pulse being emphasised on each hit of the bass drum and the snare drum.</p>
 
         <p>Try counting each hit of the drums — each beat — in groups of four as you listen. Like this:</p>
             
-            <p><em>“One… two… three… four… one… two… three… four…”</em></p>
+            <p><i>“One… two… three… four… one… two… three… four…”</i></p>
 
         <p>It should sound like this:</p>
 
-        <button id="play-bj" class="play play--active">Play</button>
+        <button id="play-bj" class="play learn play--active">
+            <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+        </button>
 
         <p>When you count each drum note like this, you are counting quarter notes. That’s simple enough, let’s take things up a gear.</p>
 
-        <button class="btn btn--previous">Previous</button>
-        <button class="btn btn--continue">Continue</button>
+        <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="eighth_notes" sidebar="sb-eighth_notes" class="learn-section hidden">
@@ -65,15 +85,15 @@
     <p>Eighth notes last for half a beat each — half as long as quarter notes. We can visualise this by representing these notes as coloured blocks. Notice that two eighth notes take up the same amount of space (which represents the same amount of time) as a single quarter note.</p>
 
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -87,16 +107,16 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -111,28 +131,28 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -154,22 +174,22 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div id="eighth-notes-example" class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -178,12 +198,22 @@
     <div class="playback-marker playback-marker--notation"></div>
     <div class="playback-marker playback-marker--bar"></div>
     
-    <button id="play-eighth-note-mix" class="play play--active">Play</button>
+    <button id="play-eighth-note-mix" class="play learn play--active">
+        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+    </button>
 
     <p>Great, now we understand quarter notes and eighth notes. Let’s learn another note value.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="sixteenth_notes" sidebar="sb-sixteenth_notes" class="learn-section hidden">
@@ -207,16 +237,16 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -231,33 +261,33 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
 
-    <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <em>1</em> and <em>+</em>, between <em>+</em> and <em>2</em>, between <em>2</em> and <em>+</em>, and so on…</p>
+    <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <i>1</i> and <i>+</i>, between <i>+</i> and <i>2</i>, between <i>2</i> and <i>+</i>, and so on…</p>
 
     <div class="count count--4">
         <p class="count__item count__item--1">1</p>
@@ -266,16 +296,16 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -290,78 +320,78 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
     <div class="note-group">
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn left sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle-last sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn right sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -377,16 +407,16 @@
         <p class="count__item count__item--4">4</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -401,28 +431,28 @@
         <p class="count__item count__item--8">+</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -445,61 +475,61 @@
         <p class="count__item count__item--16">a</p>
     </div>
     <div class="note-group">
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn left sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle-last sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn right sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
     </div>
 
-    <p>As before, the beat numbers and the + <em>‘ands’</em> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
+    <p>As before, the beat numbers and the + <i>‘ands’</i> align with the longer note values above. Again, this is because the rate of the pulse has not changed, only the rate of the notes being played against the pulse has changed. Quarter notes mean one note per pulse, eighth notes mean two notes per pulse and sixteenth notes mean four notes per pulse.</p>
 
-    <p>Great, so what do sixteenth notes sound like? Listen to the start of <a href="https://www.youtube.com/watch?v=Dn8-4tjPxD8" target="_blank">Edge of Seventeen, by Stevie Nicks</a> (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an <em>accent</em>) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the <em>‘1… 2… 3… 4…’</em> — and playing the rest of the sixteenth notes around the pulse <em>‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’</em>.</p>
+    <p>Great, so what do sixteenth notes sound like? Listen to the start of <a class="link" href="https://www.youtube.com/watch?v=Dn8-4tjPxD8" target="_blank">Edge of Seventeen, by Stevie Nicks</a> (belter). The guitar that you hear is playing sixteenth notes repeatedly. You’ll also hear a slight, regular emphasis (known in music as an <em>accent</em>) once every fourth note being played — we can fit four sixteenth notes in every beat, remember? The guitarist is accenting the pulse — accenting the <i>‘1… 2… 3… 4…’</i> — and playing the rest of the sixteenth notes around the pulse <i>‘1 (e+a) 2 (e+a) 3 (e+a) 4 (e+a)’</i>.</p>
 
-    <p>Try counting along to Edge of Seventeen — the beat numbers <em>‘1… 2… 3… 4…’</em> go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.</p>
+    <p>Try counting along to Edge of Seventeen — the beat numbers <i>‘1… 2… 3… 4…’</i> go on each accented note, and the notes between the accents are counted as ‘e + a’. It’s quite a fast song, so you might need to reduce the playback speed on the video settings.</p>
 
     <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear one quarter note, followed by two eighth notes, followed by eight sixteenth notes — that’s one beat of quarter notes, one beat of eighth notes, and two full beats’ worth of sixteenth notes:</p>
 
@@ -522,37 +552,37 @@
         <p class="count__item count__item--16">a</p>
     </div>
     <div id="sixteenth-notes-example" class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn middle-last sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block sixteenth-note">
+        <div class="note-block learn right sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -561,12 +591,22 @@
     <div class="playback-marker playback-marker--notation"></div>
     <div class="playback-marker playback-marker--bar"></div>
     
-    <button id="play-sixteenth-note-mix" class="play play--active">Play</button>
+    <button id="play-sixteenth-note-mix" class="play learn play--active">
+        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+    </button>
 
     <p>Quarter notes, eighth notes and sixteenth notes — these are our three basic building blocks of musical rhythm. Let’s learn of a way to modify them by adding a dot.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="dotted_notes" sidebar="sb-dotted_notes" class="learn-section hidden">
@@ -582,12 +622,12 @@
     <p>Let’s see what this looks like using our note value blocks. Here’s a quarter note compared to a dotted quarter note.</p>
     
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">
+        <div class="note-block learn quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -595,18 +635,18 @@
     <p>In the case of a quarter note, when we append a dot to it (multiply it by 1.5) we are adding half a beat to it. This is because a quarter note is one beat long, and one beat multiplied by 1.5 is one and a half beats. Here’s what this process looks like:</p>
     
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div><p>= 1 beat</p>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note split-note">
+        <div class="note-block learn quarter-note split-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div><p>= 0.5 beats, 0.5 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">
+        <div class="note-block learn quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
         </div><p>= 1 beat + 0.5 beats = 1.5 beats</p>
     </div>
@@ -614,12 +654,12 @@
     <p>What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.</p>
     
      <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note--dotted">
+        <div class="note-block learn eighth-note--dotted">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -627,18 +667,18 @@
     <p>As with the dotted quarter note we looked at, you can see that the dotted eighth note’s duration is 1.5 times as long as its undotted version. Let’s go through the steps:</p>
     
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div><p>= 0.5 beats</p>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note split-note">
+        <div class="note-block learn eighth-note split-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div><p>= 0.25 beats, 0.25 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
-        <div class="note-block eighth-note--dotted">
+        <div class="note-block learn eighth-note--dotted">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div><p>= 0.5 beats + 0.25 beats = 0.75 beats</p>
     </div>
@@ -649,18 +689,26 @@
     
     <p>But why do we need dotted notes in the first place? Why go through the complication of interpolating arithmetic into music? Well, what if you wanted to play a note that is longer than an eighth note, but not as long as a quarter note? Then you need a dotted eighth note. Dotted notes allow for finer increments between note values.</p>
     
-    <p>So what do dotted notes actually sound like? This will be a little trickier to understand, as dotted notes fundamentally sound more fragmented than regular notes bacause they break the pulse up in weird ways. Here is an example nonetheless, the <a href="https://youtu.be/XgSPVhwqjX0?t=64" target="_blank">chorus of Birthday, by Kings of Leon</a> (timestamped) — a stream of dotted eighth notes can be heard being played on the bass drum (the low, thuddy drum sound) until the end of the chorus.</p>
+    <p>So what do dotted notes actually sound like? This will be a little trickier to understand, as dotted notes fundamentally sound more fragmented than regular notes bacause they break the pulse up in weird ways. Here is an example nonetheless, the <a class="link" href="https://youtu.be/XgSPVhwqjX0?t=64" target="_blank">chorus of Birthday, by Kings of Leon</a> (timestamped) — a stream of dotted eighth notes can be heard being played on the bass drum (the low, thuddy drum sound) until the end of the chorus.</p>
     
     <p>You can hear that they sound somewhat tense, almost like they’re going against the overall pulse and creating their own pulse, but they never sound out of time. Dotted notes can be used to create very interesting musical phrases.</p>
     
-    <p>Another example of dotted eight notes, on vocals this time — the verses of <a href="https://www.youtube.com/watch?v=5jXltdnw330" target="_blank">Listen to Your Friends by Airways</a>. You can hear a similar kind of tension being created against the steady pulse being played on the drums.</p>
+    <p>Another example of dotted eight notes, on vocals this time — the verses of <a class="link" href="https://www.youtube.com/watch?v=5jXltdnw330" target="_blank">Listen to Your Friends by Airways</a>. You can hear a similar kind of tension being created against the steady pulse being played on the drums.</p>
     
-    <p>What about dotted quarter notes? They can be heard in the vocals of <a href="https://youtu.be/p47fEXGabaY?t=52" target="_blank">Livin La Vida Loca, by Ricky Martin</a> during the chorus (timestamped) (brace yourself for an excessive dose of 2000’s fashion if you click on that link). Listen to the phrasing of the lines <em>“upside, inside out”</em>, <em>“push and pull you down”</em>, <em>“lips are devil red”</em>, and <em>“she will wear you out”</em>.</p>
+    <p>What about dotted quarter notes? They can be heard in the vocals of <a class="link" href="https://youtu.be/p47fEXGabaY?t=52" target="_blank">Livin La Vida Loca, by Ricky Martin</a> during the chorus (timestamped) (brace yourself for an excessive dose of 2000’s fashion if you click on that link). Listen to the phrasing of the lines <i>“upside, inside out”</i>, <i>“push and pull you down”</i>, <i>“lips are devil red”</i>, and <i>“she will wear you out”</i>.</p>
     
     <p>It might be difficult to intuitively understand the value of the dotted notes while listening to these examples, but that will come with time as long as you understand the underlying logic.</p>
     
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="rests" sidebar="sb-rests" class="learn-section hidden">
@@ -682,26 +730,44 @@
 
     <div class="playback-marker playback-marker--notation"></div>
     
-    <button id="play-rest" class="play play--active">Play</button>
+    <button id="play-rest" class="play learn play--active">
+        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+    </button>
 
     <p>There are more note values than the ones we’ve looked at, but these are the most common. The next challenge to conquer will be time signatures.</p>
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="bars_time_sigs" sidebar="sb-bars_time_sigs" class="learn-section hidden">
     <h2>Bars & time signatures</h2>
     <p>Now that we understand some note values, it’s time to start stringing them together into musical phrases. To do that though, we’ll need to know about <em>bars and time signatures</em>.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="bars" sidebar="sb-bars" class="learn-section hidden">
     <h2>Bars</h2>
     <p>Music is arranged into bars, which are essentially groupings of notes. Bars help give music structure — to use an analogy to regular language, each bar is like a musical sentence.</p>
 
-    <p>Remember when we counted <em>“1… 2… 3… 4… 1… 2… 3… 4…”</em> along to Billie Jean? In doing so we were grouping the notes into bars — each group of 4 quarter notes that we counted was a bar.</p>
+    <p>Remember when we counted <i>“1… 2… 3… 4… 1… 2… 3… 4…”</i> along to Billie Jean? In doing so we were grouping the notes into bars — each group of 4 quarter notes that we counted was a bar.</p>
 
     <p>If you count along to Billie Jean again, you’ll notice that the bassline comes in after two lots of four — after <em>two bars</em>. You’ll then hear a string part come in after a further eight bars, before the vocal comes in four bars after that — this is how bars provide musical structure.</p>
 
@@ -709,12 +775,20 @@
 
     <div id="notation-barline" time-signature="" notes="q,q,bl,q,q" class="notation"></div>
 
-    <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <em>“1… 2… 3… 4… 1… 2… 3… 4..”</em>, not <em>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</em>.</p>
+    <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <i>“1… 2… 3… 4… 1… 2… 3… 4..”</i>, not <i>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</i>.</p>
 
     <p>But why were we counting to 4 during Billie Jean? Why not 6? Why not 19? This is where the time signature comes in…</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="time_signatures" sidebar="sb-time_signatures" class="learn-section hidden">
@@ -731,33 +805,57 @@
 
     <p>Let’s dive into what the numbers mean, beginning with the bottom number.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="bottom_number" sidebar="sb-bottom_number" class="learn-section hidden">
     <h2>The bottom number</h2>
     <p>The bottom number represents a note value — a 4 represents a quarter note, 8 represents an eighth note and 16 represents a 16th note. That alone doesn’t tell us much about how long the bar should be though. For that, we also need a top number.</p>
     
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="top_number" sidebar="sb-top_number" class="learn-section hidden">
     <h2>The top number</h2>
-    <p>The top number is simple, it’s just a quantity. It tells you how many of the type of note established by the bottom number should fit into a bar. So both numbers together tell us how long the bar should be — the time signature is essentially saying <em>“the bar should be as long as *this many* of *that type* of note”</em>.</p>
+    <p>The top number is simple, it’s just a quantity. It tells you how many of the type of note established by the bottom number should fit into a bar. So both numbers together tell us how long the bar should be — the time signature is essentially saying <i>“the bar should be as long as *this many* of *that type* of note”</i>.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="four-four" sidebar="sb-four-four" class="learn-section hidden">
     <h2>4/4</h2>
     <p>Let’s look at some examples to bring this all together. The most popular time signature in western music, by far, is 4/4. So what does this mean? It means that the bar should be the duration of four (top number) quarter notes (bottom number).</p>
 
-    <p>Notice the language being used here — there is a subtle, yet significant difference between saying that a bar should be <em>‘the duration of’</em> four quarter notes, and saying that a bar should <em>‘be’</em> four quarter notes.</p>
+    <p>Notice the language being used here — there is a subtle, yet significant difference between saying that a bar should be <i>‘the duration of’</i> four quarter notes, and saying that a bar should <i>‘be’</i> four quarter notes.</p>
 
-    <p><em>‘The duration of’</em> four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should <em>‘be’</em> four quarter notes means, well, that the bar should <em>actually be</em> four quarter notes — far less exciting.</p>
+    <p><i>‘The duration of’</i> four quarter notes can be made up of many different combinations of notes — we can freely combine quarter notes, eighth notes and sixteenth notes as long as the sum of all the notes is the same duration as four quarter notes so that they fit into our 4/4 bar. Saying that a bar should <i>‘be’</i> four quarter notes means, well, that the bar should <i>actually be</i> four quarter notes — far less exciting.</p>
 
     <p>We can make up a 4/4 bar with four quarter notes, like this:</p>
 
@@ -777,11 +875,19 @@
 
     <p>The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.</p>
 
-    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar <em>is</em> four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to the duration of four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with each other and with different time signatures.</p>
+    <p>Billie Jean is in 4/4 — that’s why we were repeatedly counting to 4. We were counting the four quarter notes that make up the entire duration of each bar. Again, that’s not to say that every bar <i>is</i> four quarter notes — the bassline was playing eighth notes, remember? It just means that all the notes in the bar add up to the duration of four quarter notes. And that’s the purpose of this app — Note Adder helps you to understand how different note values interact with each other and with different time signatures.</p>
 
     
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="five-four" sidebar="sb-five_four" class="learn-section hidden">
@@ -790,12 +896,20 @@
 
     <div time-signature="5/4" notes="q,q,q,q,q" class="notation"></div>
     
-    <p>Some example songs are <a href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
+    <p>Some example songs are <a class="link" href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a class="link" href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a class="link" href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
 
     <p>These might be a little tricky, as 5/4 is not a common time signature, but see if you can count the five quarter notes in each bar as you listen.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="compound" sidebar="sb-compound" class="learn-section hidden">
@@ -806,8 +920,16 @@
 
     <p>To understand this, let’s try to unravel the differences between two commonly confused time signares — ¾ and 6/8.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="three_four_six_eight" sidebar="sb-three_four_six_eight" class="learn-section hidden">
@@ -818,34 +940,34 @@
 
     <p>3/4 duration:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <p>6/8 duration:</p>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
@@ -856,93 +978,103 @@
 
     <p>3/4 beats:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <p>3/4 duration:</p>
     <div class="note-group">
-        <div class="note-block quarter-note">
+        <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn middle-last quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note">
+        <div class="note-block learn right quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <p>6/8 beats:</p>
     <div class="note-group">
-        <div class="note-block quarter-note--dotted">
+        <div class="note-block learn left quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block quarter-note--dotted">
+        <div class="note-block learn right quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
         </div>
     </div>
     <p>6/8 duration:</p>
     <div class="note-group">
-        <div class="note-block eighth-note">
+        <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn middle-last eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
-        <div class="note-block eighth-note">
+        <div class="note-block learn right eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
 
-    <p>The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as <em>“1… 2… 3… 1… 2… 3…”</em>. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.</p>
+    <p>The beats of the ¾ bar are simply the three regular quarter notes that make up the bar, so we count these as <i>“1… 2… 3… 1… 2… 3…”</i>. This is because 3/4 is not a compound time signature, so each beat is a quarter note long.</p>
 
-    <p>The 6/8 bar though now has two dotted quarter note beats. This is because it <em>is</em> a compound time signature, meaning that each beat is a dotted quarter note long. If you remember what we looked at in the chapter on dotted notes, you’ll know that a dotted quarter note is one and a half beats long — that’s the same duration as three eighth notes!</p>
+    <p>The 6/8 bar though now has two dotted quarter note beats. This is because it <i>is</i> a compound time signature, meaning that each beat is a dotted quarter note long. If you remember what we looked at in the chapter on dotted notes, you’ll know that a dotted quarter note is one and a half beats long — that’s the same duration as three eighth notes!</p>
 
-    <p>This means that we <em>feel</em> a bar of 6/8 as two groups of three eighth notes — two beats, each the duration of three eighth notes. Earlier, we talked about how we count eighth notes with <em>‘and’</em>s in between the beat numbers. There was also mention about this not being the case in some musical contexts — that was referring to when we’re in compound time.</p>
+    <p>This means that we <em>feel</em> a bar of 6/8 as two groups of three eighth notes — two beats, each the duration of three eighth notes. Earlier, we talked about how we count eighth notes with <i>‘and’</i>s in between the beat numbers. There was also mention about this not being the case in some musical contexts — that was referring to when we’re in compound time.</p>
 
-    <p>When counting 6/8, it’s most common to simply count each eighth note as a number — <em>“1… 2… 3… 4… 5… 6… 1… 2… 3… 4… 5… 6…”</em>. If we were counting with <em>‘and’</em> instead, it would make it seem like we’re in ¾, which we’re not — <em>“1 + 2 + 3 + 1 + 2 + 3 +...”</em>.</p>
+    <p>When counting 6/8, it’s most common to simply count each eighth note as a number — <i>“1… 2… 3… 4… 5… 6… 1… 2… 3… 4… 5… 6…”</i>. If we were counting with <i>‘and’</i> instead, it would make it seem like we’re in ¾, which we’re not — <i>“1 + 2 + 3 + 1 + 2 + 3 +...”</i>.</p>
 
-    <p>Although it’s far less common, you could also choose to only count the two dotted quarter note beats of a 6/8 bar, and let the eighth notes go uncounted — <em>“1……… 2……… 1……… 2………”</em>. However, counting all the eighth notes up to six is usually the better, clearer option.</p>
+    <p>Although it’s far less common, you could also choose to only count the two dotted quarter note beats of a 6/8 bar, and let the eighth notes go uncounted — <i>“1……… 2……… 1……… 2………”</i>. However, counting all the eighth notes up to six is usually the better, clearer option.</p>
 
     <p>Enough talking, let’s listen to some examples to understand the difference.</p>
 
-    <p>An easily recognisable example of 6/8 is <a href="https://www.youtube.com/watch?v=7VBex8zbDRs" target="_blank">Gravity, by John Mayer</a>. It’s easy to pick out the six eighth notes being played on the hi hat (the crisp cymbal sound). Try counting along, it should sound like this:</p>
+    <p>An easily recognisable example of 6/8 is <a class="link" href="https://www.youtube.com/watch?v=7VBex8zbDRs" target="_blank">Gravity, by John Mayer</a>. It’s easy to pick out the six eighth notes being played on the hi hat (the crisp cymbal sound). Try counting along, it should sound like this:</p>
 
-    <button id="play-gravity" class="play play--active">Play</button>
+    <button id="play-gravity" class="play learn play--active">
+        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+    </button>
 
-    <p>Another example of 6/8 is <a href="https://www.youtube.com/watch?v=Ju8Hr50Ckwk" target="_blank">If I Ain’t Got You, by Alicia Keys</a> — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.</p>
+    <p>Another example of 6/8 is <a class="link" href="https://www.youtube.com/watch?v=Ju8Hr50Ckwk" target="_blank">If I Ain’t Got You, by Alicia Keys</a> — you’ll notice that both songs feel somewhat similar, due to having a 6/8 time signature in common.</p>
 
     <p>6/8 is the second most common time signature heard in western music after 4/4, it’s probable that you’ve heard it before. ¾ on the other hand, is less common so it’s difficult to find clear examples.</p>
 
     <p>¾ is most often used in waltz music, and when used in pop music it often ends up sounding very much like 6/8.</p>
 
-    <p>A good example, however, is <a href="https://www.youtube.com/watch?v=2KEsC1Jt2Y8" taget="_blank">The Good In Me, by Jon Belliam</a>. The first thing you’ll hear is actually <em>“1… 2… 3… 1… 2… 3…”</em> — two bars of ¾ being counted. Try to keep counting after these two initial bars so you can identify what ¾ sounds like once the rest of the music starts.</p>
+    <p>A good example, however, is <a class="link" href="https://www.youtube.com/watch?v=2KEsC1Jt2Y8" taget="_blank">The Good In Me, by Jon Belliam</a>. The first thing you’ll hear is actually <i>“1… 2… 3… 1… 2… 3…”</i> — two bars of ¾ being counted. Try to keep counting after these two initial bars so you can identify what ¾ sounds like once the rest of the music starts.</p>
 
     <p>It’s somewhat similar to 6/8, but I hope you can hear the difference between the three distinct beats of ¾ vs the two dotted quarter note pulses of 6/8.</p>
 
-    <p>A slightly trickier example is <a href="https://www.youtube.com/watch?v=RvcgaAqWYN4" target="_blank">Crappy Love Song, by Theo Katzman</a>. It’s slightly trickier because this song changes between ¾ and 4/4 every other bar. You can try counting along like this <em>“1… 2… 3… 1… 2… 3… 4… 1… 2… 3… 1… 2… 3… 4…”</em>.</p>
+    <p>A slightly trickier example is <a class="link" href="https://www.youtube.com/watch?v=RvcgaAqWYN4" target="_blank">Crappy Love Song, by Theo Katzman</a>. It’s slightly trickier because this song changes between ¾ and 4/4 every other bar. You can try counting along like this <i>“1… 2… 3… 1… 2… 3… 4… 1… 2… 3… 1… 2… 3… 4…”</i>.</p>
 
-    <p>One final, more difficult example of ¾ is <a href="https://www.youtube.com/watch?v=Cx3QmqV2pHg" target="_blank">She’s Always a Woman, by Billy Joel</a>. This one is more difficult because there aren’t any drums to give it away, and because it feels close to 6/8 during the choruses. See if you can identify the bars and count along.</p>
+    <p>One final, more difficult example of ¾ is <a class="link" href="https://www.youtube.com/watch?v=Cx3QmqV2pHg" target="_blank">She’s Always a Woman, by Billy Joel</a>. This one is more difficult because there aren’t any drums to give it away, and because it feels close to 6/8 during the choruses. See if you can identify the bars and count along.</p>
 
     <p>Now that we understand how time signatures work, we’re almost at the end. There are just a few more bits to look at to polish everything off...</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="tempo" sidebar="sb-tempo" class="learn-section hidden">
@@ -950,16 +1082,24 @@
 
     <p>You’ve probably noticed that not every song is the same speed — there are fast songs, and there are slow songs. We call this <em>tempo</em>. Tempo is measured in <em>beats per minute</em>, or <em>BPM</em> for short. Beats per minute means just what it sounds like — how many musical beats fit into one minute of standard time.</p>
 
-    <p>You may have experienced some confusion in previous sections when learning about note values — <em>“That’s great, a quarter note is one beat long. But how long is one beat??”</em>.</p>
+    <p>You may have experienced some confusion in previous sections when learning about note values — <i>“That’s great, a quarter note is one beat long. But how long is one beat??”</i>.</p>
 
     <p>There’s a reason this hasn’t been addressed until now, and that’s because a beat is a <em>relative</em> unit of time. That means that its actual duration can change, and that depends on how fast the tempo is. So a regular quarter note is always one beat long, but the duration of a beat changes depending on how many beats fit into one minute (how high the BPM is).</p>
 
     <p>Let’s use 60BPM as an example. If we have 60 beats in one minute, that means each beat must be one second long since there are 60 seconds in a minute. 60 beats divided by 60 seconds means 1 beat per second. If we double that to 120BPM, each beat is now only half a second — a higher BPM means a faster tempo.</p>
 
-    <p>But how do we know how many BPM we’re playing at? Do we time a minute and count the beats? Thankfully, we have a very helpful tool called a <em>metronome…</em></p>
+    <p>But how do we know how many BPM we’re playing at? Do we time a minute and count the beats? Thankfully, we have a very helpful tool called a <em>metronome</em>...</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="metronome" sidebar="sb-metronome" class="learn-section hidden">
@@ -968,7 +1108,9 @@
 
     <div class="bpm-value">120</div>
     <input type="range" min="70" max="180" value="120" class="bpm-slider">
-    <button id="play-metronome" class="play play--active">Play</button>
+    <button id="play-metronome" class="play learn play--active">
+        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+    </button>
 
     <p>We often refer to the metronome as the <em>click</em> because of the way it sounds.</p>
 
@@ -978,8 +1120,16 @@
 
     <p>With advancements in technology, metronomes have even started making their way onto the stage. It’s not at all uncommon for musicians to use a click when performing live. In fact, you’ve probably seen a live performance where the musicians were playing to a click and you didn’t realise. The performers would have been hearing the click in their in-ear monitors (special in-ear headphones for stage use) and playing along to it in order to keep steady time.</p>
 
-    <button class="btn btn--previous">Previous</button>
-    <button class="btn btn--continue">Continue</button>
+    <div class="container">
+            <button class="btn btn--previous">
+                <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+                Previous
+            </button>
+            <button class="btn btn--continue">
+                Continue
+                <img class="btn-icon continue" src="{% static '/svg/play.svg' %}" draggable="false">
+            </button>
+        </div>
 </section>
 
 <section id="whats_next" sidebar="sb-whats_next" class="learn-section hidden">
@@ -996,7 +1146,10 @@
 
     <p>That’s it! You’ve made it to the end. Go drag around some note blocks and build musical phrases. You can even try to figure out the phrases you hear in your favourite songs.</p>
 
-    <button class="btn btn--previous">Previous</button>
+    <button class="btn btn--previous">
+        <img class="btn-icon previous" src="{% static '/svg/play.svg' %}" draggable="false">
+        Previous
+    </button>
 </section>
 
 <ul class="toc">
