@@ -35,6 +35,7 @@ function continueSection() {
     nextSection.classList.remove('hidden');
     nextSection.classList.add('visible');
     window.scrollTo(0, 0);
+    updateToCBtn();
     positionSplitter();
 }
 
@@ -48,6 +49,7 @@ function prevSection() {
     previousSection.classList.remove('hidden');
     previousSection.classList.add('visible');
     window.scrollTo(0, 0);
+    updateToCBtn();
     positionSplitter();
 }
 
@@ -75,6 +77,16 @@ async function positionSplitter() {
         splitter.style.left = noteLeft + (noteWidth / 2) + 'px';
         i++;
     })
+}
+
+function updateToCBtn() {
+    let section = document.querySelector('section.visible');
+    let tocBtn = document.querySelector('.btn--toc');
+    let icon = tocBtn.querySelector('.toc-icon');
+    let title = section.querySelector('.title').textContent;
+    tocBtn.innerHTML = '';
+    tocBtn.appendChild(icon);
+    tocBtn.innerHTML += title;
 }
 
 function sleep(s) {
