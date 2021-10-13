@@ -36,7 +36,7 @@
 <section id="quarter_notes" sidebar="sb-quarter_notes" class="learn-section hidden">
     <h2 class="title">Quarter notes</h2>
         <p>We’ll begin with the most fundamental note value of them all — the <em>quarter note</em>. It looks like this:</p>
-        <div id="notation-quarter_note" time-signature="" notes="q"class="notation"></div>
+        <div id="notation-quarter_note" time-signature="" notes="q"class="notation learn"></div>
 
         <p>It has a <em>notehead</em> (the big dot) and a <em>stem</em> (the vertical line). Those fainter horizontal lines on which we write notes are called a <em>stave</em>. Notes that appear higher on the stave are higher in pitch than those that appear lower on the stave, but for the purpose of learning rhythmic note values we will not be concerning ourselves with pitch.</p>
 
@@ -72,13 +72,13 @@
     <h2 class="title">Eighth notes</h2>
     <p>Now that we understand beats and quarter notes, we’re ready to move on to eighth notes (also known as <em>quavers</em>). An eighth note looks like this:</p>
 
-    <div id="notation-eighth_note" time-signature="" notes="8"class="notation"></div>
+    <div id="notation-eighth_note" time-signature="" notes="8"class="notation learn"></div>
 
     <p>As well as having a head and stem, it also has a <em>flag</em> (the ‘flick’ that comes off the end of the stem).</p>
 
     <p>When there are two eighth notes next to each other, their flags turn into a <em>beam</em> — a horizontal line that connects them:</p>
 
-    <div id="notation-eighth_notes" time-signature="" notes="8,8"class="notation"></div>
+    <div id="notation-eighth_notes" time-signature="" notes="8,8"class="notation learn"></div>
 
     <p>The beam has no special significance, its only purpose is to group eighth notes together visually to make the music easier to read.</p>
 
@@ -100,7 +100,7 @@
 
     <p>Now we know that eighth notes are half the length of quarter notes, we need some kind of label for them so we can count them. We simply add the word <em>‘and’</em>, represented by a + sign,  in between each quarter note number, and we’ve turned our quarter note count into an eighth note count.</p>
 
-    <div class="count count--4">
+    <div class="count learn count--4">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">2</p>
         <p class="count__item count__item--3">3</p>
@@ -120,7 +120,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="count count--8">
+    <div class="count learn count--8">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">+</p>
         <p class="count__item count__item--3">2</p>
@@ -163,7 +163,7 @@
 
     <p>Here is a clearer (albeit less musical) example. Click the play button to hear two quarter notes followed by four eighth notes — two beats’ worth of each note value.</p>
 
-    <div class="count count--8">
+    <div class="count learn count--8">
         <p class="count__item count__item--1">1</p>
         <p class="count__item--hidden count__item--2">+</p>
         <p class="count__item count__item--3">2</p>
@@ -193,7 +193,7 @@
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation"></div>
+    <div id="notation-eighth_note_mix" time-signature="" notes="q,q,8,8,8,8"class="notation learn"></div>
 
     <div class="playback-marker playback-marker--notation"></div>
     <div class="playback-marker playback-marker--bar"></div>
@@ -222,15 +222,15 @@
 
     <p>First things first, here is what a sixteenth note looks like:</p>
 
-    <div id="notation-sixteenth_note" time-signature="" notes="16"class="notation"></div>
+    <div id="notation-sixteenth_note" time-signature="" notes="16"class="notation learn"></div>
 
     <p>Notice that this time, the note has two flags. This is what tells you a note’s value — no flag means quarter note, one flag means eighth note, and two flags means sixteenth note. Much like eighth notes, when we have multiple sixteenth notes their flags connect to form two beams between the notes:</p>
 
-    <div id="notation-sixteenth_notes" time-signature="" notes="16,16,16,16"class="notation"></div>
+    <div id="notation-sixteenth_notes" time-signature="" notes="16,16,16,16"class="notation learn"></div>
 
     <p>Let’s see how sixteenth notes interact with the note values we already know. Here are our aligned quarter notes and eighth notes from before:</p>
 
-    <div class="count count--4">
+    <div class="count learn count--4">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">2</p>
         <p class="count__item count__item--3">3</p>
@@ -250,7 +250,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="count count--8">
+    <div class="count learn count--8">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">+</p>
         <p class="count__item count__item--3">2</p>
@@ -289,7 +289,7 @@
 
     <p>To add sixteenth notes to this grid, we will take our eighth notes and add an extra note in between each of them — between <i>1</i> and <i>+</i>, between <i>+</i> and <i>2</i>, between <i>2</i> and <i>+</i>, and so on…</p>
 
-    <div class="count count--4">
+    <div class="count learn count--4">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">2</p>
         <p class="count__item count__item--3">3</p>
@@ -309,7 +309,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="count count--8">
+    <div class="count learn count--8">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">+</p>
         <p class="count__item count__item--3">2</p>
@@ -400,7 +400,7 @@
 
     <p>Let’s add these labels to our note blocks:</p>
 
-    <div class="count count--4">
+    <div class="count learn count--4">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">2</p>
         <p class="count__item count__item--3">3</p>
@@ -420,7 +420,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="count count--8">
+    <div class="count learn count--8">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">+</p>
         <p class="count__item count__item--3">2</p>
@@ -456,7 +456,7 @@
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="count count--16">
+    <div class="count learn count--16">
         <p class="count__item count__item--1">1</p>
         <p class="count__item count__item--2">e</p>
         <p class="count__item count__item--3">+</p>
@@ -533,7 +533,7 @@
 
     <p>And here’s our horribly un-musical example of what sixteenth notes sound like — you’ll hear one quarter note, followed by two eighth notes, followed by eight sixteenth notes — that’s one beat of quarter notes, one beat of eighth notes, and two full beats’ worth of sixteenth notes:</p>
 
-    <div class="count count--16">
+    <div class="count learn count--16">
         <p class="count__item count__item--1">1</p>
         <p class="count__item--hidden count__item--2">e</p>
         <p class="count__item--hidden count__item--3">+</p>
@@ -586,7 +586,7 @@
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div id="notation-sixteenth_note_mix" time-signature="" notes="q,8,8,16,16,16,16,16,16,16,16"class="notation"></div>
+    <div id="notation-sixteenth_note_mix" time-signature="" notes="q,8,8,16,16,16,16,16,16,16,16"class="notation learn"></div>
     
     <div class="playback-marker playback-marker--notation"></div>
     <div class="playback-marker playback-marker--bar"></div>
@@ -615,7 +615,7 @@
     
     <p>What’s a dotted note? A dotted note is just a regular note but with a dot next to it — here’s a dotted quarter note:</p>
     
-    <div id="notation-d_quarter_note" time-signature="" notes="q."class="notation"></div>
+    <div id="notation-d_quarter_note" time-signature="" notes="q."class="notation learn"></div>
     
     <p>But what does the dot do? Here’s where it can get a little confusing. The dot extends a note’s duration by <em>half of its original value</em>. You can think of it as multiplying a note’s duration by 1.5 when you attach a dot to it.</p>
     
@@ -637,18 +637,18 @@
     <div class="note-group">
         <div class="note-block learn quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
-        </div><p>= 1 beat</p>
+        </div><p class="dot-explanation">= 1 beat</p>
     </div>
     <div class="note-group">
         <div class="note-block learn quarter-note split-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
-        </div><p>= 0.5 beats, 0.5 beats</p>
+        </div><p class="dot-explanation">= 0.5 beats, 0.5 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
         <div class="note-block learn quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
-        </div><p>= 1 beat + 0.5 beats = 1.5 beats</p>
+        </div><p class="dot-explanation">= 1 beat + 0.5 beats<br>= 1.5 beats</p>
     </div>
     
     <p>What about dotted eighth notes? The process remains exactly the same but the maths is a little trickier since we’re dealing with a fundamental note that is half a beat long. Here is a regular eighth note compared to a dotted eighth note.</p>
@@ -669,18 +669,18 @@
     <div class="note-group">
         <div class="note-block learn eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
-        </div><p>= 0.5 beats</p>
+        </div><p class="dot-explanation">= 0.5 beats</p>
     </div>
     <div class="note-group">
         <div class="note-block learn eighth-note split-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
-        </div><p>= 0.25 beats, 0.25 beats</p>
+        </div><p class="dot-explanation">= 0.25 beats, 0.25 beats</p>
         <div class="splitter"></div>
     </div>
     <div class="note-group">
         <div class="note-block learn eighth-note--dotted">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
-        </div><p>= 0.5 beats + 0.25 beats = 0.75 beats</p>
+        </div><p class="dot-explanation">= 0.5 beats + 0.25 beats<br>= 0.75 beats</p>
     </div>
     
     <p>Here you can see that a dotted eighth note becomes three quarters (0.75) of a beat long. That’s because a regular eighth note is half (0.5) a beat long, which becomes three quarters (0.75) of a beat when multiplied by 1.5.</p>
@@ -716,17 +716,17 @@
     
     <p>Now that we have the fundamental note values down, it's time to take a look at rests. Rests are easy to understand, they are just blank versions of the note values we already know. Here is what a quarter note rest, and eighth note rest, and a sixteenth note rest look like:</p>
 
-    <div id="notation-rests" time-signature="" notes="qr,8r,16r"class="notation"></div>
+    <div id="notation-rests" time-signature="" notes="qr,8r,16r"class="notation learn"></div>
 
     <p>We can also have dotted rests:</p>
 
-    <div id="notation-d_rests" time-signature="" notes="qr.,8r.,16r."class="notation"></div>
+    <div id="notation-d_rests" time-signature="" notes="qr.,8r.,16r."class="notation learn"></div>
 
     <p>We can think of a rest as an empty glass — for example, a quarter note is like a tall glass full of water, and a quarter note rest is the same glass but it’s empty. The key thing to note is that the glass (the note value) is the same in both cases. A quarter note means we play a note that lasts for one beat, and a quarter note rest means we <em>don’t</em> play anything for the duration of one beat.</p>
 
     <p>Let’s take a listen to an example:</p>
 
-    <div id="notation-rest_phrase" time-signature="" notes="q,q,qr,q"class="notation"></div>
+    <div id="notation-rest_phrase" time-signature="" notes="q,q,qr,q"class="notation learn"></div>
 
     <div class="playback-marker playback-marker--notation"></div>
     
@@ -773,7 +773,7 @@
 
     <p>So what does a bar actually look like? Earlier we were writing quarter notes, eighth notes and sixteenth notes loosely on the stave. If we wanted to separate notes into bars, we would make use of <em>barlines</em>. A barline is just a vertical line that represents a boundary between two bars; it looks like this:</p>
 
-    <div id="notation-barline" time-signature="" notes="q,q,bl,q,q" class="notation"></div>
+    <div id="notation-barline" time-signature="" notes="q,q,bl,q,q" class="notation learn"></div>
 
     <p>If bars are the musical equivalent of sentences, then barlines are like full stops — they indicate where one ‘sentence’ ends, and the next begins. The only difference is that we don’t pause when we encounter a barline like we pause when we encounter a full stop — we continuously count <i>“1… 2… 3… 4… 1… 2… 3… 4..”</i>, not <i>“1… 2… 3… 4… [pause]... 1… 2… 3… 4…”</i>.</p>
 
@@ -797,9 +797,9 @@
 
     <p>Here’s what three different time signatures look like:</p>
 
-    <div id="notation-44" time-signature="4/4" notes=""class="notation"></div>
-    <div id="notation-54" time-signature="5/4" notes=""class="notation"></div>
-    <div id="notation-68" time-signature="6/8" notes=""class="notation"></div>
+    <div id="notation-44" time-signature="4/4" notes=""class="notation learn"></div>
+    <div id="notation-54" time-signature="5/4" notes=""class="notation learn"></div>
+    <div id="notation-68" time-signature="6/8" notes=""class="notation learn"></div>
 
     <p>As you can see, they look a lot like fractions — they have a top number and a bottom number. They are not pronounced like fractions though. It’s not ‘four quarters’, ‘five quarters’, and ‘six eighths’, it’s ‘four-four’, ‘five-four’, and ‘six-eight’.</p>
 
@@ -859,19 +859,19 @@
 
     <p>We can make up a 4/4 bar with four quarter notes, like this:</p>
 
-    <div time-signature="4/4" notes="q,q,q,q" class="notation"></div>
+    <div time-signature="4/4" notes="q,q,q,q" class="notation learn"></div>
 
     <p>Or with eight eighth notes, like this:</p>
 
-    <div time-signature="4/4" notes="8,8,8,8,8,8,8,8" class="notation"></div>
+    <div time-signature="4/4" notes="8,8,8,8,8,8,8,8" class="notation learn"></div>
 
     <p>Or with sixteen sixteenth notes, like this:</p>
 
-    <div time-signature="4/4" notes="16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16" class="notation"></div>
+    <div time-signature="4/4" notes="16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16" class="notation learn"></div>
 
     <p>We can even mix and match notes as much as we want:</p>
 
-    <div time-signature="4/4" notes="q,16,16,16,16,8,8,q" class="notation"></div>
+    <div time-signature="4/4" notes="q,16,16,16,16,8,8,q" class="notation learn"></div>
 
     <p>The key point is that all of the notes in these 4/4 bars add up to exactly the duration of four quarter notes — if they didn’t, it would not be a 4/4 bar by definition.</p>
 
@@ -894,7 +894,7 @@
     <h2 class="title">5/4</h2>
     <p>Let’s look at a less common time signature, like 5/4. What does it mean? That each bar should be the duration of five quarter notes.</p>
 
-    <div time-signature="5/4" notes="q,q,q,q,q" class="notation"></div>
+    <div time-signature="5/4" notes="q,q,q,q,q" class="notation learn"></div>
     
     <p>Some example songs are <a class="link" href="https://www.youtube.com/watch?v=ukxEKY_7MOc" target="_blank">tolerate it by Taylor Swift</a>, the beginning of the <a class="link" href="https://www.youtube.com/watch?v=XAYhNHhxN0A" target="_blank">Mission Impossible Theme</a>, and <a class="link" href="https://www.youtube.com/watch?v=L_XJ_s5IsQc" target="_blank">Lingus by Snarky Puppy</a> (this one’s for the music nerds).</p>
 

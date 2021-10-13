@@ -45,6 +45,7 @@ h1 {
 
 h2 {
     font-size: 3.2rem;
+    margin-bottom: 1.6rem;
 }
 
 h3 {
@@ -60,6 +61,7 @@ div {
 
 p {
     margin-bottom: 1.6rem;
+    line-height: 2.4rem;
 }
 
 a {
@@ -366,6 +368,10 @@ button {
     margin-bottom: 0.8rem;
 }
 
+.notation.learn {
+    margin-top: -2.9rem;
+}
+
 .playback-marker--bar,
 .playback-marker {
     height: 8rem;
@@ -491,7 +497,8 @@ button {
 }
 
 .play.learn {
-    margin: 0.8rem 0;
+    margin: 0.8rem 0 1.6rem 0;
+    background-color: var(--col-bg-dark);
 }
 
 .toggle {
@@ -601,6 +608,10 @@ button {
     place-items: center start;
     width: 100%;
     margin-top: 1rem;
+}
+
+.count.learn {
+    margin-top: 0;
 }
 
 .count__item {
@@ -715,6 +726,12 @@ button {
 
 .count__item--16 {
     grid-column: 16/17;
+}
+
+.dot-explanation {
+    font-family: 'Fugaz One', sans-serif;
+    margin-left: 1.6rem;
+    align-self: center;
 }
 
 
