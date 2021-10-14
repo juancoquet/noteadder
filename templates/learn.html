@@ -130,7 +130,7 @@
         <p class="count__item count__item--7">4</p>
         <p class="count__item count__item--8">+</p>
     </div>
-    <div class="note-group">
+    <div class="note-group extra-bottom">
         <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
@@ -260,7 +260,7 @@
         <p class="count__item count__item--7">4</p>
         <p class="count__item count__item--8">+</p>
     </div>
-    <div class="note-group">
+    <div class="note-group extra-bottom">
         <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
@@ -345,7 +345,7 @@
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
     </div>
-    <div class="note-group">
+    <div class="note-group extra-bottom">
         <div class="note-block learn left sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
@@ -474,7 +474,7 @@
         <p class="count__item count__item--15">+</p>
         <p class="count__item count__item--16">a</p>
     </div>
-    <div class="note-group">
+    <div class="note-group extra-bottom">
         <div class="note-block learn left sixteenth-note">
             <img class="block-note-label" src="{% static '/svg/sixteenth_note.svg' %}" draggable="false">
         </div>
@@ -938,7 +938,7 @@
 
     <p>Let’s dig into the similarities first — a bar of ¾ and a bar of 6/8 are the same length. Let’s break that down. A ¾ bar must be the duration of three quarter notes, while a 6/8 bar must be the duration of six eighth notes. Let’s compare these visually using our note blocks:</p>
 
-    <p>3/4 duration:</p>
+    <p class="beats-explanation">3/4 duration:</p>
     <div class="note-group">
         <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
@@ -950,8 +950,8 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <p>6/8 duration:</p>
-    <div class="note-group">
+    <p class="beats-explanation">6/8 duration:</p>
+    <div class="note-group extra-bottom">
         <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
@@ -976,7 +976,7 @@
 
     <p>Where they differ is in how these notes are grouped. As previously mentioned, 6/8 is a compound time signature while ¾ is not. This means that when a bar is in 6/8 time, we feel the beats as dotted quarter notes instead of regular quarter notes, so let’s use note blocks to show how long each beat is:</p>
 
-    <p>3/4 beats:</p>
+    <p class="beats-explanation">3/4 beats:</p>
     <div class="note-group">
         <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
@@ -988,7 +988,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <p>3/4 duration:</p>
+    <p class="beats-explanation">3/4 duration:</p>
     <div class="note-group">
         <div class="note-block learn left quarter-note">
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
@@ -1000,7 +1000,7 @@
             <img class="block-note-label" src="{% static '/svg/quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <p>6/8 beats:</p>
+    <p class="beats-explanation">6/8 beats:</p>
     <div class="note-group">
         <div class="note-block learn left quarter-note--dotted">
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
@@ -1009,8 +1009,8 @@
             <img class="block-note-label" src="{% static '/svg/d_quarter_note.svg' %}" draggable="false">
         </div>
     </div>
-    <p>6/8 duration:</p>
-    <div class="note-group">
+    <p class="beats-explanation">6/8 duration:</p>
+    <div class="note-group extra-bottom">
         <div class="note-block learn left eighth-note">
             <img class="block-note-label" src="{% static '/svg/eighth_note.svg' %}" draggable="false">
         </div>
@@ -1106,11 +1106,13 @@
     <h2 class="title">Metronome</h2>
     <p>A metronome is a musician’s best friend, or at least it should be.... Perhaps it’s best to say that it’s a disciplined musician’s best friend. Metronomes have a simple job — all they do is play a steady pulse. You can choose the BPM you want and the metronome will play a pulse at precisely that tempo. Try selecting a tempo using the slider below. When you click play, you’ll hear two 4/4 bars’ worth of clicks at your chosen tempo.</p>
 
-    <div class="bpm-value">120</div>
-    <input type="range" min="70" max="180" value="120" class="bpm-slider">
-    <button id="play-metronome" class="play learn play--active">
-        <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
-    </button>
+    <div class="container container--metronome">
+        <button id="play-metronome" class="play learn play--active">
+            <img class="play-icon play--active" src="{% static '/svg/play-active.svg' %}" draggable="false">
+        </button>
+        <div class="bpm-value--learn">120 BPM</div>
+        <input autocomplete="off" type="range" min="70" max="180" value="120" class="bpm-slider learn">
+    </div>
 
     <p>We often refer to the metronome as the <em>click</em> because of the way it sounds.</p>
 
@@ -1191,7 +1193,7 @@
             </li>
             <li class="toc__item" sb="tempo"><a href="#">Tempo</a>
                 <ul class="toc toc__sub-list">
-                    <li class="toc__item toc__sub-list__item" sb="metronome"><a href="#">Metronome</a></li>
+                    <li id="toc-metronome" class="toc__item toc__sub-list__item" sb="metronome"><a href="#">Metronome</a></li>
                 </ul>
             </li>
             <li class="toc__item" sb="whats_next"><a href="#">What's next?</a></li>
@@ -1206,7 +1208,7 @@
 <script src="{% static '/js/shared_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/learn_notation_bundle.js' %}" type="module" defer></script>
 <script src="{% static '/js/playback/learn_playback.js' %}" type="module" defer></script>
-<script src="{% static '/js/bpm.js' %}"></script>
+<script src="{% static '/js/bpm_learn.js' %}"></script>
 
 
 {% endblock content %}

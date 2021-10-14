@@ -234,6 +234,10 @@ button {
     flex-wrap: wrap;
 }
 
+.note-group.extra-bottom {
+    margin-bottom: 1.6rem;
+}
+
 .note-block {
     height: 6.4rem;
     border: 2px solid var(--col-blk);
@@ -247,6 +251,7 @@ button {
 
 .note-block.learn {
     margin-right: 0;
+    margin-bottom: 1.6rem;
 }
 
 .note-block.left {
@@ -480,8 +485,8 @@ button {
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    height: 76px;
-    width: 76px;
+    height: 7.6rem;
+    width: 7.6rem;
     border: 2px solid var(--col-blk);
     border-radius: 6px;
     cursor: not-allowed;
@@ -497,8 +502,9 @@ button {
 }
 
 .play.learn {
-    margin: 0.8rem 0 1.6rem 0;
+    margin: 0.8rem 3.2rem 1.6rem 0;
     background-color: var(--col-bg-dark);
+    flex-shrink: 0;
 }
 
 .toggle {
@@ -574,6 +580,20 @@ button {
     position: absolute;
     padding: 0.4rem;
     top: 11.6rem;
+}
+
+/* .container--metronome {
+    border: 2px solid red;
+} */
+
+.bpm-value--learn {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 1.2rem;
+    border: 2px solid var(--col-blk);
+    border-radius: 6px;
+    position: absolute;
+    padding: 0.4rem;
+    margin-top: 1.2rem;
 }
 
 .help-button {
@@ -734,6 +754,10 @@ button {
     align-self: center;
 }
 
+.beats-explanation {
+    font-family: 'Fugaz One', sans-serif;
+}
+
 
 
 
@@ -783,13 +807,12 @@ button {
 \*---------------------------*/
 
 .toc__item {
-    /* margin-left: 1.6rem; */
     list-style: inside;
 }
 
 .toc__sub-list__item {
     margin-left: 1.6rem;
-    color: var(--col-blush);
+    list-style: circle inside;
 }
 
 

@@ -37,6 +37,7 @@ function continueSection() {
     window.scrollTo(0, 0);
     updateToCBtn();
     positionSplitter();
+    positionValue(nextSection);
 }
 
 function prevSection() {
