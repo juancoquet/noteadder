@@ -549,6 +549,7 @@ button {
     height: 7px;
     background: linear-gradient(90deg, var(--col-blush) 45%, var(--col-bg) 45%);
     margin-top: 5.6rem;
+    touch-action: none;
 }
 
 .bpm-slider::-webkit-slider-thumb {
@@ -626,7 +627,7 @@ button {
     grid-template-rows: 2.4rem;
     place-items: center start;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.6rem;
 }
 
 .count.learn {
@@ -784,6 +785,8 @@ button {
     position: relative;
     border: 2px solid var(--col-blk);
     padding: 2.4rem;
+    max-height: 85vh;
+    overflow: scroll;
 }
 
 .modal-close {
