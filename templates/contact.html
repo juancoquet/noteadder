@@ -2,13 +2,14 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<h1>Contact</h1>
-<form class="" method="post">
+
+<form class="container--col form" method="post">
+  <h1>Contact</h1>
   {% csrf_token %}
-  {{ form.subject|add_class:''|attr:'placeholder:Subject' }}
-  {% render_field form.message class+='' rows='5' placeholder='Message*' %}
-  {{ form.email|add_class:''|attr:'placeholder:Email*' }}
-  <button type="submit" id="id_submit" class="btn">Submit</button>
+  {{ form.subject|add_class:'input'|attr:'placeholder:Subject' }}
+  {% render_field form.message class+='input' rows='5' placeholder='Message*' %}
+  {{ form.email|add_class:'input'|attr:'placeholder:Email*' }}
+  <button type="submit" id="id_submit" class="btn btn--submit">Submit</button>
   {% for message in messages %}
     {% if 'custom' in message.tags %}
       <p class="banner__message">{{ message }}</p>

@@ -89,7 +89,6 @@ button {
 
 
 
-
 /*---------------------------*\
     #GENERIC
 \*---------------------------*/
@@ -813,6 +812,39 @@ button {
 .toc__sub-list__item {
     margin-left: 1.6rem;
     list-style: circle inside;
+}
+
+
+
+
+/*---------------------------*\
+    #FORMS
+\*---------------------------*/
+
+.input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: var(--col-blk);
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1.6rem;
+    border: 2px solid var(--col-blk);
+    border-radius: 6px;
+    background-color: var(--col-bg-dark);
+    width: 100%;
+}
+
+.container--col.form {
+    max-width: 36rem;
+    align-self: center;
+}
+
+.btn--submit {
+    width: 100%;
+    margin-top: 0;
+}
+
+textarea {
+    resize: none;
 }
 
 
