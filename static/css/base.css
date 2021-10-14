@@ -1,5 +1,5 @@
 :root {
-    --side-padding: 1.6rem;
+    --side-padding: 2.4rem;
 
     --col-blk: #000004;
     --col-bg: #FEF1F2;
@@ -26,9 +26,9 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    margin: 1.6rem;
+    margin: 1.6rem auto;
     padding: 0 var(--side-padding);
-    max-width: 1200px;
+    max-width: 930px;
     background-color: var(--col-bg);
     color: var(--col-blk);
 }
@@ -185,7 +185,7 @@ button {
 \*---------------------------*/
 
 .logo {
-    height: 64px;
+    height: 6.4rem;
 }
 
 .logo:hover {
@@ -339,7 +339,7 @@ button {
 }
 
 .block-note-label {
-    max-height: 30px;
+    max-height: 3rem;
     margin: 0.4rem;
 }
 
@@ -365,9 +365,14 @@ button {
     #NOTATION
 \*---------------------------*/
 
+.notation-container {
+    min-width: 30rem;
+    width: 100%;
+}
+
 .notation {
     width: 100%;
-    max-width: 600px;
+    max-width: 60rem;
     margin-top: -0.8rem;
     margin-bottom: 0.8rem;
 }
@@ -399,8 +404,16 @@ button {
     #CONTROL PANEL
 \*---------------------------*/
 
+.notation_control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .control-panel {
     position: relative;
+    max-width: 40rem;
+    flex-shrink: 1;
 }
 
 .control-panel--notes {
@@ -461,7 +474,7 @@ button {
 }
 
 .time-sig-label {
-    height: 24px;
+    height: 2.4rem;
 }
 
 .time-sig-row {
@@ -581,10 +594,6 @@ button {
     padding: 0.4rem;
     top: 11.6rem;
 }
-
-/* .container--metronome {
-    border: 2px solid red;
-} */
 
 .bpm-value--learn {
     font-family: 'Fugaz One', sans-serif;
@@ -780,7 +789,7 @@ button {
 .modal {
     background-color: var(--col-bg-dark);
     border-radius: 6px;
-    width: 90%;
+    width: 90vw;
     max-width: 450px;
     position: relative;
     border: 2px solid var(--col-blk);
@@ -866,4 +875,45 @@ textarea {
 .hidden {
     display: none;
     pointer-events: none;
+}
+
+
+
+
+/*---------------------------*\
+    #RESPONSIVE
+\*---------------------------*/
+
+@media only screen and (min-width: 700px) {
+
+    .notation_control-panel {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .notation-container {
+        margin-right: 3.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .control-panel {
+        margin-top: 3rem;
+    }
+
+    #toggles {
+        max-width: 60rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    html {
+        font-size: 50%;
+    }
+
+    .toggle::before {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
 }
