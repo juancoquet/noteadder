@@ -144,6 +144,22 @@ button {
 }
 
 
+.socials__item {
+    list-style: none inside;
+}
+
+.socials-text {
+    margin-left: 1.6rem;
+}
+
+
+.icon {
+    margin-right: 1.6rem;
+    vertical-align: baseline;
+    margin-bottom: -3px;
+}
+
+
 
 .btn--continue {}
 
