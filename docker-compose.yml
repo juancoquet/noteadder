@@ -12,6 +12,8 @@ services:
     depends_on:
       - selenium
       - db
+    environment: 
+      - "DJANGO_SECRET_KEY=-60y7u=x$$87)0vntl=eeo+#)0i9sktlsbjf)l=lz@bu$$=sy=bw"
   
   selenium:
     image: selenium/standalone-firefox
