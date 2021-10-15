@@ -43,7 +43,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = ['.herokuapp.com','noteadder.herokuapp.com' 'localhost', '127.0.0.1', 'noteadder.com', 'www.noteadder.com',]
+ALLOWED_HOSTS = ['.herokuapp.com','noteadder.herokuapp.com', 'localhost', '127.0.0.1', 'noteadder.com', 'www.noteadder.com',]
 
 
 # Application definition
