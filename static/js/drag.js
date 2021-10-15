@@ -6,6 +6,7 @@ let pageX, pageY;
 
 document.addEventListener('dragover', setXY);
 document.addEventListener('touchmove', setXY);
+document.addEventListener('touchstart', setXY);
 
 function setXY(e) {
     e.preventDefault();
