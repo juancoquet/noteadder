@@ -307,6 +307,7 @@ button {
     cursor: grabbing;
     opacity: 50%;
     box-shadow: none;
+    z-index: 999;
 }
 
 .bar-container {
